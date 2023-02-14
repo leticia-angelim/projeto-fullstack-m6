@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Exclude } from "class-transformer";
-import { Announcement } from "./annoucement.entity";
+import { Announcement } from "./announcement.entity";
 
 @Entity("users")
 export class User {

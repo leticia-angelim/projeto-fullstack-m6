@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
-import { Announcement } from "./entities/annoucement.entity";
+import { Announcement } from "./entities/announcement.entity";
 import { createEntities1676383002114 } from "./migrations/1676383002114-createEntities";
 
 const AppDataSource = new DataSource({
