@@ -22,7 +22,7 @@ const ensureAuthMiddleware = async (
     (error: any, decoded: any) => {
       if (error) {
         return res.status(401).json({
-          message: "Missing authorization headers",
+          message: "Invalid token",
         });
       }
 

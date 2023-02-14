@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { instanceToPlain } from "class-transformer";
 
-import loginService from "../../services/user/login.service";
+import loginService from "../../services/login/login.service";
 import { IUserLogin } from "../../interfaces/user.interfaces";
 
 const loginController = async (req: Request, res: Response) => {
