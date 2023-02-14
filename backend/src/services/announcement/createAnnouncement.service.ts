@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { Announcement } from "../../entities/annoucement.entity";
+import { Announcement } from "../../entities/announcement.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../errors/appError";
 import {
@@ -24,10 +24,10 @@ const createAnnouncementService = async (
   const userRepository = AppDataSource.getRepository(User);
   const announcementRepository = AppDataSource.getRepository(Announcement);
 
-  const userExists = await userRepository.findOneBy({ id: id });
+  const userExists = await userRepository.findOneBy({ id });
 
   if (!userExists) {
-    throw new AppError("User id not found or not exists, 404");
+    throw new AppError("User id not found or not exists", 404);
   }
 
   const announcement = announcementRepository.create({

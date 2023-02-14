@@ -3,7 +3,7 @@ import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 import createAnnouncementService from "../../services/announcement/createAnnouncement.service";
 
 const createAnnouncementController = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const { id } = req.user;
   const data: IAnnouncement = req.body;
 
   const annoucement = await createAnnouncementService(id, data);

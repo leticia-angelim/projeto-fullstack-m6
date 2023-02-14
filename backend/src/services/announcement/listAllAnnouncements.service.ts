@@ -1,17 +1,15 @@
 import AppDataSource from "../../data-source";
-import { Announcement } from "../../entities/annoucement.entity";
+import { Announcement } from "../../entities/announcement.entity";
 import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 
-const listAllAnnouncementsService = async (
-  id: string
-): Promise<IAnnouncement[]> => {
-  const annoucementRepository = AppDataSource.getRepository(Announcement);
+const listAllAnnouncementsService = async (): Promise<IAnnouncement[]> => {
+  const announcementRepository = AppDataSource.getRepository(Announcement);
 
-  const annoucements = await annoucementRepository.find({
+  const announcements = await announcementRepository.find({
     relations: { user: true },
   });
 
-  return annoucements;
+  return announcements;
 };
 
 export default listAllAnnouncementsService;
