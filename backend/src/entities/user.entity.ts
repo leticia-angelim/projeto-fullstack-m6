@@ -1,5 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Exclude } from "class-transformer";
+import { Announcement } from "./annoucement.entity";
 
 @Entity("users")
 export class User {
@@ -25,7 +26,7 @@ export class User {
   description: string;
 
   @Column({ length: 8 })
-  cep: number;
+  cep: string;
 
   @Column()
   state: string;
@@ -53,6 +54,8 @@ export class User {
   @Exclude()
   confirm_password: string;
 
-  //   @OneToMany(() => Announcement, (announcement) => announcement.user, { cascade: true })
-  //   announcements: Announcement[];
+  @OneToMany(() => Announcement, (announcement) => announcement.user, {
+    cascade: true,
+  })
+  announcements: Announcement[];
 }
