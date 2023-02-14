@@ -1,5 +1,12 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { Exclude } from "class-transformer";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
+import { Exclude, Transform } from "class-transformer";
 import { Announcement } from "./announcement.entity";
 
 @Entity("users")
@@ -20,7 +27,7 @@ export class User {
   phone: string;
 
   @Column()
-  birth_date: Date;
+  birth_date: string;
 
   @Column()
   description: string;
@@ -50,9 +57,11 @@ export class User {
   @Exclude()
   password: string;
 
-  @Column()
-  @Exclude()
-  confirm_password: string;
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     cascade: true,
