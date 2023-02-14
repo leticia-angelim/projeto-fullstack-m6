@@ -6,7 +6,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { Exclude, Transform } from "class-transformer";
+import { Exclude } from "class-transformer";
 import { Announcement } from "./announcement.entity";
 
 @Entity("users")
