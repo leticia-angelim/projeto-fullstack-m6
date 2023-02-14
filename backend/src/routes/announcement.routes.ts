@@ -9,16 +9,8 @@ import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
 const announcementRoutes = Router();
 
 announcementRoutes.post("", ensureAuthMiddleware, createAnnouncementController);
-announcementRoutes.get(
-  "",
-  ensureAuthMiddleware,
-  listAllAnnouncementsController
-);
-announcementRoutes.get(
-  "/:id",
-  ensureAuthMiddleware,
-  listAnnouncementByIdController
-);
+announcementRoutes.get("", listAllAnnouncementsController);
+announcementRoutes.get("/:id", listAnnouncementByIdController);
 announcementRoutes.patch(
   "/:id",
   ensureAuthMiddleware,
