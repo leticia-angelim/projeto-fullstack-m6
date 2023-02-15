@@ -14,6 +14,7 @@ app.use("/announcement", announcementRoutes);
 
 app.use("/login", loginRoutes);
 app.use("/users", userRoutes);
+app.use("/announcement", announcementRoutes);
 
 app.use(errorMiddleware);
 

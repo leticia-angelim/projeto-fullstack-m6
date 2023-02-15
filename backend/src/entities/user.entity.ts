@@ -67,4 +67,9 @@ export class User {
     cascade: true,
   })
   announcements: Announcement[];
+
+  // @OneToMany(() => Comment, (comment) => comment.user, {
+  //   cascade: true,
+  // })
+  // comments: Comment[]
 }
