@@ -1,12 +1,11 @@
-import { hash } from "bcryptjs";
 import AppDataSource from "../../data-source";
 import { AppError } from "../../errors/appError";
 import { User } from "../../entities/user.entity";
-import { IUser, IUserRequest } from "../../interfaces/user.interfaces";
+import { IUser, IUserUpdate } from "../../interfaces/user.interfaces";
 
 const updateUserService = async (
   id: string,
-  user: IUserRequest
+  user: IUserUpdate
 ): Promise<IUser> => {
   const userRepository = AppDataSource.getRepository(User);
   const findUser = await userRepository.findOneBy({ id });
@@ -22,14 +21,6 @@ const updateUserService = async (
     phone: user.phone ? user.phone : findUser.phone,
     birth_date: user.birth_date ? user.birth_date : findUser.birth_date,
     description: user.description ? user.description : findUser.description,
-    cep: user.cep ? user.cep : findUser.cep,
-    state: user.state ? user.state : findUser.state,
-    city: user.city ? user.city : findUser.city,
-    street: user.street ? user.street : findUser.street,
-    number: user.number ? user.number : findUser.number,
-    complement: user.complement ? user.complement : findUser.complement,
-    account: user.account ? user.account : findUser.account,
-    password: user.password ? await hash(user.password, 10) : findUser.password,
   });
 
   const updatedUser = await userRepository.findOneBy({
