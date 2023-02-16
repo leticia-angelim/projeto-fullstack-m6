@@ -8,7 +8,10 @@ const listAnnouncementByIdService = async (
 ): Promise<IAnnouncement> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
 
-  const findAnnouncement = await announcementRepository.findOneBy({ id });
+  const findAnnouncement = await announcementRepository.findOne({
+    where: { id },
+    relations: { user: true },
+  });
 
   if (!findAnnouncement) {
     throw new AppError("Announcement id not found or not exists", 404);
