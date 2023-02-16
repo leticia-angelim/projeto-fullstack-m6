@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { IAnnouncement } from "../../interfaces/announcement.interfaces";
+import { instanceToPlain } from "class-transformer";
 import createAnnouncementService from "../../services/announcement/createAnnouncement.service";
 
 const createAnnouncementController = async (req: Request, res: Response) => {
@@ -8,7 +9,7 @@ const createAnnouncementController = async (req: Request, res: Response) => {
 
   const annoucement = await createAnnouncementService(id, data);
 
-  return res.status(201).json(annoucement);
+  return res.status(201).json(instanceToPlain(annoucement));
 };
 
 export default createAnnouncementController;

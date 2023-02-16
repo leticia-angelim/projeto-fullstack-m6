@@ -2,7 +2,7 @@ import AppDataSource from "../../data-source";
 import { Announcement } from "../../entities/announcement.entity";
 import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 
-const listAllAnnouncementsService = async (): Promise<IAnnouncement[]> => {
+const listAllWithoutLoginService = async (): Promise<IAnnouncement[]> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
 
   const announcements = await announcementRepository.find({
@@ -12,4 +12,4 @@ const listAllAnnouncementsService = async (): Promise<IAnnouncement[]> => {
   return announcements;
 };
 
-export default listAllAnnouncementsService;
+export default listAllWithoutLoginService;
