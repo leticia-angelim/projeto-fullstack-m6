@@ -10,15 +10,16 @@ export const Button = styled.button<IButtonBaseProps>`
   color: ${(props) => props.fontColor || "#ffffff"};
 
   border-radius: 4px;
-  background: ${(props) => props.color};
-  border: 1px solid ${(props) => props.border || props.color};
+  background: ${(props) => props.backgroundColor};
+  border: 1px solid ${(props) => props.border || props.backgroundColor};
 
   cursor: pointer;
   transition: all 0.3s;
 
   &:hover {
-    background-color: ${(props) => props.hoverColor};
-    border: 1px solid ${(props) => props.borderHover || props.hoverColor};
+    background-color: ${(props) => props.backgroundColorHover};
+    border: 1px solid
+      ${(props) => props.borderHover || props.backgroundColorHover};
     color: ${(props) => props.fontColorHover || props.fontColor};
   }
 `;

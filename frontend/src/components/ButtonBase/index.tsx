@@ -4,19 +4,19 @@ import { IButtonBaseProps } from "../../interfaces/button";
 
 const ButtonBase = ({
   children,
-  color,
+  backgroundColor,
   border,
   fontColor,
-  hoverColor,
+  backgroundColorHover,
   borderHover,
   fontColorHover,
 }: IButtonBaseProps) => {
   return (
     <Button
-      color={color}
+      backgroundColor={backgroundColor}
       border={border}
       fontColor={fontColor}
-      hoverColor={hoverColor}
+      backgroundColorHover={backgroundColorHover}
       borderHover={borderHover}
       fontColorHover={fontColorHover}
     >

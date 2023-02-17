@@ -1,7 +1,7 @@
 export interface IButtonBaseProps {
   children: string;
-  color: string;
-  hoverColor: string;
+  backgroundColor: string;
+  backgroundColorHover: string;
   border?: string;
   borderHover?: string;
   fontColor?: string;
