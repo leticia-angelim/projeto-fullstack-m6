@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import {
   Button,
   Dialog,
@@ -7,14 +7,9 @@ import {
   Typography,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import { Container } from "./styles";
 
-interface IModalProps {
-  title: string;
-  content: ReactElement;
-  openModal: boolean;
-  closeModal: () => void;
-}
+import { Container } from "./styles";
+import { IModalProps } from "../../interfaces/modal";
 
 const ModalContainer = ({
   title,
