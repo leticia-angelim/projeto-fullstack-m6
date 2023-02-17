@@ -2,31 +2,45 @@ import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
+  gap: 8px;
   flex-direction: column;
+  color: var(--color-grey1);
 
   label {
     font-weight: 500;
     font-size: 14px;
-    color: #212529;
   }
 
   input {
-    width: 315px;
+    width: 100%;
     height: 48px;
     padding-left: 0.9rem;
 
-    background: #f1f3f5;
-    border: 1.5px solid #f1f3f5;
-    border-radius: 4px;
-
-    &:focus {
-      border: 1.5px solid #5126ea;
-    }
-  }
-
-  input::placeholder {
     font-weight: 400;
     font-size: 16px;
-    color: #868e96;
+
+    border: 1.5px solid var(--color-grey8);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--color-grey8);
+    }
+
+    &:focus {
+      outline: none;
+      background: var(--color-grey9);
+      border: 1.5px solid var(--color-brand2);
+      border-radius: 4px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-grey3);
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
   }
 `;

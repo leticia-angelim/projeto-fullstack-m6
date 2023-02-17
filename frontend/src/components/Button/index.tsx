@@ -1,8 +1,8 @@
 import React from "react";
-import { Button } from "./styles";
+import { ButtonContainer } from "./styles";
 import { IButtonBaseProps } from "../../interfaces/button";
 
-const ButtonBase = ({
+const Button = ({
   children,
   backgroundColor,
   border,
@@ -12,17 +12,17 @@ const ButtonBase = ({
   fontColorHover,
 }: IButtonBaseProps) => {
   return (
-    <Button
+    <ButtonContainer
       backgroundColor={backgroundColor}
       border={border}
-      fontColor={fontColor}
       backgroundColorHover={backgroundColorHover}
       borderHover={borderHover}
+      fontColor={fontColor}
       fontColorHover={fontColorHover}
     >
       {children}
-    </Button>
+    </ButtonContainer>
   );
 };
 
-export default ButtonBase;
+export default Button;

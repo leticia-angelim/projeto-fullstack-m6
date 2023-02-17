@@ -18,7 +18,7 @@ const ModalContainer = ({
   closeModal,
 }: IModalProps) => {
   return (
-    <Dialog open={openModal}>
+    <Dialog open={openModal} scroll="body">
       <Container>
         <DialogTitle className="header" component="div">
           <Typography variant="h6">{title}</Typography>
@@ -26,7 +26,7 @@ const ModalContainer = ({
             <Close />
           </Button>
         </DialogTitle>
-        <DialogContent>{content}</DialogContent>
+        <DialogContent className="content">{content}</DialogContent>
       </Container>
     </Dialog>
   );

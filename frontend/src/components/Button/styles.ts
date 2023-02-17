@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { IButtonBaseProps } from "../../interfaces/button";
 
-export const Button = styled.button<IButtonBaseProps>`
-  width: 119px;
-  height: 38px;
+export const ButtonContainer = styled.button<IButtonBaseProps>`
+  height: 48px;
+  padding: 0 1.5rem;
 
   font-size: 14px;
   font-weight: 600;
+  white-space: nowrap;
   color: ${(props) => props.fontColor || "#ffffff"};
 
   border-radius: 4px;
