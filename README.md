@@ -11,7 +11,7 @@ O backend do projeto é construído utilizando Node.js e Express. Para iniciá-l
 1. Abra o terminal na pasta raiz do projeto;
 2. Navegue até a pasta backend utilizando o comando `cd backend`;
 3. Execute o comando `yarn` para instalar todas as dependências do projeto;
-4. Execute o comando `yarn start` para iniciar o servidor backend;
+4. Execute o comando `yarn dev` para iniciar o servidor backend;
 
 ### Inicialização do Frontend
 
