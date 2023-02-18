@@ -13,7 +13,7 @@ import { IModalProps } from "../../interfaces/modal";
 
 const ModalContainer = ({
   title,
-  content,
+  children,
   openModal,
   closeModal,
 }: IModalProps) => {
@@ -26,7 +26,7 @@ const ModalContainer = ({
             <Close />
           </Button>
         </DialogTitle>
-        <DialogContent className="content">{content}</DialogContent>
+        <DialogContent className="content">{children}</DialogContent>
       </Container>
     </Dialog>
   );
