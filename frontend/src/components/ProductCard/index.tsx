@@ -1,15 +1,9 @@
 import React from "react";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 import car from "../../assets/car1.svg";
+import nameAbbreviate from "../../util";
 
 export const ProductCard = () => {
-  const nameAbbreviate = (name: string) => {
-    return name
-      .split(" ")
-      .map((word) => word[0])
-      .join("");
-  };
-
   return (
     <ProductContainer>
       <div className="product-img">

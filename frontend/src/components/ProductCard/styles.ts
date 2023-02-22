@@ -33,11 +33,10 @@ export const ProductContainer = styled.section`
   }
 
   .product-title {
-    //Heading-6-600
-    font-family: "Lexend", sans-serif;
+    /* font-family: "Lexend", sans-serif;
     font-size: 16px;
     line-height: 20px;
-    font-weight: 600;
+    font-weight: 600; */
     color: var(--color-grey1);
   }
 
@@ -100,7 +99,6 @@ export const ProductDetails = styled.div`
   }
 
   .product-price {
-    //Heading-7-500
     font-family: "Lexend", sans-serif;
     font-weight: bold;
     font-size: 16px;

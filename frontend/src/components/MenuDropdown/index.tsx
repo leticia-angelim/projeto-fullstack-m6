@@ -39,14 +39,14 @@ const MenuDropdown = () => {
             </li>
             <li>
               <Button
-                backgroundColor={"--color-whiteFixed"}
-                backgroundColorHover="--color-grey8"
-                border={"--color-grey4"}
-                fontColor="--color-grey0"
+                backgroundColor="#FFFFFFFF"
+                backgroundColorHover="#F1F3F5"
+                border={"#ADB5BD"}
+                fontColor="#0B0D0D"
+                onClick={() => history("/register")}
               >
                 Cadastrar
               </Button>
-              {/* <button onClick={() => history("/register")}>Cadastrar</button> */}
             </li>
           </ul>
         </nav>
