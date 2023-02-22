@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import MenuDropdown from "../../components/MenuDropdown";
 import { ProductCard } from "../../components/ProductCard";
 
