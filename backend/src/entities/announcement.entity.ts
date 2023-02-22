@@ -3,9 +3,11 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Photo } from "./photo.entity";
 import { User } from "./user.entity";
 
 @Entity("announcements")
@@ -37,8 +39,10 @@ export class Announcement {
   @Column()
   cover_img: string;
 
-  @Column()
-  gallery_img: string;
+  @OneToMany(() => Photo, (photo) => photo.announcement, {
+    eager: true,
+  })
+  photos: Photo[];
 
   @CreateDateColumn()
   createdAt: Date;

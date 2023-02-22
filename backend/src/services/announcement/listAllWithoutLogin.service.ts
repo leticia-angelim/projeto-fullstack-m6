@@ -1,8 +1,7 @@
 import AppDataSource from "../../data-source";
 import { Announcement } from "../../entities/announcement.entity";
-import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 
-const listAllWithoutLoginService = async (): Promise<IAnnouncement[]> => {
+const listAllWithoutLoginService = async (): Promise<Announcement[]> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
 
   const announcements = await announcementRepository.find({

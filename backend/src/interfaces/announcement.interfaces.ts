@@ -1,3 +1,5 @@
+import { Photo } from "../entities/photo.entity";
+
 export interface IAnnouncement {
   id: string;
   announcement_type: string;
@@ -8,7 +10,7 @@ export interface IAnnouncement {
   description: string;
   vehicle_type: string;
   cover_img: string;
-  gallery_img: string;
+  photos: string[];
 }
 
 export interface IAnnouncementRequest {
@@ -20,7 +22,7 @@ export interface IAnnouncementRequest {
   description: string;
   vehicle_type: string;
   cover_img: string;
-  gallery_img: string;
+  photos: string[];
 }
 
 export interface IAnnouncementUpdate {
@@ -32,5 +34,5 @@ export interface IAnnouncementUpdate {
   description?: string;
   vehicle_type?: string;
   cover_img?: string;
-  gallery_img?: string;
+  photos?: string[];
 }

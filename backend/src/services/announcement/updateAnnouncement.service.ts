@@ -1,10 +1,8 @@
 import AppDataSource from "../../data-source";
 import { Announcement } from "../../entities/announcement.entity";
+import { Photo } from "../../entities/photo.entity";
 import { AppError } from "../../errors/appError";
-import {
-  IAnnouncement,
-  IAnnouncementUpdate,
-} from "../../interfaces/announcement.interfaces";
+import { IAnnouncementUpdate } from "../../interfaces/announcement.interfaces";
 
 const updateAnnouncementService = async (
   id: string,
@@ -17,11 +15,11 @@ const updateAnnouncementService = async (
     description,
     vehicle_type,
     cover_img,
-    gallery_img,
+    photos,
   }: IAnnouncementUpdate
-): Promise<IAnnouncement> => {
+): Promise<Announcement> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
-
+  const vehicleImagesRepository = AppDataSource.getRepository(Photo);
   const findAnnouncement = await announcementRepository.findOneBy({ id });
 
   if (!findAnnouncement) {
@@ -39,8 +37,22 @@ const updateAnnouncementService = async (
     description: description ? description : findAnnouncement.description,
     vehicle_type: vehicle_type ? vehicle_type : findAnnouncement.vehicle_type,
     cover_img: cover_img ? cover_img : findAnnouncement.cover_img,
-    gallery_img: gallery_img ? gallery_img : findAnnouncement.gallery_img,
   });
+
+  if (photos) {
+    await vehicleImagesRepository.delete({
+      announcement: { id: findAnnouncement.id },
+    });
+
+    photos.map(async (url) => {
+      const photo = vehicleImagesRepository.create({
+        url,
+        announcement: findAnnouncement,
+      });
+
+      await vehicleImagesRepository.save(photo);
+    });
+  }
 
   const updatedAnnouncement = await announcementRepository.findOneBy({ id });
 

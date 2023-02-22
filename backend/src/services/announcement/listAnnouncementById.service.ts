@@ -5,7 +5,7 @@ import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 
 const listAnnouncementByIdService = async (
   id: string
-): Promise<IAnnouncement> => {
+): Promise<Announcement> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
 
   const findAnnouncement = await announcementRepository.findOne({
