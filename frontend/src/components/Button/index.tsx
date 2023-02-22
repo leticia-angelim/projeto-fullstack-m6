@@ -10,6 +10,7 @@ const Button = ({
   backgroundColorHover,
   borderHover,
   fontColorHover,
+  onClick,
 }: IButtonBaseProps) => {
   return (
     <ButtonContainer
@@ -19,6 +20,7 @@ const Button = ({
       borderHover={borderHover}
       fontColor={fontColor}
       fontColorHover={fontColorHover}
+      onClick={onClick}
     >
       {children}
     </ButtonContainer>
