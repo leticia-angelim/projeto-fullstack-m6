@@ -6,4 +6,5 @@ export interface IButtonBaseProps {
   borderHover?: string;
   fontColor?: string;
   fontColorHover?: string;
+  onClick?: () => void;
 }
