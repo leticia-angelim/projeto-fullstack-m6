@@ -30,18 +30,17 @@ export const ProductContainer = styled.section`
         cursor: pointer;
       }
     }
+
+    :hover {
+      border: 2px solid var(--color-brand1);
+    }
   }
 
   .product-title {
-    /* font-family: "Lexend", sans-serif;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 600; */
     color: var(--color-grey1);
   }
 
   .product-description {
-    /* font-family: Inter; */
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
@@ -51,7 +50,6 @@ export const ProductContainer = styled.section`
 `;
 
 export const ProductOwner = styled.div`
-  /* font-family: Inter; */
   display: flex;
   align-items: center;
   gap: 8px;
@@ -84,7 +82,6 @@ export const ProductDetails = styled.div`
     display: flex;
     gap: 10px;
     p {
-      /* font-family: Inter; */
       display: flex;
       justify-content: center;
       align-items: center;

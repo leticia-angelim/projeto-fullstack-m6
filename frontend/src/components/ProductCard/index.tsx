@@ -2,6 +2,7 @@ import React from "react";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 import car from "../../assets/car1.svg";
 import nameAbbreviate from "../../util";
+import { ThemeTitle } from "../../styles/typography";
 
 export const ProductCard = () => {
   return (
@@ -9,7 +10,10 @@ export const ProductCard = () => {
       <div className="product-img">
         <img src={car} alt="" />
       </div>
-      <h2 className="product-title"> Ferrari Vermelha </h2>
+      <ThemeTitle tag="h2" className="product-title" titleSize="Heading-7-600">
+        {" "}
+        Ferrari Vermelha{" "}
+      </ThemeTitle>
       <p className="product-description">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur
         perspiciatis cum quasi ullam dignissimos, nemo amet quaerat.
