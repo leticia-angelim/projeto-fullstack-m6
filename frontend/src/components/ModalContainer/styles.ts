@@ -12,6 +12,11 @@ export const Container = styled.div`
 
     button {
       color: var(--color-grey4);
+
+      :hover {
+        background-color: white;
+        color: var(--color-grey0);
+      }
     }
   }
 
