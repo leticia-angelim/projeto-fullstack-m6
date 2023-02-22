@@ -2,7 +2,8 @@ import { DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { Announcement } from "./entities/announcement.entity";
-import { createUserAnnouncement1676403517710 } from "./migrations/1676403517710-createUserAnnouncement";
+import { Photo } from "./entities/photo.entity";
+import { createEntities1677032350794 } from "./migrations/1677032350794-createEntities";
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -13,8 +14,8 @@ const AppDataSource = new DataSource({
   database: process.env.POSTGRES_DB,
   synchronize: false,
   logging: true,
-  entities: [User, Announcement],
-  migrations: [createUserAnnouncement1676403517710],
+  entities: [User, Announcement, Photo],
+  migrations: [createEntities1677032350794],
 });
 
 AppDataSource.initialize()
