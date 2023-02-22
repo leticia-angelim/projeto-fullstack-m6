@@ -1,7 +1,15 @@
 import React from "react";
+import MenuDropdown from "../../components/MenuDropdown";
+import { ProductCard } from "../../components/ProductCard";
 
 const Login = () => {
-  return <h1>Login</h1>;
+  return (
+    <>
+      <MenuDropdown />
+      <h1>Login</h1>
+      <ProductCard />
+    </>
+  );
 };
 
 export default Login;
