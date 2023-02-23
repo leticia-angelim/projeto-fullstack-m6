@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import {
   AnnouncementProps,
   IAnnouncement,
@@ -11,6 +11,10 @@ export const AnnouncementContext = createContext<IAnnouncementContext>(
 );
 
 export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
+  const [userAnnouncements, setUserAnnouncements] = useState<
+    Array<IAnnouncement>
+  >([]);
+
   const registerAnnouncement = async (data: IAnnouncement) => {
     await api
       .post<IAnnouncement>("/announcement", data)
@@ -50,7 +54,8 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get(`announcement/user/${user_id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res.data.announcements);
+        setUserAnnouncements(res.data.announcements);
       })
       .catch((err) => {
         console.log(err);
@@ -64,6 +69,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         listAllAnnouncements,
         listAnnouncement,
         listUserAnnouncements,
+        userAnnouncements,
       }}
     >
       {children}

@@ -7,7 +7,7 @@ const Login = () => {
     <>
       <MenuDropdown />
       <h1>Login</h1>
-      <ProductCard />
+      {/* <ProductCard /> */}
     </>
   );
 };
