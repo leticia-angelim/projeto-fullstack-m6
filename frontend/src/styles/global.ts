@@ -43,20 +43,21 @@ export const GlobalStyle = createGlobalStyle`
   --color-green1: #349974;
   --color-green2: #2A7D5F;
   --color-green3: #153D2E;
+}
 
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
-  
-ul, ol {
-    list-style: none;
-}
-  
-img {
-    max-width: 100%;
-    max-height: 100%;
-} 
- }`;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+    
+    ul, ol {
+        list-style: none;
+    }
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+    } 
+`;
