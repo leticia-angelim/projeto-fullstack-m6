@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const FormAnnouncement = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 export const CreateForm = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,10 +37,20 @@ export const CreateForm = styled.div`
       -moz-appearance: textfield;
     }
   }
+
+  span {
+    color: red;
+  }
+
+  .input-errors {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const DescriptionField = styled.div`
   input {
+    text-align: start;
     height: 100px;
   }
 `;
@@ -50,8 +66,20 @@ export const AddImg = styled.div`
 
 export const ImgButton = styled.div`
   width: 100%;
+  padding-right: 10rem;
+
   button {
-    width: 70%;
+    width: 100%;
+  }
+
+  @media (max-width: 426px) {
+    width: 100%;
+    padding-right: 0%;
+
+    button {
+      width: 100%;
+      font-size: 12px;
+    }
   }
 `;
 
