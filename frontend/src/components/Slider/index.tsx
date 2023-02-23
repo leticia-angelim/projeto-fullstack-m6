@@ -11,9 +11,9 @@ import { ISliderProps } from "../../interfaces/slider";
 
 const Slider = ({ title, children }: ISliderProps) => {
   return (
-    <>
-      <h2 style={{ paddingLeft: "1rem" }}>{title}</h2>
-      <Container>
+    <Container>
+      <h3 style={{ paddingLeft: "1rem" }}>{title}</h3>
+      <div>
         <Swiper
           freeMode={true}
           grabCursor={true}
@@ -50,8 +50,8 @@ const Slider = ({ title, children }: ISliderProps) => {
           <SwiperSlide>{children}</SwiperSlide>
           <SwiperSlide>{children}</SwiperSlide>
         </Swiper>
-      </Container>
-    </>
+      </div>
+    </Container>
   );
 };
 
