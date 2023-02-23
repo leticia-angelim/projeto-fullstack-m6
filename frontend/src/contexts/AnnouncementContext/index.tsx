@@ -11,6 +11,9 @@ export const AnnouncementContext = createContext<IAnnouncementContext>(
 );
 
 export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
+  const [userAnnouncements, setUserAnnouncements] = useState<
+    Array<IAnnouncement>
+  >([]);
   const [addAdModal, setAddAdModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
 
@@ -57,7 +60,8 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get(`announcement/user/${user_id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res.data.announcements);
+        setUserAnnouncements(res.data.announcements);
       })
       .catch((err) => {
         console.log(err);
@@ -71,6 +75,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         listAllAnnouncements,
         listAnnouncement,
         listUserAnnouncements,
+        userAnnouncements,
         addAdModal,
         setAddAdModal,
         successModal,

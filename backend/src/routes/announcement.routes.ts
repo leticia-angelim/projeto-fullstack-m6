@@ -12,8 +12,8 @@ const announcementRoutes = Router();
 
 announcementRoutes.post(
   "",
-  ensureAuthMiddleware,
-  ensureIsAdvertiserMiddleware,
+  // ensureAuthMiddleware,
+  // ensureIsAdvertiserMiddleware,
   createAnnouncementController
 );
 
