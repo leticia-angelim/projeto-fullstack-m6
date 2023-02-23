@@ -7,4 +7,5 @@ export interface IButtonBaseProps {
   fontColor?: string;
   fontColorHover?: string;
   onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined;
 }

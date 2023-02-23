@@ -14,13 +14,19 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
   >([]);
+  const [addAdModal, setAddAdModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
 
   const registerAnnouncement = async (data: IAnnouncement) => {
     await api
-      .post<IAnnouncement>("/announcement", data)
+      .post<IAnnouncement>(
+        "/announcement/8e0a4dd6-439c-40e8-846a-914c4c5a63b4",
+        data
+      )
       .then((res) => {
         console.log(res);
-        // chamar modal de sucesso
+        setAddAdModal(false);
+        setSuccessModal(true);
       })
       .catch((err) => {
         console.log(err);
@@ -70,6 +76,10 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         listAnnouncement,
         listUserAnnouncements,
         userAnnouncements,
+        addAdModal,
+        setAddAdModal,
+        successModal,
+        setSuccessModal,
       }}
     >
       {children}

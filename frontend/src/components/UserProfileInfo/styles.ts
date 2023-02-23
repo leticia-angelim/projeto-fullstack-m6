@@ -76,4 +76,9 @@ export const UserInfo = styled.div`
     /* width: 1129px; */
     width: 100%;
   }
+
+  button {
+    width: 160px;
+    height: 48px;
+  }
 `;
