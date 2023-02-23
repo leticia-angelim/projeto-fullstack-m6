@@ -19,12 +19,13 @@ export const Container = styled.div`
       flex-direction: column;
       gap: 2rem;
 
-      max-width: 748px;
+      max-width: 40rem;
       width: 100%;
 
       h2 {
         font-family: "Lexend";
         font-style: normal;
+        font-weight: 700;
         font-size: 2.5rem;
         text-align: center;
         color: var(--color-grey10);
