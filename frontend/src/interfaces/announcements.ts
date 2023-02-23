@@ -1,10 +1,14 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface IAnnouncementContext {
-  registerAnnouncement: (data: IAnnouncement) => void;
+  registerAnnouncement: (data: IAnnouncement) => Promise<void>;
   listAllAnnouncements: () => void;
   listAnnouncement: (announcement_id: string) => void;
   listUserAnnouncements: (user_id: string) => void;
+  addAdModal: boolean;
+  setAddAdModal: Dispatch<SetStateAction<boolean>>;
+  successModal: boolean;
+  setSuccessModal: Dispatch<SetStateAction<boolean>>;
   userAnnouncements: Array<IAnnouncement>;
 }
 
@@ -21,5 +25,5 @@ export interface IAnnouncement {
   description: string;
   vehicle_type: string;
   cover_img: string;
-  gallery_img: string;
+  photos: string;
 }
