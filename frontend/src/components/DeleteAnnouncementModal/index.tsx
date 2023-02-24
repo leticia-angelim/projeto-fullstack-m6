@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import Button from "../Button";
-import ModalContainer from "../ModalContainer";
 import { Buttons } from "./styles";
+import ModalContainer from "../ModalContainer";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const DeleteAnnouncementModal = () => {
   const { deleteModal, setDeleteModal, deleteAnnouncement } =

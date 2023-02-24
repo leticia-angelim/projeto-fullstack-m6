@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import CreateAnnouncementeModal from "../CreateAnnouncemente";
-import ModalSuccess from "../ModalSucess";
-import { UserInfo } from "./styles";
 import Button from "../Button";
+import { UserInfo } from "./styles";
+import ModalSuccess from "../ModalSucess";
 import EditAnnouncementModal from "../EditAnnouncementModal";
+import CreateAnnouncementeModal from "../CreateAnnouncemente";
 import DeleteAnnouncementModal from "../DeleteAnnouncementModal";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);

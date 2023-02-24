@@ -1,8 +1,8 @@
 import React from "react";
-import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 import nameAbbreviate from "../../util";
 import { ThemeTitle } from "../../styles/typography";
 import { IAnnouncement } from "../../interfaces/announcements";
+import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 
 export const ProductCard = (announcement: IAnnouncement) => {
   return (
