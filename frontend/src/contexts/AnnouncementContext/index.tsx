@@ -13,6 +13,9 @@ export const AnnouncementContext = createContext<IAnnouncementContext>(
 export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [addAdModal, setAddAdModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const [announcementId, setAnnouncementId] = useState("");
 
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
@@ -70,6 +73,45 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       });
   };
 
+  const editAnnouncement = async (data: IAnnouncement) => {
+    await api
+      .patch(`/announcement/${announcementId}`, data)
+      .then((res) => {
+        const findAnnouncement = userAnnouncements.find(
+          (announcement) => announcement.id === announcementId
+        );
+        const announcementIndex = userAnnouncements.indexOf(findAnnouncement!);
+
+        userAnnouncements.splice(announcementIndex, 1, data);
+
+        console.log(res);
+        setEditModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteAnnouncement = async () => {
+    await api
+      .delete(`/announcement/${announcementId}`)
+      .then((res) => {
+        const findAnnouncement = userAnnouncements.find(
+          (announcement) => announcement.id === announcementId
+        );
+        const contactIndex = userAnnouncements.indexOf(findAnnouncement!);
+
+        userAnnouncements.splice(contactIndex, 1);
+
+        console.log(res);
+        setDeleteModal(false);
+        setEditModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <AnnouncementContext.Provider
       value={{
@@ -82,6 +124,13 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         successModal,
         setSuccessModal,
         userAnnouncements,
+        editModal,
+        deleteModal,
+        setEditModal,
+        setDeleteModal,
+        editAnnouncement,
+        deleteAnnouncement,
+        setAnnouncementId,
       }}
     >
       {children}

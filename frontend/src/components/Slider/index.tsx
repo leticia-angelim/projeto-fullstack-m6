@@ -12,7 +12,8 @@ import { ISliderProps } from "../../interfaces/slider";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const { listUserAnnouncements } = useContext(AnnouncementContext);
+  const { listUserAnnouncements, setAnnouncementId, setEditModal } =
+    useContext(AnnouncementContext);
 
   useEffect(() => {
     listUserAnnouncements("45c60e9a-b95f-4617-b2cc-710712bd792b");
@@ -53,7 +54,15 @@ const Slider = ({ title, children }: ISliderProps) => {
           }}
         >
           {children.map((announcement, index) => (
-            <SwiperSlide key={index}>{ProductCard(announcement)}</SwiperSlide>
+            <SwiperSlide
+              key={index}
+              onClick={() => {
+                setAnnouncementId(announcement.id);
+                setEditModal(true);
+              }}
+            >
+              {ProductCard(announcement)}
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>

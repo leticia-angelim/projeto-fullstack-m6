@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import Button from "../Button";
+import { useForm } from "react-hook-form";
+
 import Input from "../Input";
+import Button from "../Button";
 import ModalContainer from "../ModalContainer";
-import { FormHelperText } from "@mui/material";
+import editAnnouncementSchema from "../../schemas/editAnnouncement";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+
 import {
   CreateForm,
   DescriptionField,
@@ -14,16 +16,17 @@ import {
   ImgButton,
   FormAnnouncement,
 } from "./styles";
-import createAnnouncementSchema from "../../schemas/createAnnouncement";
+import { FormHelperText } from "@mui/material";
 
-const CreateAnnouncementeModal = () => {
-  const { registerAnnouncement, addAdModal, setAddAdModal } =
+const EditAnnouncementModal = () => {
+  const { editModal, setEditModal, setDeleteModal, editAnnouncement } =
     useContext(AnnouncementContext);
 
   const [count, setCount] = useState(2);
   const [addImg, setAddImg] = useState<number[]>([]);
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
+  const [published, setPublished] = useState<string>("");
 
   const newInput = () => {
     if (count <= 6 && addImg.length <= 6) {
@@ -39,25 +42,27 @@ const CreateAnnouncementeModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(createAnnouncementSchema),
+    resolver: yupResolver(editAnnouncementSchema),
   });
 
   const onSubmitFunction = (data: any) => {
     data.announcement_type = type;
     data.vehicle_type = vehicleType;
+    data.published = published;
 
     data.photos = [
       "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
     ];
-    registerAnnouncement(data);
+
+    editAnnouncement(data);
   };
 
   return (
     <>
       <ModalContainer
-        title="Criar anúncio"
-        openModal={addAdModal}
-        closeModal={() => setAddAdModal(false)}
+        title="Editar anúncio"
+        openModal={editModal}
+        closeModal={() => setEditModal(false)}
       >
         <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
           <h4>Tipo de anuncio</h4>
@@ -182,6 +187,31 @@ const CreateAnnouncementeModal = () => {
               />
             </div>
           </CreateForm>
+          <h4>Publicado</h4>
+          <CreateForm>
+            <div>
+              <Button
+                children="Sim"
+                backgroundColor="#FFFFFF"
+                backgroundColorHover="#0B0D0D"
+                border="#ADB5BD"
+                fontColor="#0B0D0D"
+                fontColorHover="#FFFFFF"
+                onClick={() => setPublished("Sim")}
+                type="button"
+              />
+              <Button
+                children="Não"
+                backgroundColor="#FFFFFF"
+                backgroundColorHover="#0B0D0D"
+                border="#ADB5BD"
+                fontColor="#0B0D0D"
+                fontColorHover="#FFFFFF"
+                onClick={() => setPublished("Não")}
+                type="button"
+              />
+            </div>
+          </CreateForm>
           <Input
             label="Imagem da capa"
             type="text"
@@ -239,16 +269,16 @@ const CreateAnnouncementeModal = () => {
           <FinalButtons>
             <div className="final-buttons">
               <Button
-                children="Cancelar"
+                children="Excluir anúncio"
                 backgroundColor="#DEE2E6"
                 backgroundColorHover="#868E96"
                 fontColor="#495057"
                 fontColorHover="#FFFFFF"
-                onClick={() => setAddAdModal(false)}
+                onClick={() => setDeleteModal(true)}
                 type="button"
               />
               <Button
-                children="Criar Anúncio"
+                children="Salvar alterações"
                 backgroundColor="#B0A6F0"
                 backgroundColorHover="#5126EA"
                 border="#B0A6F0"
@@ -264,4 +294,4 @@ const CreateAnnouncementeModal = () => {
   );
 };
 
-export default CreateAnnouncementeModal;
+export default EditAnnouncementModal;

@@ -5,7 +5,6 @@ import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
-
 export const ProductList = () => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
