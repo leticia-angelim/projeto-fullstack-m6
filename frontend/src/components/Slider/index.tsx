@@ -15,7 +15,7 @@ const Slider = ({ title, children }: ISliderProps) => {
   const { listUserAnnouncements } = useContext(AnnouncementContext);
 
   useEffect(() => {
-    listUserAnnouncements("45c60e9a-b95f-4617-b2cc-710712bd792b");
+    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4");
   }, []);
 
   return (

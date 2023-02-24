@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
-import car from "../../assets/car1.svg";
+
 import nameAbbreviate from "../../util";
 import { ThemeTitle } from "../../styles/typography";
 import { IAnnouncement } from "../../interfaces/announcements";
@@ -50,10 +50,15 @@ export const ProductCard = (annoucement: IAnnouncement) => {
 
       <ProductDetails>
         <div className="product-details">
-          <p className="product-mileage">{annoucement.mileage}</p>
+          <p className="product-mileage">{annoucement.mileage} KM</p>
           <p className="product-year">{annoucement.year}</p>
         </div>
-        <span className="product-price">{annoucement.price}</span>
+        <span className="product-price">
+          {annoucement.price.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
       </ProductDetails>
     </ProductContainer>
   );

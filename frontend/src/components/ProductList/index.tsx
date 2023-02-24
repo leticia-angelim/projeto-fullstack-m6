@@ -5,7 +5,6 @@ import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
-
 export const ProductList = () => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
@@ -18,7 +17,7 @@ export const ProductList = () => {
   );
 
   useEffect(() => {
-    listUserAnnouncements("45c60e9a-b95f-4617-b2cc-710712bd792b");
+    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4");
   }, []);
 
   return (

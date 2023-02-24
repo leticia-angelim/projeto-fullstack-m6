@@ -55,6 +55,13 @@ export const DescriptionField = styled.div`
   }
 `;
 
+export const SubTitle = styled.h4`
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+`;
+
 export const AddImg = styled.div`
   div:first-child {
     margin-top: 1rem;
