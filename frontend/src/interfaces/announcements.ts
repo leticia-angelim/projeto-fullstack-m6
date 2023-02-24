@@ -5,11 +5,11 @@ export interface IAnnouncementContext {
   listAllAnnouncements: () => void;
   listAnnouncement: (announcement_id: string) => void;
   listUserAnnouncements: (user_id: string) => void;
-  userAnnouncements: Array<IAnnouncement>;
   addAdModal: boolean;
   setAddAdModal: Dispatch<SetStateAction<boolean>>;
   successModal: boolean;
   setSuccessModal: Dispatch<SetStateAction<boolean>>;
+  userAnnouncements: Array<IAnnouncement>;
 }
 
 export interface AnnouncementProps {

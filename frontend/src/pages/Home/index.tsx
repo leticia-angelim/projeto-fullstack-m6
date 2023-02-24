@@ -1,7 +1,48 @@
 import React from "react";
 
+import NavBar from "../../components/navBar";
+import Button from "../../components/Button";
+import { Footer } from "../../components/footer";
+import { ProductList } from "../../components/ProductList";
+
+import { Buttons, Container } from "./styles";
+
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <NavBar />
+      <Container>
+        <div className="box-container">
+          <div className="box">
+            <h2>Velocidade e experiência em um lugar feito para você</h2>
+            <p>Um ambiente feito para você explorar o seu melhor</p>
+          </div>
+          <Buttons>
+            <a href="#Carros">
+              <Button
+                backgroundColor="inherit"
+                backgroundColorHover="#FDFDFD"
+                border="#FDFDFD"
+                fontColorHover=" #0B0D0D"
+                children="Carros"
+              />
+            </a>
+            <a href="#Motos">
+              <Button
+                backgroundColor="inherit"
+                backgroundColorHover="#FDFDFD"
+                border="#FDFDFD"
+                fontColorHover=" #0B0D0D"
+                children="Motos"
+              />
+            </a>
+          </Buttons>
+        </div>
+        <ProductList />
+      </Container>
+      <Footer />
+    </>
+  );
 };
 
 export default Home;

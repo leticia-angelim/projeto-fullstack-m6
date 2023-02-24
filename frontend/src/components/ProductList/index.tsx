@@ -1,18 +1,14 @@
 import React, { useEffect } from "react";
 import { useContext } from "react";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import { IAnnouncement } from "../../interfaces/announcements";
-import { ProductCard } from "../ProductCard";
+
 import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+
 
 export const ProductList = () => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
-
-  const announcements = userAnnouncements.map((announcement: IAnnouncement) => {
-    return ProductCard(announcement);
-  });
 
   const cars = userAnnouncements.filter(
     (announcement) => announcement.vehicle_type == "Carro"
@@ -22,16 +18,14 @@ export const ProductList = () => {
   );
 
   useEffect(() => {
-    listUserAnnouncements("38202530-afca-4dd7-b70b-517d2cde3569");
+    listUserAnnouncements("45c60e9a-b95f-4617-b2cc-710712bd792b");
   }, []);
 
   return (
     <ProductListDiv className="products_div">
-      {announcements}
-
-      {/* <Slider title="Carros">{announcements}</Slider> */}
-
-      {/* <Slider title="Carros" children={<ProductCard />} /> */}
+      <Slider title="Leilão" children={userAnnouncements} />
+      <Slider title="Carros" children={cars} />
+      <Slider title="Motos" children={motorcycles} />
     </ProductListDiv>
   );
 };

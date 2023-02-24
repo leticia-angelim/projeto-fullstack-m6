@@ -11,20 +11,22 @@ export const AnnouncementContext = createContext<IAnnouncementContext>(
 );
 
 export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
+  const [addAdModal, setAddAdModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
   >([]);
-  const [addAdModal, setAddAdModal] = useState(false);
-  const [successModal, setSuccessModal] = useState(false);
 
   const registerAnnouncement = async (data: IAnnouncement) => {
     await api
       .post<IAnnouncement>(
-        "/announcement/8e0a4dd6-439c-40e8-846a-914c4c5a63b4",
+        "/announcement/45c60e9a-b95f-4617-b2cc-710712bd792b",
         data
       )
       .then((res) => {
         console.log(res);
+        setUserAnnouncements([...userAnnouncements, res.data]);
         setAddAdModal(false);
         setSuccessModal(true);
       })
@@ -75,11 +77,11 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         listAllAnnouncements,
         listAnnouncement,
         listUserAnnouncements,
-        userAnnouncements,
         addAdModal,
         setAddAdModal,
         successModal,
         setSuccessModal,
+        userAnnouncements,
       }}
     >
       {children}

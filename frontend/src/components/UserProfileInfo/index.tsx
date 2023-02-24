@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import Button from "../Button";
 import CreateAnnouncementeModal from "../CreateAnnouncemente";
+import ModalSuccess from "../ModalSucess";
 import { UserInfo } from "./styles";
+import Button from "../Button";
 
 export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);
+  
   return (
     <>
       <UserInfo>
@@ -34,7 +36,8 @@ export const UserProfileInfo = () => {
           onClick={() => setAddAdModal(true)}
         />
       </UserInfo>
-      {/* <CreateAnnouncementeModal /> */}
+      <CreateAnnouncementeModal />
+      <ModalSuccess />
     </>
   );
 };

@@ -3,8 +3,6 @@ import styled from "styled-components";
 export const ProductContainer = styled.section`
   min-width: 17rem;
   max-width: 25rem;
-  /* width: 20rem;
-  height: 21.875rem; */
   display: flex;
   gap: 15px;
   flex-direction: column;
@@ -20,11 +18,12 @@ export const ProductContainer = styled.section`
     width: 100%;
     background-color: var(--color-grey7);
     border: 2px solid var(--color-grey7);
+    overflow: hidden;
 
     img {
-      width: fit-content;
+      width: 100%;
       transform: scale(1);
-      overflow: hidden;
+
       transition: 0.4s;
 
       &:hover {
@@ -43,6 +42,7 @@ export const ProductContainer = styled.section`
   }
 
   .product-description {
+    height: 5rem;
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
