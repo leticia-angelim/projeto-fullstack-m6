@@ -11,9 +11,9 @@ import ensureIsAdvertiserMiddleware from "../middlewares/ensureIsAdvertiser.midd
 const announcementRoutes = Router();
 
 announcementRoutes.post(
-  "",
-  ensureAuthMiddleware,
-  ensureIsAdvertiserMiddleware,
+  "/:id",
+  // ensureAuthMiddleware,
+  // ensureIsAdvertiserMiddleware,
   createAnnouncementController
 );
 

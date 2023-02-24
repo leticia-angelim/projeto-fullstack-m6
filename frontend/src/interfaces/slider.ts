@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { IAnnouncement } from "./announcements";
 
 export interface ISliderProps {
   title: string;
-  children: ReactNode;
+  children: IAnnouncement[];
 }

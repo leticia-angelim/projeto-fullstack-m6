@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import Button from "../Button";
+import CreateAnnouncementeModal from "../CreateAnnouncemente";
+import ModalSuccess from "../ModalSucess";
 import { UserInfo } from "./styles";
+import Button from "../Button";
 
 export const UserProfileInfo = () => {
   c;
@@ -23,12 +25,17 @@ export const UserProfileInfo = () => {
         quas cum at iste.
       </p>
 
-      <Button
-        children="Criar anúncio"
-        backgroundColor="black"
-        backgroundColorHover="blue"
-        // onClick={setAddModal=}
-      />
-    </UserInfo>
+        <Button
+          children="Criar anúncio"
+          backgroundColor="#FDFDFD"
+          backgroundColorHover="#EDEAFD"
+          border="#4529E6"
+          fontColor="#4529E6"
+          onClick={() => setAddAdModal(true)}
+        />
+      </UserInfo>
+      <CreateAnnouncementeModal />
+      <ModalSuccess />
+    </>
   );
 };

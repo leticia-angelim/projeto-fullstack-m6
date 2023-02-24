@@ -11,7 +11,9 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 3.5rem;
 
-    height: 581px;
+    height: 630px;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
     background: var(--color-brand2);
 
     .box {
@@ -49,6 +51,10 @@ export const Buttons = styled.div`
 
   width: 381.04px;
   height: 48px;
+
+  a {
+    width: 100%;
+  }
 
   button {
     width: 100%;
