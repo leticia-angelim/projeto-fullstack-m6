@@ -1,4 +1,3 @@
-import React from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 export interface IInputProps {
@@ -8,5 +7,4 @@ export interface IInputProps {
   placeholder: string;
   register: UseFormRegister<FieldValues>;
   name: string;
-  // ref: React.RefObject<HTMLInputElement>;
 }

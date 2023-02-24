@@ -23,14 +23,14 @@ announcementRoutes.get("/user/:id", listAllUserAnnouncementsController);
 
 announcementRoutes.patch(
   "/:id",
-  ensureAuthMiddleware,
-  ensureIsAdvertiserMiddleware,
+  // ensureAuthMiddleware,
+  // ensureIsAdvertiserMiddleware,
   updateAnnouncementController
 );
 announcementRoutes.delete(
   "/:id",
-  ensureAuthMiddleware,
-  ensureIsAdvertiserMiddleware,
+  // ensureAuthMiddleware,
+  // ensureIsAdvertiserMiddleware,
   deleteAnnouncementController
 );
 

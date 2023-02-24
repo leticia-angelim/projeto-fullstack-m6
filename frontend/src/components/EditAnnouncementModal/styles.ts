@@ -101,13 +101,6 @@ export const DescriptionField = styled.div`
   }
 `;
 
-export const SubTitle = styled.h4`
-  font-family: "Inter";
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 24px;
-`;
-
 export const AddImg = styled.div`
   div:first-child {
     margin-top: 1rem;
@@ -137,20 +130,16 @@ export const ImgButton = styled.div`
 `;
 
 export const FinalButtons = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-left: 30%;
   .final-buttons {
     display: flex;
-    width: 100%;
     gap: 20px;
 
     button:nth-child(1) {
-      width: 40%;
+      width: 60%;
     }
 
     button:nth-child(2) {
-      width: 60%;
+      width: 40%;
     }
   }
 `;
