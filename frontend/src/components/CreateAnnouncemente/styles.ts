@@ -49,9 +49,55 @@ export const CreateForm = styled.div`
 `;
 
 export const DescriptionField = styled.div`
-  input {
-    text-align: start;
-    height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-grey1);
+
+  label {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  textarea {
+    width: 466px;
+    height: 80px;
+    padding-left: 0.9rem;
+    padding-top: 0.5rem;
+
+    border: 1.5px solid #e9ecef;
+    border-radius: 4px;
+
+    font-weight: 400;
+    font-size: 16px;
+
+    border: 1.5px solid var(--color-grey8);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--color-grey8);
+    }
+
+    &:focus {
+      outline: none;
+      background: var(--color-grey9);
+      border: 1.5px solid var(--color-brand2);
+      border-radius: 4px;
+    }
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--color-grey3);
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
   }
 `;
 

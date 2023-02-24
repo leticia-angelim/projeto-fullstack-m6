@@ -4,10 +4,12 @@ import CreateAnnouncementeModal from "../CreateAnnouncemente";
 import ModalSuccess from "../ModalSucess";
 import { UserInfo } from "./styles";
 import Button from "../Button";
+import EditAnnouncementModal from "../EditAnnouncementModal";
+import DeleteAnnouncementModal from "../DeleteAnnouncementModal";
 
 export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);
-  
+
   return (
     <>
       <UserInfo>
@@ -38,6 +40,8 @@ export const UserProfileInfo = () => {
       </UserInfo>
       <CreateAnnouncementeModal />
       <ModalSuccess />
+      <EditAnnouncementModal />
+      <DeleteAnnouncementModal />
     </>
   );
 };

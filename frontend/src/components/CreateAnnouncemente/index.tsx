@@ -149,13 +149,11 @@ const CreateAnnouncementeModal = () => {
             </div>
           </CreateForm>
           <DescriptionField>
-            <Input
-              label="Descrição"
-              type="text"
+            <label htmlFor="description">Descrição</label>
+            <textarea
+              id="description"
               placeholder="Digitar descrição"
-              fieldName="description"
-              name="description"
-              register={register}
+              {...register("description")}
             />
           </DescriptionField>
           <FormHelperText error>{errors.description?.message}</FormHelperText>

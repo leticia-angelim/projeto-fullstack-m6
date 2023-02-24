@@ -15,7 +15,8 @@ export interface IAnnouncementContext {
   setEditModal: Dispatch<SetStateAction<boolean>>;
   setDeleteModal: Dispatch<SetStateAction<boolean>>;
   editAnnouncement: (data: IAnnouncement) => Promise<void>;
-  deleteAnnouncement: (announcement_id: string) => Promise<void>;
+  deleteAnnouncement: () => Promise<void>;
+  setAnnouncementId: Dispatch<SetStateAction<string>>;
 }
 
 export interface AnnouncementProps {
@@ -23,6 +24,7 @@ export interface AnnouncementProps {
 }
 
 export interface IAnnouncement {
+  id: string;
   announcement_type: string;
   title: string;
   year: string;

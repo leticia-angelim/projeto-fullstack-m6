@@ -60,4 +60,14 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 100%;
         max-height: 100%;
     } 
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        border: 2px solid var(--color-whiteFixed);
+        background: var(--color-grey4);
+    }
 `;

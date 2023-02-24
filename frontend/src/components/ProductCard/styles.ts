@@ -42,12 +42,22 @@ export const ProductContainer = styled.section`
   }
 
   .product-description {
+    width: 95%;
     height: 5rem;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 24px;
-    text-align: justify;
-    color: var(--color-grey2);
+    overflow: auto;
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      text-align: justify;
+      color: var(--color-grey2);
+      word-break: break-all;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
   }
 `;
 

@@ -15,6 +15,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [successModal, setSuccessModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [announcementId, setAnnouncementId] = useState("");
 
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
@@ -74,8 +75,15 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
   const editAnnouncement = async (data: IAnnouncement) => {
     await api
-      .patch(`/announcement/34534545`, data)
+      .patch(`/announcement/${announcementId}`, data)
       .then((res) => {
+        const findAnnouncement = userAnnouncements.find(
+          (announcement) => announcement.id === announcementId
+        );
+        const announcementIndex = userAnnouncements.indexOf(findAnnouncement!);
+
+        userAnnouncements.splice(announcementIndex, 1, data);
+
         console.log(res);
         setEditModal(false);
       })
@@ -84,10 +92,17 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       });
   };
 
-  const deleteAnnouncement = async (announcement_id: string) => {
+  const deleteAnnouncement = async () => {
     await api
-      .delete(`/announcement/${announcement_id}`)
+      .delete(`/announcement/${announcementId}`)
       .then((res) => {
+        const findAnnouncement = userAnnouncements.find(
+          (announcement) => announcement.id === announcementId
+        );
+        const contactIndex = userAnnouncements.indexOf(findAnnouncement!);
+
+        userAnnouncements.splice(contactIndex, 1);
+
         console.log(res);
         setDeleteModal(false);
         setEditModal(false);
@@ -115,6 +130,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         setDeleteModal,
         editAnnouncement,
         deleteAnnouncement,
+        setAnnouncementId,
       }}
     >
       {children}

@@ -34,7 +34,7 @@ const DeleteAnnouncementModal = () => {
             backgroundColor="#FFE5E5"
             backgroundColorHover="#FDD8D8"
             fontColor="#CD2B31"
-            onClick={() => deleteAnnouncement}
+            onClick={() => deleteAnnouncement()}
           />
         </div>
       </Buttons>
