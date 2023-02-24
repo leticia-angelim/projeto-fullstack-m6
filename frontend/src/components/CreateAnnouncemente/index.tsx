@@ -14,7 +14,7 @@ import {
   ImgButton,
   FormAnnouncement,
 } from "./styles";
-import createAnnouncementSchema from "../../schemas";
+import createAnnouncementSchema from "../../schemas/createAnnouncement";
 
 const CreateAnnouncementeModal = () => {
   const { registerAnnouncement, addAdModal, setAddAdModal } =

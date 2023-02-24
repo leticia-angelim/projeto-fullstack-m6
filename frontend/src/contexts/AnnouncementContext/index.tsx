@@ -13,6 +13,8 @@ export const AnnouncementContext = createContext<IAnnouncementContext>(
 export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [addAdModal, setAddAdModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
@@ -70,6 +72,31 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       });
   };
 
+  const editAnnouncement = async (data: IAnnouncement) => {
+    await api
+      .patch(`/announcement/34534545`, data)
+      .then((res) => {
+        console.log(res);
+        setEditModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteAnnouncement = async (announcement_id: string) => {
+    await api
+      .delete(`/announcement/${announcement_id}`)
+      .then((res) => {
+        console.log(res);
+        setDeleteModal(false);
+        setEditModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <AnnouncementContext.Provider
       value={{
@@ -82,6 +109,12 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         successModal,
         setSuccessModal,
         userAnnouncements,
+        editModal,
+        deleteModal,
+        setEditModal,
+        setDeleteModal,
+        editAnnouncement,
+        deleteAnnouncement,
       }}
     >
       {children}

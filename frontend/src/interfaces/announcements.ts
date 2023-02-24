@@ -10,6 +10,12 @@ export interface IAnnouncementContext {
   successModal: boolean;
   setSuccessModal: Dispatch<SetStateAction<boolean>>;
   userAnnouncements: Array<IAnnouncement>;
+  editModal: boolean;
+  deleteModal: boolean;
+  setEditModal: Dispatch<SetStateAction<boolean>>;
+  setDeleteModal: Dispatch<SetStateAction<boolean>>;
+  editAnnouncement: (data: IAnnouncement) => Promise<void>;
+  deleteAnnouncement: (announcement_id: string) => Promise<void>;
 }
 
 export interface AnnouncementProps {

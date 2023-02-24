@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Button,
   Dialog,
@@ -10,7 +10,6 @@ import { Close } from "@mui/icons-material";
 
 import { Container, Geral } from "./styles";
 import { IModalProps } from "../../interfaces/modal";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const ModalContainer = ({
   title,
@@ -18,7 +17,6 @@ const ModalContainer = ({
   openModal,
   closeModal,
 }: IModalProps) => {
-  const { setAddAdModal } = useContext(AnnouncementContext);
   return (
     <Geral>
       <Dialog open={openModal} scroll="body">
@@ -33,7 +31,7 @@ const ModalContainer = ({
             >
               {title}
             </Typography>
-            <Button onClick={() => setAddAdModal(false)}>
+            <Button onClick={closeModal}>
               <Close />
             </Button>
           </DialogTitle>
