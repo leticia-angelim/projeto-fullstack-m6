@@ -4,6 +4,7 @@ import logo from "../../assets/logo.svg";
 import { DivPersonalizada2 } from "./style";
 import { DivPersonalizada1 } from "./style";
 import Button from "../Button";
+
 export const NavBar = () => {
   return (
     <Nav>
