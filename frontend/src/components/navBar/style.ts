@@ -3,24 +3,33 @@ import styled from "styled-components";
 export const Nav = styled.nav`
 background-color:#FDFDFD;
 width:100%;
-height:100px;
+height:90px;
 display:flex;
-justify-content:space-around;
+justify-content:space-between;
 align-items:center;
 div{
-    width:30%;
+width:35%;
 display:flex;
-
+justify-content:space-between;
 align-items:center;
 
+
+
 }
+
+figure{
+    margin-left:15px;
+}
+
 `
 
 export const DivPersonalizada2 = styled.nav`
-width:100%;
+margin-right:20px;
 display:flex;
 align-items:center;
 justify-content:space-around;
+width:100%;
+
 
 span{
    
@@ -32,12 +41,13 @@ span{
     transform: scale(1.1);
    
    color:blue;
+   
   }
 }
 
 button{
     background-color:white;
-    width:100px;
+    width:115px;
     height:50px;
     border:1px solid grey;
     border-radius:3px;
@@ -55,11 +65,12 @@ button{
 `
 
 export const DivPersonalizada1 = styled.nav`
-border-right:1px solid grey;
+
 width:100%;
 display:flex;
 align-items:center;
 justify-content:space-around;
+
 
 button{
     border:none;
@@ -72,4 +83,12 @@ button{
   }
 }
 `
-
+export const DivLinha = styled.p`
+   box-sizing:border-box;
+   margin-right:10px;
+    padding:none;
+    width:0px;
+    height:85px;
+    border-left : 2px solid #DEE2E6;
+    background-color:red;
+`

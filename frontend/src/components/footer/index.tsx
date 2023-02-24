@@ -9,7 +9,7 @@ import direitos from "./direitos.png"
 export const Footer = ()=>{ return (
     <ContainerF >
       <div>
-     <figure>
+     <figure className="figu1">
       <img src={logo} alt="Logo da empresa" />
      </figure>
 

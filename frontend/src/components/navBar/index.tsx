@@ -3,6 +3,8 @@ import { Nav } from "./style";
 import logo from "./Motors shop.png"
 import { DivPersonalizada2 } from "./style";
 import { DivPersonalizada1 } from "./style";
+import { DivLinha } from "./style";
+
 export const NavBar = () => {
 
 
@@ -15,18 +17,21 @@ export const NavBar = () => {
       <DivPersonalizada1>
 
 
-        <button>carros</button>
-        <button>motos</button>
-        <button>leilão</button>
+        <button>Carros</button>
+        <button>Motos</button>
+        <button>Leilão</button>
 
 
       </DivPersonalizada1>
+    
 
+      <DivLinha></DivLinha>
 
 
       <DivPersonalizada2>
-      <span>fazer login</span>
-      <button>cadastrar</button>
+      <span>Fazer login</span>
+      <hr />
+      <button>Cadastrar</button>
       </DivPersonalizada2>
     </div>
     </Nav>
@@ -36,3 +41,4 @@ export const NavBar = () => {
 }
 
 export default NavBar
+
