@@ -13,6 +13,7 @@ import {
   FinalButtons,
   ImgButton,
   FormAnnouncement,
+  SubTitle,
 } from "./styles";
 import createAnnouncementSchema from "../../schemas/createAnnouncement";
 
@@ -60,7 +61,7 @@ const CreateAnnouncementeModal = () => {
         closeModal={() => setAddAdModal(false)}
       >
         <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
-          <h4>Tipo de anuncio</h4>
+          <SubTitle>Tipo de anuncio</SubTitle>
           <CreateForm>
             <div>
               <Button
@@ -85,7 +86,7 @@ const CreateAnnouncementeModal = () => {
               />
             </div>
           </CreateForm>
-          <h4>Informações do veículo</h4>
+          <SubTitle>Informações do veículo</SubTitle>
           <Input
             label="TÍtulo"
             type="text"
@@ -157,7 +158,7 @@ const CreateAnnouncementeModal = () => {
             />
           </DescriptionField>
           <FormHelperText error>{errors.description?.message}</FormHelperText>
-          <h4>Tipo de veículo</h4>
+          <SubTitle>Tipo de veículo</SubTitle>
           <CreateForm>
             <div>
               <Button

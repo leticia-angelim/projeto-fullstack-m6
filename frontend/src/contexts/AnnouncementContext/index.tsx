@@ -24,7 +24,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const registerAnnouncement = async (data: IAnnouncement) => {
     await api
       .post<IAnnouncement>(
-        "/announcement/45c60e9a-b95f-4617-b2cc-710712bd792b",
+        "/announcement/8e0a4dd6-439c-40e8-846a-914c4c5a63b4",
         data
       )
       .then((res) => {

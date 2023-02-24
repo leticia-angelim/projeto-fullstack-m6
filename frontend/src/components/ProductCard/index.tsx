@@ -1,4 +1,5 @@
 import React from "react";
+
 import nameAbbreviate from "../../util";
 import { ThemeTitle } from "../../styles/typography";
 import { IAnnouncement } from "../../interfaces/announcements";
@@ -24,10 +25,15 @@ export const ProductCard = (announcement: IAnnouncement) => {
 
       <ProductDetails>
         <div className="product-details">
-          <p className="product-mileage">{announcement.mileage}</p>
-          <p className="product-year">{announcement.year}</p>
+          <p className="product-mileage">{annoucement.mileage} KM</p>
+          <p className="product-year">{annoucement.year}</p>
         </div>
-        <span className="product-price">{announcement.price}</span>
+        <span className="product-price">
+          {annoucement.price.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
       </ProductDetails>
     </ProductContainer>
   );
