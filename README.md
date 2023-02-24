@@ -1,10 +1,38 @@
-# projeto-fullstack-m6
+# E-commerce
+
+Este é um e-commerce de carros e motos, onde o usuário pode se cadastrar como comprador ou anunciante. Os anunciantes podem criar anúncios para seus produtos, preenchendo o formulário de registro de anúncio, e colocá-los à venda ou para leilão. Eles também podem editar e excluir os próprios anúncios. Os compradores têm acesso a todos os anúncios da plataforma e podem comprar os produtos anunciados.
+
+Ao clicar em um anúncio, é possível ver o perfil do anunciador, as informações do automóvel e também comentários de outros usuários a respeito do produto.
+
+</br>
+
+## Funcionalidades
+
+- Cadastro e login de usuários (comprador e anunciante)
+- Criação, edição e exclusão de anúncios pelos anunciantes
+- Compra de produtos pelos compradores
+- Visualização de perfil de anunciante e informações do produto
+- Adição de comentários pelos usuários
+
+</br>
+
+## Tecnologias utilizadas
+
+- Node.js
+- Express
+- TypeORM
+- TypeScript
+- React.js
+- Axios
+- Styled-Components
+
+</br>
 
 ## Como iniciar o projeto
 
 Para iniciar o projeto, siga os passos abaixo:
 
-### Inicialização do Backend
+### - Inicialização do Backend
 
 O backend do projeto é construído utilizando Node.js e Express. Para iniciá-lo, siga os passos abaixo:
 
@@ -13,7 +41,7 @@ O backend do projeto é construído utilizando Node.js e Express. Para iniciá-l
 3. Execute o comando `yarn` para instalar todas as dependências do projeto;
 4. Execute o comando `yarn dev` para iniciar o servidor backend;
 
-### Inicialização do Frontend
+### - Inicialização do Frontend
 
 O frontend do projeto é construído utilizando React.js. Para iniciá-lo, siga os passos abaixo:
 
