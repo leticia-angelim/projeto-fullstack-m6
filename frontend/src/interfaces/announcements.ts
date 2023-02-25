@@ -1,4 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
+import { IUser } from "./user";
 
 export interface IAnnouncementContext {
   registerAnnouncement: (data: IAnnouncement) => Promise<void>;
@@ -17,6 +18,7 @@ export interface IAnnouncementContext {
   editAnnouncement: (data: IAnnouncement) => Promise<void>;
   deleteAnnouncement: () => Promise<void>;
   setAnnouncementId: Dispatch<SetStateAction<string>>;
+  allAnnouncements: IAnnouncement[];
 }
 
 export interface AnnouncementProps {
@@ -34,4 +36,5 @@ export interface IAnnouncement {
   vehicle_type: string;
   cover_img: string;
   photos: string;
+  user: IUser;
 }

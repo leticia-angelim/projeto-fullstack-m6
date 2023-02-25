@@ -16,6 +16,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [announcementId, setAnnouncementId] = useState("");
+  const [allAnnouncements, setAllAnnouncements] = useState<IAnnouncement[]>([]);
 
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
@@ -44,6 +45,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       .get("/announcement")
       .then((res) => {
         console.log(res);
+        setAllAnnouncements(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -131,6 +133,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         editAnnouncement,
         deleteAnnouncement,
         setAnnouncementId,
+        allAnnouncements,
       }}
     >
       {children}

@@ -76,7 +76,6 @@ export const ProductOwner = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 150px;
-    background-color: var(--color-brand2);
     color: var(--color-whiteFixed);
   }
 

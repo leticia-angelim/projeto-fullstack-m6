@@ -93,7 +93,7 @@ const EditAnnouncementModal = () => {
           </CreateForm>
           <SubTitle>Informações do veículo</SubTitle>
           <Input
-            label="TÍtulo"
+            label="Título"
             type="text"
             placeholder="Digitar título"
             fieldName="title"

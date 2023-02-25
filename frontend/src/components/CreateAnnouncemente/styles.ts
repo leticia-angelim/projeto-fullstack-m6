@@ -60,7 +60,6 @@ export const DescriptionField = styled.div`
   }
 
   textarea {
-    width: 466px;
     height: 80px;
     padding-left: 0.9rem;
     padding-top: 0.5rem;
