@@ -127,7 +127,7 @@ export const ImgButton = styled.div`
 
   @media (max-width: 426px) {
     width: 100%;
-    padding-right: 0%;
+    padding-right: 0rem;
 
     button {
       width: 100%;
@@ -151,6 +151,10 @@ export const FinalButtons = styled.div`
 
     button:nth-child(2) {
       width: 60%;
+
+      @media (max-width: 426px) {
+        font-size: 12px;
+      }
     }
   }
 `;

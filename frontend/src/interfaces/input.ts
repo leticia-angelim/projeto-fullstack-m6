@@ -7,4 +7,5 @@ export interface IInputProps {
   placeholder: string;
   register: UseFormRegister<FieldValues>;
   name: string;
+  onChange?: any;
 }

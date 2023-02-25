@@ -25,11 +25,11 @@ export const ProductCard = (announcement: IAnnouncement) => {
 
       <ProductDetails>
         <div className="product-details">
-          <p className="product-mileage">{annoucement.mileage} KM</p>
-          <p className="product-year">{annoucement.year}</p>
+          <p className="product-mileage">{announcement.mileage} KM</p>
+          <p className="product-year">{announcement.year}</p>
         </div>
         <span className="product-price">
-          {annoucement.price.toLocaleString("pt-br", {
+          {announcement.price.toLocaleString("pt-br", {
             style: "currency",
             currency: "BRL",
           })}
