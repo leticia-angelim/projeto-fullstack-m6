@@ -1,6 +1,6 @@
 # E-commerce
 
-Este é um e-commerce de carros e motos, onde o usuário pode se cadastrar como comprador ou anunciante. Os anunciantes podem criar anúncios para seus produtos, preenchendo o formulário de registro de anúncio, e colocá-los à venda ou para leilão. Eles também podem editar e excluir os próprios anúncios. Os compradores têm acesso a todos os anúncios da plataforma e podem comprar os produtos anunciados.
+A API é responsável por gerenciar usuários e anúncios em uma plataforma de compra e venda de automóveis online. Os anunciantes podem criar anúncios para seus produtos, preenchendo o formulário de registro de anúncio, e colocá-los à venda ou para leilão. Eles também podem editar e excluir os próprios anúncios. Os compradores têm acesso a todos os anúncios da plataforma e podem comprar os produtos anunciados.
 
 Ao clicar em um anúncio, é possível ver o perfil do anunciador, as informações do automóvel e também comentários de outros usuários a respeito do produto.
 
@@ -227,9 +227,9 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 `POST -> /announcement/:user_id - FORMATO DA REQUISIÇÃO - registro de um anúncio`
 
-```json
+**\*Autenticação necessária**
 
-***Autenticação necessária**
+```json
 {
   "announcement_type": "Venda",
   "title": "Honda",
@@ -255,10 +255,9 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 `GET -> /announcement - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os anúncios`
 
+**\*Autenticação necessária**
+
 ```json
-
-***Autenticação necessária**
-
 [
   {
     "id": "e7d6263d-24bd-4d95-a55e-e5e1402bc228",
@@ -413,10 +412,9 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 `PATCH -> /announcement/announcement_id - FORMATO DA REQUISIÇÃO - Edição de um anúncio`
 
+**\*Autenticação necessária**
+
 ```json
-
-***Autenticação necessária**
-
 {
   "title": "Honda vermelho",
   "mileage": 2939485,
