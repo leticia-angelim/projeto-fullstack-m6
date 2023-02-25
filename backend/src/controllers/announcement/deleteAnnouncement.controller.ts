@@ -6,7 +6,7 @@ const deleteAnnouncementController = async (req: Request, res: Response) => {
 
   await deleteAnnouncementService(id);
 
-  return res.status(201).send();
+  return res.status(204).send();
 };
 
 export default deleteAnnouncementController;
