@@ -28,6 +28,19 @@ const EditAnnouncementModal = () => {
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
   const [published, setPublished] = useState<string>("");
+  const [activeAnnoucementTypeBtn, setActiveAnnouncementTypeButton] =
+    useState<number>(0);
+  const [activeVehicleTypeBtn, setActiveVehicleTypeButton] =
+    useState<number>(0);
+  const [activePublishedBtn, setactivePublishedBtn] = useState<number>(0);
+
+  const handleVehicleBtnClick = (buttonIndex: number) => {
+    setActiveVehicleTypeButton(buttonIndex);
+  };
+
+  const handleAnnouncementBtnClick = (buttonIndex: number) => {
+    setActiveAnnouncementTypeButton(buttonIndex);
+  };
 
   const newInput = () => {
     if (count <= 6 && addImg.length <= 6) {
@@ -70,23 +83,35 @@ const EditAnnouncementModal = () => {
           <CreateForm>
             <div>
               <Button
+                className={
+                  activeAnnoucementTypeBtn === 1 ? "button_active" : ""
+                }
                 children="Venda"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setType("Venda")}
+                onClick={() => {
+                  setType("Venda");
+                  handleAnnouncementBtnClick(1);
+                }}
                 type="button"
               />
               <Button
+                className={
+                  activeAnnoucementTypeBtn === 2 ? "button_active" : ""
+                }
                 children="Leilão"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setType("Leilão")}
+                onClick={() => {
+                  setType("Leilão");
+                  handleAnnouncementBtnClick(2);
+                }}
                 type="button"
               />
             </div>
@@ -167,23 +192,31 @@ const EditAnnouncementModal = () => {
           <CreateForm>
             <div>
               <Button
+                className={activeVehicleTypeBtn === 1 ? "button_active" : ""}
                 children="Carro"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setVehicleType("Carro")}
+                onClick={() => {
+                  setVehicleType("Carro");
+                  handleVehicleBtnClick(1);
+                }}
                 type="button"
               />
               <Button
+                className={activeVehicleTypeBtn === 2 ? "button_active" : ""}
                 children="Moto"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setVehicleType("Moto")}
+                onClick={() => {
+                  setVehicleType("Moto");
+                  handleVehicleBtnClick(2);
+                }}
                 type="button"
               />
             </div>
@@ -192,23 +225,31 @@ const EditAnnouncementModal = () => {
           <CreateForm>
             <div>
               <Button
+                className={activePublishedBtn === 1 ? "button_active" : ""}
                 children="Sim"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setPublished("Sim")}
+                onClick={() => {
+                  setPublished("Sim");
+                  setactivePublishedBtn(1);
+                }}
                 type="button"
               />
               <Button
+                className={activePublishedBtn === 2 ? "button_active" : ""}
                 children="Não"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setPublished("Não")}
+                onClick={() => {
+                  setPublished("Não");
+                  setactivePublishedBtn(2);
+                }}
                 type="button"
               />
             </div>
