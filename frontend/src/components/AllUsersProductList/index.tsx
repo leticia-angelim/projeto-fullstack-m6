@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from "react";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import { ProductListDiv } from "../ProductList/styles";
 import Slider from "../Slider";
 
 const AllUsersProductList = () => {

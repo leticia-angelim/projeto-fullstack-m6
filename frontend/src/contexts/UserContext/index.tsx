@@ -4,10 +4,11 @@ import {
   IUser,
   IUserContext,
   IUserLogin,
+  IUserLoginResponse,
   IUserProviderProps,
+  IUserRequest,
 } from "../../interfaces/user";
 import api from "../../services/api";
-import { loginRequest, registerUserRequest } from "../../services/userRequests";
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
@@ -16,8 +17,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
   const navigate = useNavigate();
 
-  const registerUser = async (data: IUser) => {
-    await registerUserRequest(data)
+  const registerUser = async (data: IUserRequest) => {
+    await api
+      .post<IUser>("/users", data)
       .then((res) => {
         console.log(res);
         navigate("/login", { replace: true });
@@ -28,18 +30,19 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const loginUser = async (data: IUserLogin) => {
-    await loginRequest(data)
-      .then((res) => {
-        api.defaults.headers.common["Authorization"] = `Bearer ${res.token}`;
+    await api
+      .post<IUserLoginResponse>("/login", data)
+      .then(({ data }) => {
+        api.defaults.headers.common["Authorization"] = `Bearer ${data.token}`;
 
         getUserProfile();
 
         localStorage.clear();
-        localStorage.setItem("@user:token", res.token);
+        localStorage.setItem("@user:token", data.token);
 
         navigate("/profileAdmin", { replace: true });
 
-        console.log(res);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +57,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   // useEffect(() => {
-  //   const loadUser = () => {
+  //   const loadUser = async () => {
   //     const token = localStorage.getItem("@user:token");
 
   //     if (token) {
@@ -72,7 +75,12 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   // }, []);
 
   return (
-    <UserContext.Provider value={{ registerUser, loginUser }}>
+    <UserContext.Provider
+      value={{
+        registerUser,
+        loginUser,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -16,7 +16,7 @@ export const userSchema = yup.object({
     .required("Campo obrigatório")
     .typeError("Campo obrigatório"),
   complement: yup.string().required("Campo obrigatório"),
-  account: yup.string().required("Campo obrigatório"),
+  account: yup.string(),
   password: yup.string().required("Campo obrigatório"),
   confirm_password: yup
     .string()

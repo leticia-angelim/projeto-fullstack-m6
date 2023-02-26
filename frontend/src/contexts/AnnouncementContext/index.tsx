@@ -24,10 +24,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
   const registerAnnouncement = async (data: IAnnouncement) => {
     await api
-      .post<IAnnouncement>(
-        "/announcement/8e0a4dd6-439c-40e8-846a-914c4c5a63b4",
-        data
-      )
+      .post<IAnnouncement>("/announcement", data)
       .then((res) => {
         console.log(res);
         setUserAnnouncements([...userAnnouncements, res.data]);
@@ -36,13 +33,12 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       })
       .catch((err) => {
         console.log(err);
-        // chamar modal de erro
       });
   };
 
   const listAllAnnouncements = async () => {
     await api
-      .get("/announcement")
+      .get<IAnnouncement[]>("/announcement")
       .then((res) => {
         console.log(res);
         setAllAnnouncements(res.data);
@@ -54,7 +50,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
   const listAnnouncement = async (announcement_id: string) => {
     await api
-      .get(`/announcement/${announcement_id}`)
+      .get<IAnnouncement>(`/announcement/${announcement_id}`)
       .then((res) => {
         console.log(res);
       })

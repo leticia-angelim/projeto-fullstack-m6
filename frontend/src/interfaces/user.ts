@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 export interface IUserContext {
-  registerUser: (data: IUser) => Promise<void>;
+  registerUser: (data: IUserRequest) => Promise<void>;
   loginUser: (data: IUserLogin) => Promise<void>;
 }
 
@@ -9,8 +9,7 @@ export interface IUserProviderProps {
   children: ReactNode;
 }
 
-export interface IUser {
-  id: string;
+export interface IUserRequest {
   name: string;
   email: string;
   cpf: string;
@@ -26,6 +25,10 @@ export interface IUser {
   account: string;
   password: string;
   confirm_password: string;
+}
+
+export interface IUser extends IUserRequest {
+  id: string;
   createdAt: Date;
   updatedAt: Date;
 }

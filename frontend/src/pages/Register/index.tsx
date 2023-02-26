@@ -32,7 +32,6 @@ const Register = () => {
 
   const onSubmitFunction = (data: any) => {
     data.account = account;
-    console.log(data);
 
     registerUser(data);
   };
@@ -230,6 +229,7 @@ const Register = () => {
             <FormHelperText error>
               {errors.confirm_password?.message}
             </FormHelperText>
+
             <Button
               children="Finalizar cadastro"
               backgroundColor="#4529E6"
