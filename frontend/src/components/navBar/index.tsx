@@ -8,11 +8,31 @@ import { Nav } from "./style";
 import { DivPersonalizada1 } from "./style";
 import { DivPersonalizada2 } from "./style";
 import MenuDropdown from "../MenuDropdown";
+import Dropdown from "../Dropdown";
 
 export const NavBar = () => {
   const navigate = useNavigate();
+  const token = localStorage.getItem("@user:token");
 
-  return (
+  return token ? (
+    <>
+      <Nav>
+        <figure onClick={() => navigate("/home", { replace: true })}>
+          <img src={logo} alt="logo da empresa" />
+        </figure>
+        <div>
+          <DivPersonalizada1>
+            <a href="#Carros">Carros</a>
+            <a href="#Motos">Motos</a>
+            <a href="#Leilão">Leilão</a>
+          </DivPersonalizada1>
+
+          <Dropdown />
+        </div>
+      </Nav>
+      <MenuDropdown />
+    </>
+  ) : (
     <>
       <Nav>
         <figure onClick={() => navigate("/home", { replace: true })}>

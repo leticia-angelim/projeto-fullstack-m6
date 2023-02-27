@@ -196,13 +196,13 @@ const Register = () => {
                   type="button"
                 />
                 <Button
-                  children="Anuciante"
+                  children="Anunciante"
                   backgroundColor="#FFFFFF"
                   backgroundColorHover="#0B0D0D"
                   border="#ADB5BD"
                   fontColor="#0B0D0D"
                   fontColorHover="#FFFFFF"
-                  onClick={() => setAccount("Anuciante")}
+                  onClick={() => setAccount("Anunciante")}
                   type="button"
                 />
               </div>
