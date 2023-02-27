@@ -14,6 +14,7 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [registerModal, setRegisterModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .post<IUser>("/users", data)
       .then((res) => {
         console.log(res);
-        navigate("/login", { replace: true });
+        setRegisterModal(true);
+        // navigate("/login", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -79,6 +81,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       value={{
         registerUser,
         loginUser,
+        registerModal,
+        setRegisterModal,
       }}
     >
       {children}

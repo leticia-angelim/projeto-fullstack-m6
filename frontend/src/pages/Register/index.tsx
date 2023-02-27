@@ -16,6 +16,7 @@ import {
 } from "../../components/EditAnnouncementModal/styles";
 import { FormHelperText } from "@mui/material";
 import { Container } from "./styles";
+import ModalSuccessRegister from "../../components/ModalSuccessRegister";
 
 const Register = () => {
   const { registerUser } = useContext(UserContext);
@@ -31,7 +32,17 @@ const Register = () => {
   });
 
   const onSubmitFunction = (data: any) => {
+    const address = {
+      cep: data.cep,
+      state: data.state,
+      city: data.city,
+      street: data.street,
+      number: data.number,
+      complement: data.complement,
+    };
+
     data.account = account;
+    data.address = address;
 
     registerUser(data);
   };
@@ -239,6 +250,7 @@ const Register = () => {
           </form>
         </div>
       </Container>
+      <ModalSuccessRegister />
       <Footer />
     </>
   );

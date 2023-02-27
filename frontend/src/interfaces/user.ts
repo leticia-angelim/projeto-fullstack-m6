@@ -1,8 +1,10 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export interface IUserContext {
   registerUser: (data: IUserRequest) => Promise<void>;
   loginUser: (data: IUserLogin) => Promise<void>;
+  registerModal: boolean;
+  setRegisterModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IUserProviderProps {
