@@ -2,12 +2,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
 import { Exclude } from "class-transformer";
 import { Announcement } from "./announcement.entity";
+import { Address } from "./address.entity";
 
 @Entity("users")
 export class User {
@@ -32,24 +35,6 @@ export class User {
   @Column()
   description: string;
 
-  @Column({ length: 8 })
-  cep: string;
-
-  @Column()
-  state: string;
-
-  @Column()
-  city: string;
-
-  @Column()
-  street: string;
-
-  @Column()
-  number: number;
-
-  @Column()
-  complement: string;
-
   @Column()
   account: string;
 
@@ -67,6 +52,10 @@ export class User {
     cascade: true,
   })
   announcements: Announcement[];
+
+  @OneToOne(() => Address, { eager: true })
+  @JoinColumn()
+  address: Address;
 
   // @OneToMany(() => Comment, (comment) => comment.user, {
   //   cascade: true,
