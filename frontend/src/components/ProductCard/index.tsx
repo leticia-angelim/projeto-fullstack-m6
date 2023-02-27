@@ -1,8 +1,10 @@
 import React from "react";
 
-import nameAbbreviate from "../../util";
-import { ThemeTitle } from "../../styles/typography";
+import stringToColor from "../../util/stringToColor";
+import nameAbbreviate from "../../util/nameAbbreviate";
 import { IAnnouncement } from "../../interfaces/announcements";
+
+import { ThemeTitle } from "../../styles/typography";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 
 export const ProductCard = (announcement: IAnnouncement) => {
@@ -19,8 +21,14 @@ export const ProductCard = (announcement: IAnnouncement) => {
       </div>
 
       <ProductOwner>
-        <p className="owner-avatar">{nameAbbreviate("Thiago Araujo")}</p>
-        <span className="owner-name">Thiago Araujo</span>
+        <p
+          className="owner-avatar"
+          style={{ backgroundColor: stringToColor(announcement.user.name) }}
+        >
+          {nameAbbreviate(announcement.user.name)}
+        </p>
+        <span className="owner-name">{announcement.user.name}</span>
+        {/* onClick={() => setUserSelected(announcement.user.id)} */}
       </ProductOwner>
 
       <ProductDetails>

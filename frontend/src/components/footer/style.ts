@@ -2,13 +2,15 @@ import styled from "styled-components";
 
 export const ContainerF = styled.footer`
   width: 100%;
+  /* position: fixed;
+  bottom: 0px; */
 
   div {
     width: 100%;
     height: 100px;
     display: flex;
     justify-content: space-between;
-    background-color: #0b0d0d;
+    background-color: var(--color-grey0);
     align-items: center;
     padding: 0 3rem;
   }
@@ -19,7 +21,7 @@ export const ContainerF = styled.footer`
     align-items: center;
     width: 35px;
     height: 35px;
-    background-color: #212529;
+    background-color: var(--color-grey1);
     color: white;
     padding-top: 10px;
     text-decoration: none;

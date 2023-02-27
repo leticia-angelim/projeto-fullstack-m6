@@ -6,17 +6,7 @@ import { IAnnouncementUpdate } from "../../interfaces/announcement.interfaces";
 
 const updateAnnouncementService = async (
   id: string,
-  {
-    announcement_type,
-    title,
-    year,
-    mileage,
-    price,
-    description,
-    vehicle_type,
-    cover_img,
-    photos,
-  }: IAnnouncementUpdate
+  annoucement: IAnnouncementUpdate
 ): Promise<Announcement> => {
   const announcementRepository = AppDataSource.getRepository(Announcement);
   const vehicleImagesRepository = AppDataSource.getRepository(Photo);
@@ -26,18 +16,9 @@ const updateAnnouncementService = async (
     throw new AppError("Announcement id not found or not exists", 404);
   }
 
-  await announcementRepository.update(id, {
-    announcement_type: announcement_type
-      ? announcement_type
-      : findAnnouncement.announcement_type,
-    title: title ? title : findAnnouncement.title,
-    year: year ? year : findAnnouncement.year,
-    mileage: mileage ? mileage : findAnnouncement.mileage,
-    price: price ? price : findAnnouncement.price,
-    description: description ? description : findAnnouncement.description,
-    vehicle_type: vehicle_type ? vehicle_type : findAnnouncement.vehicle_type,
-    cover_img: cover_img ? cover_img : findAnnouncement.cover_img,
-  });
+  const { photos, ...vehicleData } = annoucement;
+
+  await announcementRepository.update(findAnnouncement.id, vehicleData);
 
   if (photos) {
     await vehicleImagesRepository.delete({

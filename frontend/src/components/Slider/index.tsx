@@ -12,12 +12,7 @@ import { ISliderProps } from "../../interfaces/slider";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const { listUserAnnouncements, setAnnouncementId, setEditModal } =
-    useContext(AnnouncementContext);
-
-  useEffect(() => {
-    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4");
-  }, []);
+  const { setAnnouncementId, setEditModal } = useContext(AnnouncementContext);
 
   return (
     <Container>

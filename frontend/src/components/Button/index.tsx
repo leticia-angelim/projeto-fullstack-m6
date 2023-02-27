@@ -3,6 +3,7 @@ import { ButtonContainer } from "./styles";
 import { IButtonBaseProps } from "../../interfaces/button";
 
 const Button = ({
+  className,
   children,
   backgroundColor,
   border,
@@ -23,6 +24,7 @@ const Button = ({
       fontColorHover={fontColorHover}
       onClick={onClick}
       type={type}
+      className={className}
     >
       {children}
     </ButtonContainer>

@@ -17,12 +17,12 @@ export const CreateForm = styled.div`
 
     button {
       width: 50%;
+    }
 
-      :focus {
-        background-color: var(--color-brand1);
-        color: var(--color-whiteFixed);
-        border-color: var(--color-brand1);
-      }
+    .button_active {
+      background-color: var(--color-brand1);
+      color: var(--color-whiteFixed);
+      border-color: var(--color-brand1);
     }
 
     /* Chrome, Safari, Edge, Opera */
@@ -60,7 +60,6 @@ export const DescriptionField = styled.div`
   }
 
   textarea {
-    width: 466px;
     height: 80px;
     padding-left: 0.9rem;
     padding-top: 0.5rem;
@@ -127,7 +126,7 @@ export const ImgButton = styled.div`
 
   @media (max-width: 426px) {
     width: 100%;
-    padding-right: 0%;
+    padding-right: 0rem;
 
     button {
       width: 100%;
@@ -151,6 +150,10 @@ export const FinalButtons = styled.div`
 
     button:nth-child(2) {
       width: 60%;
+
+      @media (max-width: 426px) {
+        font-size: 12px;
+      }
     }
   }
 `;

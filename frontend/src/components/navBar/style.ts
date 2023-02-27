@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Nav = styled.nav`
-  background-color: #fdfdfd;
+  background-color: var(--color-grey10);
   width: 100%;
   height: 80px;
   display: flex;
@@ -9,8 +9,13 @@ export const Nav = styled.nav`
   align-items: center;
   padding: 0 3rem;
   position: fixed;
-  border-bottom: 2px solid #dee2e6;
+  border-bottom: 2px solid var(--color-grey6);
   z-index: 3;
+
+  figure {
+    margin-top: 1rem;
+    cursor: pointer;
+  }
 
   div {
     width: 50%;
@@ -18,6 +23,10 @@ export const Nav = styled.nav`
     display: flex;
 
     align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -29,10 +38,13 @@ export const DivPersonalizada2 = styled.nav`
   margin: 0rem 1rem;
 
   span {
-    color: #495057;
+    color: var(--color-grey2);
     cursor: pointer;
-    transition: all, 0.8s;
     font-weight: 600;
+
+    :hover {
+      color: var(--color-brand1);
+    }
   }
 `;
 
@@ -42,14 +54,14 @@ export const DivPersonalizada1 = styled.nav`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-right: 2px solid #dee2e6;
+  border-right: 2px solid var(--color-grey6);
 
   a {
     text-decoration: none;
-    color: #495057;
+    color: var(--color-grey2);
 
     :hover {
-      color: #495057;
+      color: var(--color-grey2);
     }
   }
 `;

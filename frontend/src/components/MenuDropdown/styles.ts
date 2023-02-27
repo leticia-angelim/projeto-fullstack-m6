@@ -10,9 +10,10 @@ export const Container = styled.header`
   background-color: var(--color-grey10);
   border-bottom: 1px solid var(--color-grey4);
   @media (min-width: 768px) {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto; */
+    display: none;
   }
 `;
 
@@ -35,7 +36,8 @@ export const MenuDropdownSt = styled.div<MenuProps>`
     right: 0;
     z-index: 1;
     box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
-    ul {
+
+    > ul {
       width: 100%;
       background-color: var(--color-whiteFixed);
     }
