@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Container, MenuDropdownSt } from "./styles";
 import Button from "../Button";
 
-const MenuDropdown = () => {
+const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleNavLinks = () => setIsOpen(!isOpen);
 
@@ -24,7 +24,7 @@ const MenuDropdown = () => {
         )}
 
         <nav className={`${isOpen ? "open" : "close"}`}>
-          <ul>
+          <ul className="menu-list">
             <li>
               <a href="#carros">Carros</a>
             </li>
@@ -34,6 +34,7 @@ const MenuDropdown = () => {
             <li>
               <a href="#leilao">Leilão</a>
             </li>
+            {}
             <li>
               <a href="/login">Fazer Login</a>
             </li>
@@ -55,4 +56,4 @@ const MenuDropdown = () => {
   );
 };
 
-export default MenuDropdown;
+export default MobileMenu;

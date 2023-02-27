@@ -3,7 +3,7 @@ import Button from "../Button";
 import { UserInfo } from "./styles";
 import ModalSuccess from "../ModalSucess";
 import EditAnnouncementModal from "../EditAnnouncementModal";
-import CreateAnnouncementeModal from "../CreateAnnouncemente";
+import CreateAnnouncementModal from "../CreateAnnouncement";
 import DeleteAnnouncementModal from "../DeleteAnnouncementModal";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
@@ -38,7 +38,7 @@ export const UserProfileInfo = () => {
           onClick={() => setAddAdModal(true)}
         />
       </UserInfo>
-      <CreateAnnouncementeModal />
+      <CreateAnnouncementModal />
       <ModalSuccess />
       <EditAnnouncementModal />
       <DeleteAnnouncementModal />

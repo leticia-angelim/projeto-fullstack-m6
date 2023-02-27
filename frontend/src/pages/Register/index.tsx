@@ -44,6 +44,17 @@ const Register = () => {
     data.account = account;
     data.address = address;
 
+    const address = {
+      cep: data.cep,
+      state: data.state,
+      city: data.city,
+      street: data.street,
+      number: data.number,
+      complement: data.complement,
+    };
+
+    data.address = address;
+
     registerUser(data);
   };
 
