@@ -25,6 +25,17 @@ const CreateAnnouncementeModal = () => {
   const [addImg, setAddImg] = useState<number[]>([]);
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
+  const [activeAnnoucementTypeBtn, setActiveAnnouncementTypeButton] =
+    useState(0);
+  const [activeVehicleTypeBtn, setActiveVehicleTypeButton] = useState(0);
+
+  const handleVehicleBtnClick = (buttonIndex: number) => {
+    setActiveVehicleTypeButton(buttonIndex);
+  };
+
+  const handleAnnouncementBtnClick = (buttonIndex: number) => {
+    setActiveAnnouncementTypeButton(buttonIndex);
+  };
 
   const newInput = () => {
     if (count <= 6 && addImg.length <= 6) {
@@ -65,23 +76,35 @@ const CreateAnnouncementeModal = () => {
           <CreateForm>
             <div>
               <Button
+                className={
+                  activeAnnoucementTypeBtn === 1 ? "button_active" : ""
+                }
                 children="Venda"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setType("Venda")}
+                onClick={() => {
+                  setType("Venda");
+                  handleAnnouncementBtnClick(1);
+                }}
                 type="button"
               />
               <Button
+                className={
+                  activeAnnoucementTypeBtn === 2 ? "button_active" : ""
+                }
                 children="Leilão"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setType("Leilão")}
+                onClick={() => {
+                  setType("Leilão");
+                  handleAnnouncementBtnClick(2);
+                }}
                 type="button"
               />
             </div>
@@ -162,23 +185,31 @@ const CreateAnnouncementeModal = () => {
           <CreateForm>
             <div>
               <Button
+                className={activeVehicleTypeBtn === 1 ? "button_active" : ""}
                 children="Carro"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setVehicleType("Carro")}
+                onClick={() => {
+                  setVehicleType("Carro");
+                  handleVehicleBtnClick(1);
+                }}
                 type="button"
               />
               <Button
+                className={activeVehicleTypeBtn === 2 ? "button_active" : ""}
                 children="Moto"
                 backgroundColor="#FFFFFF"
                 backgroundColorHover="#0B0D0D"
                 border="#ADB5BD"
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
-                onClick={() => setVehicleType("Moto")}
+                onClick={() => {
+                  setVehicleType("Moto");
+                  handleVehicleBtnClick(2);
+                }}
                 type="button"
               />
             </div>

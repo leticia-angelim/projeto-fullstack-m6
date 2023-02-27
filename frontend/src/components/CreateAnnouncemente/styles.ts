@@ -17,12 +17,12 @@ export const CreateForm = styled.div`
 
     button {
       width: 50%;
+    }
 
-      :focus {
-        background-color: var(--color-brand1);
-        color: var(--color-whiteFixed);
-        border-color: var(--color-brand1);
-      }
+    .button_active {
+      background-color: var(--color-brand1);
+      color: var(--color-whiteFixed);
+      border-color: var(--color-brand1);
     }
 
     /* Chrome, Safari, Edge, Opera */
