@@ -33,6 +33,9 @@ export class Announcement {
   @Column()
   description: string;
 
+  @Column({ default: true })
+  is_published: boolean;
+
   @Column()
   vehicle_type: string;
 

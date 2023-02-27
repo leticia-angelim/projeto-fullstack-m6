@@ -27,14 +27,6 @@ const createAnnouncementService = async (
 
   await announcementRepository.save(newAnnouncement);
 
-  if (photos.length < 1) {
-    throw new AppError("You need to add at least 1 photo", 403);
-  }
-
-  if (photos.length >= 6) {
-    throw new AppError("You can add only 6 photos", 403);
-  }
-
   photos.map(async (photo) => {
     const newPhoto = photoRepository.create({
       url: photo,

@@ -1,5 +1,3 @@
-import { Photo } from "../entities/photo.entity";
-
 export interface IAnnouncement {
   id: string;
   announcement_type: string;
@@ -8,6 +6,7 @@ export interface IAnnouncement {
   mileage: number;
   price: number;
   description: string;
+  is_published: boolean;
   vehicle_type: string;
   cover_img: string;
   photos: string[];
@@ -20,6 +19,7 @@ export interface IAnnouncementRequest {
   mileage: number;
   price: number;
   description: string;
+  is_published: boolean;
   vehicle_type: string;
   cover_img: string;
   photos: string[];
@@ -32,6 +32,7 @@ export interface IAnnouncementUpdate {
   mileage?: number;
   price?: number;
   description?: string;
+  is_published?: boolean;
   vehicle_type?: string;
   cover_img?: string;
   photos?: string[];

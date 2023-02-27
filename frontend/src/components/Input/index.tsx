@@ -9,6 +9,7 @@ const Input = ({
   placeholder,
   register,
   name,
+  onChange,
 }: IInputProps) => {
   return (
     <InputContainer>
@@ -18,6 +19,7 @@ const Input = ({
         type={type}
         placeholder={placeholder}
         {...register(name)}
+        onChange={onChange}
       />
     </InputContainer>
   );

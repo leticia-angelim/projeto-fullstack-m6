@@ -11,9 +11,9 @@ import ensureIsAdvertiserMiddleware from "../middlewares/ensureIsAdvertiser.midd
 const announcementRoutes = Router();
 
 announcementRoutes.post(
-  "/:id",
-  // ensureAuthMiddleware,
-  // ensureIsAdvertiserMiddleware,
+  "/",
+  ensureAuthMiddleware,
+  ensureIsAdvertiserMiddleware,
   createAnnouncementController
 );
 
@@ -23,14 +23,14 @@ announcementRoutes.get("/user/:id", listAllUserAnnouncementsController);
 
 announcementRoutes.patch(
   "/:id",
-  // ensureAuthMiddleware,
-  // ensureIsAdvertiserMiddleware,
+  ensureAuthMiddleware,
+  ensureIsAdvertiserMiddleware,
   updateAnnouncementController
 );
 announcementRoutes.delete(
   "/:id",
-  // ensureAuthMiddleware,
-  // ensureIsAdvertiserMiddleware,
+  ensureAuthMiddleware,
+  ensureIsAdvertiserMiddleware,
   deleteAnnouncementController
 );
 
