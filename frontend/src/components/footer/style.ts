@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 export const ContainerF = styled.footer`
   width: 100%;
+  /* position: fixed;
+  bottom: 0px; */
 
   div {
     width: 100%;

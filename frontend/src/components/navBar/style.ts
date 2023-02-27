@@ -24,6 +24,10 @@ export const Nav = styled.nav`
 
     align-items: center;
   }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const DivPersonalizada2 = styled.nav`

@@ -11,9 +11,8 @@ import Button from "../../components/Button";
 import NavBar from "../../components/navBar";
 import Input from "../../components/Input";
 
-import { Container } from "../Register/styles";
 import { FormHelperText } from "@mui/material";
-import { Password } from "./styles";
+import { Container, Password } from "./styles";
 
 const Login = () => {
   const { loginUser } = useContext(UserContext);

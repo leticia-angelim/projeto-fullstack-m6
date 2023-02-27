@@ -10,9 +10,10 @@ export const Container = styled.header`
   background-color: var(--color-grey10);
   border-bottom: 1px solid var(--color-grey4);
   @media (min-width: 768px) {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto; */
+    display: none;
   }
 `;
 
