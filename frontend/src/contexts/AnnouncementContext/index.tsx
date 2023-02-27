@@ -63,8 +63,8 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get(`announcement/user/${user_id}`)
       .then((res) => {
-        // console.log(res.data.announcements);
-        setUserAnnouncements(res.data.announcements);
+        setUserAnnouncements(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);

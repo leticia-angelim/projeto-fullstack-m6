@@ -17,7 +17,7 @@ export const ProductList = () => {
   );
 
   useEffect(() => {
-    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4");
+    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4"); // Esse id deve ser obtido pelo userSelected?
   }, []);
 
   return (

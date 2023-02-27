@@ -28,6 +28,7 @@ export const ProductCard = (announcement: IAnnouncement) => {
           {nameAbbreviate(announcement.user.name)}
         </p>
         <span className="owner-name">{announcement.user.name}</span>
+        {/* onClick={() => setUserSelected(announcement.user.id)} */}
       </ProductOwner>
 
       <ProductDetails>
