@@ -26,7 +26,7 @@ const MobileMenu = () => {
         )}
 
         <nav className={`${isOpen ? "open" : "close"}`}>
-          <ul>
+          <ul className="menu-list">
             <li>
               <a href="#carros">Carros</a>
             </li>

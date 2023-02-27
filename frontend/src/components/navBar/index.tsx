@@ -30,7 +30,7 @@ export const NavBar = () => {
           <Dropdown />
         </div>
       </Nav>
-      <MenuDropdown />
+      <MobileMenu />
     </>
   ) : (
     <>

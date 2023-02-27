@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-
-  button {
+  padding-left: 1.5rem;
+  > #basic-button {
     display: flex;
     gap: 8px;
 
@@ -14,6 +14,10 @@ export const Container = styled.div`
     font-size: 16px;
     line-height: 28px;
     color: var(--color-grey2);
+
+    :hover {
+      background-color: red;
+    }
   }
 
   div {
