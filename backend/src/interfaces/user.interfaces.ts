@@ -1,3 +1,5 @@
+import { IAddress } from "./address.interfaces";
+
 export interface IUserLogin {
   email: string;
   password: string;
@@ -10,14 +12,9 @@ export interface IUserRequest {
   phone: string;
   birth_date: string;
   description: string;
-  cep: string;
-  state: string;
-  city: string;
-  street: string;
-  number: number;
-  complement: string;
   account: string;
   password: string;
+  address: IAddress;
 }
 
 export interface IUser extends IUserRequest {
