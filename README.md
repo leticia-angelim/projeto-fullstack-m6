@@ -278,6 +278,35 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+`PATCH -> /address/address_id - FORMATO DA REQUISIÇÃO - Edição de endereço do usuário`
+
+**\*Autenticação necessária**
+
+```json
+{
+"state": "RJ",
+"city": "Rio de Janeiro",
+"street": "Barra da Tijuca"
+}
+```
+
+`FORMATO DA RESPOSTA - STATUS 200 - OK`
+
+```json
+{
+ "id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+"cep": "11101999",
+"state": "RJ",
+"city": "Rio de Janeiro",
+"street": "Barra da Tijuca",
+"number": 1000,
+"complement": "apt.101"
+}
+```
+
+<br/>
+
+
 `DELETE -> /users - FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT - deleção de usuário`
 
 **\*Autenticação necessária**
@@ -291,15 +320,15 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "announcement_type": "Venda",
-  "title": "Honda",
-  "year": "2023",
-  "mileage": 200,
-  "price": 100000,
-  "description": "Carro do Kenzinho",
-  "vehicle_type": "Carro",
-  "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-  "gallery_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+ "announcement_type": "Venda",
+"title": "Ferrari",
+"year": "2023",
+"mileage": 1000,
+"price": 200000,
+"description": "Ferrari vermelha",
+"vehicle_type": "Moto",
+"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+"photos": ["https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg", "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"]
 }
 ```
 
@@ -307,28 +336,27 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
- {
 	"announcement_type": "Venda",
-	"title": "Honda",
-  "year": "2023",
-  "mileage": 200,
-  "price": 100000,
-  "description": "Carro do Kenzinho",
-  "vehicle_type": "Carro",
+	"title": "Ferrari",
+	"year": "2023",
+	"mileage": 1000,
+	"price": 200000,
+	"description": "Ferrari vermelha",
+	"vehicle_type": "Moto",
 	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
 	"user": {
-	"id": "352fb281-b038-4973-a2f1-e18e9e690d8b",
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "cpf": "12345678911",
-  "phone": "55345678912312",
-  "birth_date": "01/01/2000",
-  "description": "Descrição do Kenzinho",
-  "account": "Anunciante",
-  "createdAt": "2023-02-25T21:50:09.131Z",
-  "updatedAt": "2023-02-25T21:50:09.131Z"
+		"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+		"name": "Kenzinho editado",
+		"email": "kenzinho@gmail.com.br",
+		"cpf": "12345678911",
+		"phone": "55999345766",
+		"birth_date": "25/05/1997",
+		"description": "Descrição do Kenzinho",
+		"account": "Anunciante",
+		"createdAt": "2023-02-27T15:36:15.275Z",
+		"updatedAt": "2023-02-27T15:51:51.985Z",
 		"address": {
-			"id": "f0e9ed5e-1fc9-4634-a883-f986c926028e",
+			"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
 			"cep": "11101999",
 			"state": "ES",
 			"city": "Vitória",
@@ -337,10 +365,10 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 			"complement": "apt.101"
 		}
 	},
-	"id": "ce0d68c8-d6e3-4bfa-a04a-7ee414c173a3",
-	"createdAt": "2023-02-26T18:20:37.584Z",
-	"updatedAt": "2023-02-26T18:20:37.584Z"
-   }
+	"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+	"is_published": true,
+	"createdAt": "2023-02-27T17:03:36.876Z",
+	"updatedAt": "2023-02-27T17:03:36.876Z"
 }
 ```
 
@@ -352,70 +380,51 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 [
-  {
-    "id": "e7d6263d-24bd-4d95-a55e-e5e1402bc228",
-    "announcement_type": "Venda",
-    "title": "Honda",
-    "year": 2023,
-    "mileage": 200,
-    "price": 100000,
-    "description": "Carro do Kenzinho",
-    "vehicle_type": "Carro",
-    "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-    "createdAt": "2023-02-25T21:59:44.638Z",
-    "updatedAt": "2023-02-25T21:59:44.638Z",
-    "user": {
-      "id": "77495b9b-5595-40e9-b5ac-2c458875d73b",
-      "name": "Kenzinho",
-      "email": "kenzinho@gmail.com",
-      "cpf": "12345678911",
-      "phone": "+55999345766",
-      "birth_date": "25/05/2000",
-      "description": "Descrição do Kenzinho",
-      "cep": "11101999",
-      "state": "ES",
-      "city": "Vitória",
-      "street": "Rua da Lama",
-      "number": 1000,
-      "complement": "apt.101",
-      "account": "Anunciante",
-      "createdAt": "2023-02-25T21:50:09.131Z",
-      "updatedAt": "2023-02-25T21:50:09.131Z"
-    },
-    "photos": []
-  },
-  {
-    "id": "d88e7706-4f1f-4116-8865-f5c158ad77aa",
-    "announcement_type": "Venda",
-    "title": "Ferrari",
-    "year": 2023,
-    "mileage": 100,
-    "price": 10000000,
-    "description": "Ferrari vermelha",
-    "vehicle_type": "Carro",
-    "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-    "createdAt": "2023-02-22T21:28:37.116Z",
-    "updatedAt": "2023-02-22T21:28:37.116Z",
-    "user": {
-      "id": "38202530-afca-4dd7-b70b-517d2cde3569",
-      "name": "João",
-      "email": "joao@gmail.com",
-      "cpf": "12345678900",
-      "phone": "55345678912300",
-      "birth_date": "01/01/2000",
-      "description": "Descrição do João",
-      "cep": "11101900",
-      "state": "RJ",
-      "city": "Rio de Janeiro",
-      "street": "Av. Portugal",
-      "number": 480,
-      "complement": "apt.445",
-      "account": "Comprador",
-      "createdAt": "2023-02-22T21:22:15.336Z",
-      "updatedAt": "2023-02-22T21:22:15.336Z"
-    },
-    "photos": []
-  }
+	{
+		"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+		"announcement_type": "Venda",
+		"title": "Ferrari",
+		"year": 2023,
+		"mileage": 1000,
+		"price": 200000,
+		"description": "Ferrari vermelha",
+		"is_published": true,
+		"vehicle_type": "Moto",
+		"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+		"createdAt": "2023-02-27T17:03:36.876Z",
+		"updatedAt": "2023-02-27T17:03:36.876Z",
+		"user": {
+			"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+			"name": "Kenzinho editado",
+			"email": "kenzinho@gmail.com.br",
+			"cpf": "12345678911",
+			"phone": "55999345766",
+			"birth_date": "25/05/1997",
+			"description": "Descrição do Kenzinho",
+			"account": "Anunciante",
+			"createdAt": "2023-02-27T15:36:15.275Z",
+			"updatedAt": "2023-02-27T15:51:51.985Z",
+			"address": {
+				"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+				"cep": "11101999",
+				"state": "ES",
+				"city": "Vitória",
+				"street": "Rua da Lama",
+				"number": 1000,
+				"complement": "apt.101"
+			}
+		},
+		"photos": [
+			{
+				"id": "a220ef7d-51c2-44e5-888d-41545d3db622",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			},
+			{
+				"id": "6ed81deb-7cfd-4149-bc92-fb93b9d9e00b",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			}
+		]
+	}
 ]
 ```
 
@@ -424,40 +433,51 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 `GET -> /announcement/announcement_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de anúncio por id`
 
 ```json
-[
-  {
-    "id": "e7d6263d-24bd-4d95-a55e-e5e1402bc228",
-    "announcement_type": "Venda",
-    "title": "Honda",
-    "year": 2023,
-    "mileage": 200,
-    "price": 100000,
-    "description": "Carro do Kenzinho",
-    "vehicle_type": "Carro",
-    "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-    "createdAt": "2023-02-25T21:59:44.638Z",
-    "updatedAt": "2023-02-25T21:59:44.638Z",
-    "user": {
-      "id": "77495b9b-5595-40e9-b5ac-2c458875d73b",
-      "name": "Kenzinho",
-      "email": "kenzinho@gmail.com.br",
-      "cpf": "12345678911",
-      "phone": "+55999345766",
-      "birth_date": "25/05/2000",
-      "description": "Descrição do Kenzinho",
-      "cep": "11101999",
-      "state": "ES",
-      "city": "Vitória",
-      "street": "Rua da Lama",
-      "number": 1000,
-      "complement": "apt.101",
-      "account": "Anunciante",
-      "createdAt": "2023-02-25T21:50:09.131Z",
-      "updatedAt": "2023-02-25T21:50:09.131Z"
-    },
-    "photos": []
-  }
-]
+{
+	"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+	"announcement_type": "Venda",
+	"title": "Ferrari",
+	"year": 2023,
+	"mileage": 1000,
+	"price": 200000,
+	"description": "Ferrari vermelha",
+	"is_published": true,
+	"vehicle_type": "Moto",
+	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+	"createdAt": "2023-02-27T17:03:36.876Z",
+	"updatedAt": "2023-02-27T17:03:36.876Z",
+	"user": {
+		"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+		"name": "Kenzinho editado",
+		"email": "kenzinho@gmail.com.br",
+		"cpf": "12345678911",
+		"phone": "55999345766",
+		"birth_date": "25/05/1997",
+		"description": "Descrição do Kenzinho",
+		"account": "Anunciante",
+		"createdAt": "2023-02-27T15:36:15.275Z",
+		"updatedAt": "2023-02-27T15:51:51.985Z",
+		"address": {
+			"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+			"cep": "11101999",
+			"state": "ES",
+			"city": "Vitória",
+			"street": "Rua da Lama",
+			"number": 1000,
+			"complement": "apt.101"
+		}
+	},
+	"photos": [
+		{
+			"id": "a220ef7d-51c2-44e5-888d-41545d3db622",
+			"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+		},
+		{
+			"id": "6ed81deb-7cfd-4149-bc92-fb93b9d9e00b",
+			"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+		}
+	]
+}
 ```
 
 <br/>
@@ -465,40 +485,53 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 `GET -> /announcement/user/user_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os anúncios de um usuário`
 
 ```json
-{
-  "id": "77495b9b-5595-40e9-b5ac-2c458875d73b",
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com.br",
-  "cpf": "12345678911",
-  "phone": "+55999345766",
-  "birth_date": "25/05/2000",
-  "description": "Descrição do Kenzinho",
-  "cep": "11101999",
-  "state": "ES",
-  "city": "Vitória",
-  "street": "Rua da Lama",
-  "number": 1000,
-  "complement": "apt.101",
-  "account": "Anunciante",
-  "createdAt": "2023-02-25T21:50:09.131Z",
-  "updatedAt": "2023-02-25T21:50:09.131Z",
-  "announcements": [
-    {
-      "id": "e7d6263d-24bd-4d95-a55e-e5e1402bc228",
-      "announcement_type": "Venda",
-      "title": "Honda",
-      "year": 2023,
-      "mileage": 200,
-      "price": 100000,
-      "description": "Carro do Kenzinho",
-      "vehicle_type": "Carro",
-      "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-      "createdAt": "2023-02-25T21:59:44.638Z",
-      "updatedAt": "2023-02-25T21:59:44.638Z",
-      "photos": []
-    }
-  ]
-}
+[
+	{
+		"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+		"announcement_type": "Venda",
+		"title": "Ferrari",
+		"year": 2023,
+		"mileage": 1000,
+		"price": 200000,
+		"description": "Ferrari vermelha",
+		"is_published": true,
+		"vehicle_type": "Moto",
+		"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+		"createdAt": "2023-02-27T17:03:36.876Z",
+		"updatedAt": "2023-02-27T17:03:36.876Z",
+		"user": {
+			"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+			"name": "Kenzinho editado",
+			"email": "kenzinho@gmail.com.br",
+			"cpf": "12345678911",
+			"phone": "55999345766",
+			"birth_date": "25/05/1997",
+			"description": "Descrição do Kenzinho",
+			"account": "Anunciante",
+			"createdAt": "2023-02-27T15:36:15.275Z",
+			"updatedAt": "2023-02-27T15:51:51.985Z",
+			"address": {
+				"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+				"cep": "11101999",
+				"state": "ES",
+				"city": "Vitória",
+				"street": "Rua da Lama",
+				"number": 1000,
+				"complement": "apt.101"
+			}
+		},
+		"photos": [
+			{
+				"id": "a220ef7d-51c2-44e5-888d-41545d3db622",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			},
+			{
+				"id": "6ed81deb-7cfd-4149-bc92-fb93b9d9e00b",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			}
+		]
+	}
+]
 ```
 
 <br/>
@@ -509,9 +542,11 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "title": "Honda vermelho",
-  "mileage": 2939485,
-  "year": 1999
+ 	"title": "Fusca",
+	"mileage": 2939485,
+	"year": 1950,
+"description": "Fusca Verde",
+	"photos": ["https://media.gettyimages.com/id/654881300/pt/foto/green-volkswagen-beetle-or-bug.jpg?s=612x612&w=gi&k=20&c=J_PaMiREBHZbH2HKkiFUxCkzjajMG4lnkFyYYNZJJxI="]
 }
 ```
 
@@ -519,18 +554,19 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "id": "e7d6263d-24bd-4d95-a55e-e5e1402bc228",
-  "announcement_type": "Venda",
-  "title": "Honda vermelho",
-  "year": 1999,
-  "mileage": 2939485,
-  "price": 100000,
-  "description": "Carro do Kenzinho",
-  "vehicle_type": "Carro",
-  "cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-  "createdAt": "2023-02-25T21:59:44.638Z",
-  "updatedAt": "2023-02-25T22:13:38.732Z",
-  "photos": []
+  	"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+	"announcement_type": "Venda",
+	"title": "Fusca",
+	"year": 1950,
+	"mileage": 2939485,
+	"price": 200000,
+	"description": "Fusca Verde",
+	"is_published": true,
+	"vehicle_type": "Moto",
+	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+	"createdAt": "2023-02-27T17:03:36.876Z",
+	"updatedAt": "2023-02-27T17:09:45.274Z",
+	"photos": []
 }
 ```
 
