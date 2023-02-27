@@ -113,7 +113,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-	"name": "João",
+  "name": "João",
   "email": "joão@gmail.com",
   "password": "1234",
   "cpf": "12345678900",
@@ -136,7 +136,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
- "name": "João",
+ 	"name": "João",
 	"email": "joão@gmail.com",
 	"cpf": "12345678900",
 	"phone": "55345678912300",
@@ -185,24 +185,24 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-	"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
-	"name": "Kenzinho",
-	"email": "kenzinho@gmail.com.br",
-	"cpf": "12345678911",
-	"phone": "55999345766",
-	"birth_date": "25/05/2000",
-	"description": "Descrição do Kenzinho",
-	"account": "Anunciante",
-	"createdAt": "2023-02-27T15:36:15.275Z",
-	"updatedAt": "2023-02-27T15:36:15.275Z",
-	"address": {
-		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
-		"cep": "11101999",
-		"state": "ES",
-		"city": "Vitória",
-		"street": "Rua da Lama",
-		"number": 1000,
-		"complement": "apt.101"
+"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+"name": "Kenzinho",
+"email": "kenzinho@gmail.com.br",
+"cpf": "12345678911",
+"phone": "55999345766",
+"birth_date": "25/05/2000",
+"description": "Descrição do Kenzinho",
+"account": "Anunciante",
+"createdAt": "2023-02-27T15:36:15.275Z",
+"updatedAt": "2023-02-27T15:36:15.275Z",
+"address": {
+	"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+	"cep": "11101999",
+	"state": "ES",
+	"city": "Vitória",
+	"street": "Rua da Lama",
+	"number": 1000,
+	"complement": "apt.101"
 	}
 }
 ```
@@ -216,21 +216,21 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```json
 {
 "id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
-	"name": "Kenzinho",
-	"email": "kenzinho@gmail.com.br",
-	"cpf": "12345678911",
-	"phone": "55999345766",
-	"birth_date": "25/05/2000",
-	"description": "Descrição do Kenzinho",
-	"account": "Anunciante",
-	"createdAt": "2023-02-27T15:36:15.275Z",
-	"updatedAt": "2023-02-27T15:36:15.275Z",
-	"address": {
-		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
-		"cep": "11101999",
-		"state": "ES",
-		"city": "Vitória",
-		"street": "Rua da Lama",
+"name": "Kenzinho",
+"email": "kenzinho@gmail.com.br",
+"cpf": "12345678911",
+"phone": "55999345766",
+"birth_date": "25/05/2000",
+"description": "Descrição do Kenzinho",
+"account": "Anunciante",
+"createdAt": "2023-02-27T15:36:15.275Z",
+"updatedAt": "2023-02-27T15:36:15.275Z",
+"address": {
+	"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+	"cep": "11101999",
+	"state": "ES",
+	"city": "Vitória",
+	"street": "Rua da Lama",
 		"number": 1000,
 		"complement": "apt.101"
 	}
@@ -255,23 +255,23 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```json
 {
   "id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
-	"name": "Kenzinho editado",
-	"email": "kenzinho@gmail.com.br",
-	"cpf": "12345678911",
-	"phone": "55999345766",
-	"birth_date": "25/05/1997",
-	"description": "Descrição do Kenzinho",
-	"account": "Anunciante",
-	"createdAt": "2023-02-27T15:36:15.275Z",
-	"updatedAt": "2023-02-27T15:51:51.985Z",
-	"address": {
-		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
-		"cep": "11101999",
-		"state": "ES",
-		"city": "Vitória",
-		"street": "Rua da Lama",
-		"number": 1000,
-		"complement": "apt.101"
+"name": "Kenzinho editado",
+"email": "kenzinho@gmail.com.br",
+"cpf": "12345678911",
+"phone": "55999345766",
+"birth_date": "25/05/1997",
+"description": "Descrição do Kenzinho",
+"account": "Anunciante",
+"createdAt": "2023-02-27T15:36:15.275Z",
+"updatedAt": "2023-02-27T15:51:51.985Z",
+"address": {
+	"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+	"cep": "11101999",
+	"state": "ES",
+	"city": "Vitória",
+	"street": "Rua da Lama",
+	"number": 1000,
+	"complement": "apt.101"
 	}
 }
 ```
@@ -336,39 +336,39 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-	"announcement_type": "Venda",
-	"title": "Ferrari",
-	"year": "2023",
-	"mileage": 1000,
-	"price": 200000,
-	"description": "Ferrari vermelha",
-	"vehicle_type": "Moto",
-	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-	"user": {
-		"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
-		"name": "Kenzinho editado",
-		"email": "kenzinho@gmail.com.br",
-		"cpf": "12345678911",
-		"phone": "55999345766",
-		"birth_date": "25/05/1997",
-		"description": "Descrição do Kenzinho",
-		"account": "Anunciante",
-		"createdAt": "2023-02-27T15:36:15.275Z",
-		"updatedAt": "2023-02-27T15:51:51.985Z",
-		"address": {
-			"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
-			"cep": "11101999",
-			"state": "ES",
-			"city": "Vitória",
-			"street": "Rua da Lama",
-			"number": 1000,
-			"complement": "apt.101"
+"announcement_type": "Venda",
+"title": "Ferrari",
+"year": "2023",
+"mileage": 1000,
+"price": 200000,
+"description": "Ferrari vermelha",
+"vehicle_type": "Moto",
+"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+"user": {
+	"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+	"name": "Kenzinho editado",
+	"email": "kenzinho@gmail.com.br",
+	"cpf": "12345678911",
+	"phone": "55999345766",
+	"birth_date": "25/05/1997",
+	"description": "Descrição do Kenzinho",
+	"account": "Anunciante",
+	"createdAt": "2023-02-27T15:36:15.275Z",
+	"updatedAt": "2023-02-27T15:51:51.985Z",
+	"address": {
+		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+		"cep": "11101999",
+		"state": "ES",
+		"city": "Vitória",
+		"street": "Rua da Lama",
+		"number": 1000,
+		"complement": "apt.101"
 		}
 	},
-	"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
-	"is_published": true,
-	"createdAt": "2023-02-27T17:03:36.876Z",
-	"updatedAt": "2023-02-27T17:03:36.876Z"
+"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+"is_published": true,
+"createdAt": "2023-02-27T17:03:36.876Z",
+"updatedAt": "2023-02-27T17:03:36.876Z"
 }
 ```
 
