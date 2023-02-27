@@ -1,8 +1,8 @@
 import React from "react";
 
-import NavBar from "../../components/navBar";
+import NavBar from "../../components/NavBar";
 import Button from "../../components/Button";
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer";
 import AllUsersProductList from "../../components/AllUsersProductList";
 
 import { Buttons, Container } from "./styles";

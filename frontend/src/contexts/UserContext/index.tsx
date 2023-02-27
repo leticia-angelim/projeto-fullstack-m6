@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { IAddress } from "../../interfaces/address";
 import {
   IUser,
   IUserContext,
@@ -14,6 +15,8 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [registerModal, setRegisterModal] = useState(false);
+  const [modalAddress, setModalAddress] = useState(false);
 
   const navigate = useNavigate();
 
@@ -22,7 +25,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .post<IUser>("/users", data)
       .then((res) => {
         console.log(res);
-        navigate("/login", { replace: true });
+        setRegisterModal(true);
       })
       .catch((err) => {
         console.log(err);
@@ -59,6 +62,18 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     });
   };
 
+  const editAddress = async (data: IAddress) => {
+    await api
+      .patch(`/address/${user?.address.id}`, data)
+      .then((res) => {
+        console.log(res);
+        setModalAddress(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const loadUser = () => {
       const token = localStorage.getItem("@user:token");
@@ -82,6 +97,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       value={{
         registerUser,
         loginUser,
+        registerModal,
+        setRegisterModal,
+        editAddress,
+        modalAddress,
+        setModalAddress,
         user,
         setUser,
       }}

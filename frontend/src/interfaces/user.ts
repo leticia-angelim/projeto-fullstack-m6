@@ -1,8 +1,14 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
+import { IAddress } from "./address";
 
 export interface IUserContext {
   registerUser: (data: IUserRequest) => Promise<void>;
   loginUser: (data: IUserLogin) => Promise<void>;
+  registerModal: boolean;
+  setRegisterModal: Dispatch<SetStateAction<boolean>>;
+  editAddress: (data: IAddress) => Promise<void>;
+  modalAddress: boolean;
+  setModalAddress: Dispatch<SetStateAction<boolean>>;
   user: IUser | null;
   setUser: Dispatch<SetStateAction<IUser | null>>;
 }
@@ -34,6 +40,7 @@ export interface IUser extends IUserRequest {
   id: string;
   createdAt: Date;
   updatedAt: Date;
+  address: IAddress;
 }
 
 export interface IUserLoginResponse {

@@ -6,9 +6,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext";
 import { loginSchema } from "../../schemas/user";
 
-import { Footer } from "../../components/footer";
+import { Footer } from "../../components/Footer";
 import Button from "../../components/Button";
-import NavBar from "../../components/navBar";
+import NavBar from "../../components/NavBar";
 import Input from "../../components/Input";
 
 import { FormHelperText } from "@mui/material";

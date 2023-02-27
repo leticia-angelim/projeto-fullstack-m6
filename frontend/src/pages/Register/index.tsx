@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../contexts/UserContext";
 import { userSchema } from "../../schemas/user";
 
-import { Footer } from "../../components/footer";
-import NavBar from "../../components/navBar";
+import { Footer } from "../../components/Footer";
+import NavBar from "../../components/NavBar";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 
@@ -16,6 +16,7 @@ import {
 } from "../../components/EditAnnouncementModal/styles";
 import { FormHelperText } from "@mui/material";
 import { Container } from "./styles";
+import ModalSuccessRegister from "../../components/ModalSuccessRegister";
 
 const Register = () => {
   const { registerUser } = useContext(UserContext);
@@ -31,8 +32,6 @@ const Register = () => {
   });
 
   const onSubmitFunction = (data: any) => {
-    data.account = account;
-
     const address = {
       cep: data.cep,
       state: data.state,
@@ -42,6 +41,7 @@ const Register = () => {
       complement: data.complement,
     };
 
+    data.account = account;
     data.address = address;
 
     registerUser(data);
@@ -250,6 +250,7 @@ const Register = () => {
           </form>
         </div>
       </Container>
+      <ModalSuccessRegister />
       <Footer />
     </>
   );
