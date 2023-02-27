@@ -10,6 +10,7 @@ export interface IUserContext {
   modalAddress: boolean;
   setModalAddress: Dispatch<SetStateAction<boolean>>;
   user: IUser | null;
+  setUser: Dispatch<SetStateAction<IUser | null>>;
 }
 
 export interface IUserProviderProps {
