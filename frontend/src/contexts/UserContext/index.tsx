@@ -50,35 +50,40 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   };
 
   const getUserProfile = async () => {
-    const { data } = await api.get<IUser>("/users/profile");
-    setUser(data);
+    await api.get<IUser>("/users/profile").then((res) => {
+      setUser(res.data);
 
-    localStorage.setItem("@user:id", data.id);
+      localStorage.setItem("@user:id", res.data.id);
+
+      console.log(res);
+    });
   };
 
-  // useEffect(() => {
-  //   const loadUser = async () => {
-  //     const token = localStorage.getItem("@user:token");
+  useEffect(() => {
+    const loadUser = () => {
+      const token = localStorage.getItem("@user:token");
 
-  //     if (token) {
-  //       try {
-  //         api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      if (token) {
+        try {
+          api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-  //         getUserProfile();
-  //       } catch {
-  //         localStorage.clear();
-  //       }
-  //     }
-  //   };
+          getUserProfile();
+        } catch {
+          localStorage.clear();
+        }
+      }
+    };
 
-  //   loadUser();
-  // }, []);
+    loadUser();
+  }, []);
 
   return (
     <UserContext.Provider
       value={{
         registerUser,
         loginUser,
+        user,
+        setUser,
       }}
     >
       {children}

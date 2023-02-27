@@ -6,14 +6,44 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, MenuDropdownSt } from "./styles";
 import Button from "../Button";
+import Dropdown from "../Dropdown";
 
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleNavLinks = () => setIsOpen(!isOpen);
 
   const history = useNavigate();
+  const token = localStorage.getItem("@user:token");
 
-  return (
+  return token ? (
+    <Container>
+      <MenuDropdownSt>
+        <img src={logo} alt="Motors Shop" />
+        {isOpen ? (
+          <img src={xmark} onClick={handleNavLinks} />
+        ) : (
+          <img src={bars} onClick={handleNavLinks} />
+        )}
+
+        <nav className={`${isOpen ? "open" : "close"}`}>
+          <ul>
+            <li>
+              <a href="#carros">Carros</a>
+            </li>
+            <li>
+              <a href="#motos">Motos</a>
+            </li>
+            <li>
+              <a href="#leilao">Leilão</a>
+            </li>
+            <li>
+              <Dropdown />
+            </li>
+          </ul>
+        </nav>
+      </MenuDropdownSt>
+    </Container>
+  ) : (
     <Container>
       <MenuDropdownSt>
         <img src={logo} alt="Motors Shop" />
