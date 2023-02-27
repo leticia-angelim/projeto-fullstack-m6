@@ -70,7 +70,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
   "birth_date": "25/05/2000",
   "description": "Descrição do Kenzinho",
   "account": "Anunciante",
-  address{
+  address: {
   "cep": "11101999",
   "state": "ES",
   "city": "Vitória",
