@@ -70,12 +70,14 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
   "birth_date": "25/05/2000",
   "description": "Descrição do Kenzinho",
   "account": "Anunciante",
+  address{
   "cep": "11101999",
   "state": "ES",
   "city": "Vitória",
   "street": "Rua da Lama",
   "number": 1000,
   "complement": "apt.101"
+  }
 }
 ```
 
@@ -247,7 +249,40 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  //  verificar formato da resposta
+ {
+	"announcement_type": "Venda",
+	"title": "Honda",
+  "year": "2023",
+  "mileage": 200,
+  "price": 100000,
+  "description": "Carro do Kenzinho",
+  "vehicle_type": "Carro",
+	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+	"user": {
+	"id": "352fb281-b038-4973-a2f1-e18e9e690d8b",
+  "name": "Kenzinho",
+  "email": "kenzinho@gmail.com",
+  "cpf": "12345678911",
+  "phone": "55345678912312",
+  "birth_date": "01/01/2000",
+  "description": "Descrição do Kenzinho",
+  "account": "Anunciante",
+  "createdAt": "2023-02-25T21:50:09.131Z",
+  "updatedAt": "2023-02-25T21:50:09.131Z"
+		"address": {
+			"id": "f0e9ed5e-1fc9-4634-a883-f986c926028e",
+			"cep": "11101999",
+			"state": "ES",
+			"city": "Vitória",
+			"street": "Rua da Lama",
+			"number": 1000,
+			"complement": "apt.101"
+		}
+	},
+	"id": "ce0d68c8-d6e3-4bfa-a04a-7ee414c173a3",
+	"createdAt": "2023-02-26T18:20:37.584Z",
+	"updatedAt": "2023-02-26T18:20:37.584Z"
+   }
 }
 ```
 
