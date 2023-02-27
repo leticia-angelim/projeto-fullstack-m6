@@ -62,11 +62,11 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "name": "Kenzinho",
+ "name": "Kenzinho",
   "email": "kenzinho@gmail.com.br",
   "password": "1234",
   "cpf": "12345678911",
-  "phone": "+55999345766",
+  "phone": "55999345766",
   "birth_date": "25/05/2000",
   "description": "Descrição do Kenzinho",
   "account": "Anunciante",
@@ -85,22 +85,25 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "cpf": "12345678911",
-  "phone": "+55999345766",
-  "birth_date": "25/05/2000",
-  "description": "Descrição do Kenzinho",
-  "cep": "11101999",
-  "state": "ES",
-  "city": "Vitória",
-  "street": "Rua da Lama",
-  "number": 1000,
-  "complement": "apt.101",
-  "account": "Anunciante",
-  "id": "77495b9b-5595-40e9-b5ac-2c458875d73b",
-  "createdAt": "2023-02-25T21:50:09.131Z",
-  "updatedAt": "2023-02-25T21:50:09.131Z"
+ "name": "Kenzinho",
+	"email": "kenzinho@gmail.com.br",
+	"cpf": "12345678911",
+	"phone": "55999345766",
+	"birth_date": "25/05/2000",
+	"description": "Descrição do Kenzinho",
+	"account": "Anunciante",
+	"address": {
+		"cep": "11101999",
+		"state": "ES",
+		"city": "Vitória",
+		"street": "Rua da Lama",
+		"number": 1000,
+		"complement": "apt.101",
+		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680"
+	},
+	"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+	"createdAt": "2023-02-27T15:36:15.275Z",
+	"updatedAt": "2023-02-27T15:36:15.275Z"
 }
 ```
 
@@ -110,20 +113,22 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "name": "João",
-  "email": "João@gmail.com",
+	"name": "João",
+  "email": "joão@gmail.com",
   "password": "1234",
   "cpf": "12345678900",
   "phone": "55345678912300",
   "birth_date": "01/01/2000",
   "description": "Descrição do João",
-  "cep": "11101900",
+	"address": {
+	 "cep": "11101900",
   "state": "RJ",
   "city": "Rio de Janeiro",
   "street": "Av. Portugal",
   "number": 480,
-  "complement": "apt.445",
-  "account": "Comprador"
+  "complement": "apt.445"
+	},
+	"account": "Comprador"
 }
 ```
 
@@ -131,22 +136,25 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "cpf": "12345678900",
-  "phone": "55345678912300",
-  "birth_date": "01/01/2000",
-  "description": "Descrição do Kenzinho",
-  "cep": "11101900",
-  "state": "ES",
-  "city": "Vitória",
-  "street": "Rua da Lama",
-  "number": 229,
-  "complement": "apt.1801",
-  "account": "Comprador",
-  "id": "8b8a9af4-8031-42bc-bacb-ee9cc1c64342",
-  "createdAt": "2023-02-24T18:09:04.003Z",
-  "updatedAt": "2023-02-24T18:09:04.003Z"
+ "name": "João",
+	"email": "joão@gmail.com",
+	"cpf": "12345678900",
+	"phone": "55345678912300",
+	"birth_date": "01/01/2000",
+	"description": "Descrição do João",
+	"account": "Comprador",
+	"address": {
+		"cep": "11101900",
+		"state": "RJ",
+		"city": "Rio de Janeiro",
+		"street": "Av. Portugal",
+		"number": 480,
+		"complement": "apt.445",
+		"id": "228a7642-75a1-48e3-b310-e19bc5fc017e"
+	},
+	"id": "3e0a1cf0-1d25-4f0b-a115-3ba8102a1b97",
+	"createdAt": "2023-02-27T15:45:24.517Z",
+	"updatedAt": "2023-02-27T15:45:24.517Z"
 }
 ```
 
@@ -156,8 +164,8 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "email": "kenzinho@gmail.com",
-  "password": "1234"
+ "email": "kenzinho@gmail.com.br",
+ "password": "1234"
 }
 ```
 
@@ -165,7 +173,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnppbmhvQGdtYWlsLmNvbSIsImlhdCI6MTY3NzM2MTkyMiwiZXhwIjoxNjc3NDQ4MzIyLCJzdWIiOiIzNTJmYjI4MS1iMDM4LTQ5NzMtYTJmMS1lMThlOWU2OTBkOGIifQ.-Xaa8fCTebxff3xFovgU88hKP8mo0cwZdD_Vz5ubLks"
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtlbnppbmhvQGdtYWlsLmNvbS5iciIsImlhdCI6MTY3NzUxMjQwMSwiZXhwIjoxNjc3NTk4ODAxLCJzdWIiOiJjNTYxMjk2ZC02NDYxLTQ2YjUtYTJkMi1hN2E2ZDMwNjJiMjIifQ.7dyqiwM3i9I2lJIhQMhMp08TZKiCA5oqouEDNxBSTkQ"
 }
 ```
 
@@ -177,22 +185,25 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "id": "352fb281-b038-4973-a2f1-e18e9e690d8b",
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "cpf": "12345678911",
-  "phone": "55345678912312",
-  "birth_date": "01/01/2000",
-  "description": "Descrição do Kenzinho",
-  "cep": "11101999",
-  "state": "ES",
-  "city": "Vitória",
-  "street": "Rua da Lama",
-  "number": 1000,
-  "complement": "apt.101",
-  "account": "Comprador",
-  "createdAt": "2023-02-25T03:29:56.128Z",
-  "updatedAt": "2023-02-25T03:48:39.280Z"
+	"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+	"name": "Kenzinho",
+	"email": "kenzinho@gmail.com.br",
+	"cpf": "12345678911",
+	"phone": "55999345766",
+	"birth_date": "25/05/2000",
+	"description": "Descrição do Kenzinho",
+	"account": "Anunciante",
+	"createdAt": "2023-02-27T15:36:15.275Z",
+	"updatedAt": "2023-02-27T15:36:15.275Z",
+	"address": {
+		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+		"cep": "11101999",
+		"state": "ES",
+		"city": "Vitória",
+		"street": "Rua da Lama",
+		"number": 1000,
+		"complement": "apt.101"
+	}
 }
 ```
 
@@ -204,26 +215,73 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-  "id": "77495b9b-5595-40e9-b5ac-2c458875d73b",
-  "name": "Kenzinho",
-  "email": "kenzinho@gmail.com",
-  "cpf": "12345678911",
-  "phone": "+55999345766",
-  "birth_date": "25/05/2000",
-  "description": "Descrição do Kenzinho",
-  "cep": "11101999",
-  "state": "ES",
-  "city": "Vitória",
-  "street": "Rua da Lama",
-  "number": 1000,
-  "complement": "apt.101",
-  "account": "Anunciante",
-  "createdAt": "2023-02-25T21:50:09.131Z",
-  "updatedAt": "2023-02-25T21:50:09.131Z"
+"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+	"name": "Kenzinho",
+	"email": "kenzinho@gmail.com.br",
+	"cpf": "12345678911",
+	"phone": "55999345766",
+	"birth_date": "25/05/2000",
+	"description": "Descrição do Kenzinho",
+	"account": "Anunciante",
+	"createdAt": "2023-02-27T15:36:15.275Z",
+	"updatedAt": "2023-02-27T15:36:15.275Z",
+	"address": {
+		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+		"cep": "11101999",
+		"state": "ES",
+		"city": "Vitória",
+		"street": "Rua da Lama",
+		"number": 1000,
+		"complement": "apt.101"
+	}
 }
 ```
 
 <br/>
+
+`PATCH -> /users - FORMATO DA REQUISIÇÃO - Edição de usuário`
+
+**\*Autenticação necessária**
+
+```json
+{
+"name": "Kenzinho editado",
+"birth_date": "25/05/1997"
+}
+```
+
+`FORMATO DA RESPOSTA - STATUS 200 - OK`
+
+```json
+{
+  "id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
+	"name": "Kenzinho editado",
+	"email": "kenzinho@gmail.com.br",
+	"cpf": "12345678911",
+	"phone": "55999345766",
+	"birth_date": "25/05/1997",
+	"description": "Descrição do Kenzinho",
+	"account": "Anunciante",
+	"createdAt": "2023-02-27T15:36:15.275Z",
+	"updatedAt": "2023-02-27T15:51:51.985Z",
+	"address": {
+		"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+		"cep": "11101999",
+		"state": "ES",
+		"city": "Vitória",
+		"street": "Rua da Lama",
+		"number": 1000,
+		"complement": "apt.101"
+	}
+}
+```
+
+<br/>
+
+`DELETE -> /users - FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT - deleção de usuário`
+
+**\*Autenticação necessária**
+
 
 ### Endpoints de anúncio
 
