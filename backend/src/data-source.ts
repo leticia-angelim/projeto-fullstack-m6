@@ -3,7 +3,8 @@ import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { Announcement } from "./entities/announcement.entity";
 import { Photo } from "./entities/photo.entity";
-import { createEntities1677337343000 } from "./migrations/1677337343000-createEntities";
+import { Address } from "./entities/address.entity";
+import { createEntities1677510502337 } from "./migrations/1677510502337-createEntities";
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -14,8 +15,8 @@ const AppDataSource = new DataSource({
   database: process.env.POSTGRES_DB,
   synchronize: false,
   logging: true,
-  entities: [User, Announcement, Photo],
-  migrations: [createEntities1677337343000],
+  entities: [User, Announcement, Photo, Address],
+  migrations: [createEntities1677510502337],
 });
 
 AppDataSource.initialize()
