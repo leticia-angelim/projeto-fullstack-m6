@@ -3,8 +3,7 @@ import EditAddressModal from "../../components/EditAddressModal";
 import { UserContext } from "../../contexts/UserContext";
 
 const ProfileUser = () => {
-  const { modalAddress, setModalAddress, editAddress } =
-    useContext(UserContext);
+  const { setModalAddress } = useContext(UserContext);
   return (
     <>
       <button onClick={() => setModalAddress(true)}>Profile user</button>;
