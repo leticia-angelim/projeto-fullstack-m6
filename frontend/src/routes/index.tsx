@@ -11,7 +11,7 @@ import ProfileAdmin from "../pages/ProfileAdmin";
 const MyRoutes = () => {
   return (
     <Routes>
-      <Route path="*" element={<Navigate replace to={"/login"} />} />
+      <Route path="*" element={<Navigate replace to={"/home"} />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />

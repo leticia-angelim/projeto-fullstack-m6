@@ -7,9 +7,9 @@ const createAnnouncementController = async (req: Request, res: Response) => {
   const { id } = req.user;
   const data: IAnnouncement = req.body;
 
-  const annoucement = await createAnnouncementService(id, data);
+  const announcement = await createAnnouncementService(id, data);
 
-  return res.status(201).json(instanceToPlain(annoucement));
+  return res.status(201).json(instanceToPlain(announcement));
 };
 
 export default createAnnouncementController;

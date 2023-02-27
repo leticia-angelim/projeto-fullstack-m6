@@ -16,7 +16,7 @@ import {
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
 import car from "../../assets/car1.svg";
-import nameAbbreviate from "../../util";
+import nameAbbreviate from "../../util/nameAbbreviate";
 
 const ProductDetail = () => {
   const { userAnnouncements } = useContext(AnnouncementContext);

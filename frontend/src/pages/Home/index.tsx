@@ -3,7 +3,7 @@ import React from "react";
 import NavBar from "../../components/navBar";
 import Button from "../../components/Button";
 import { Footer } from "../../components/footer";
-import { ProductList } from "../../components/ProductList";
+import AllUsersProductList from "../../components/AllUsersProductList";
 
 import { Buttons, Container } from "./styles";
 
@@ -38,7 +38,7 @@ const Home = () => {
             </a>
           </Buttons>
         </div>
-        <ProductList />
+        <AllUsersProductList />
       </Container>
       <Footer />
     </>
