@@ -7,7 +7,7 @@ import logo from "../../assets/logo.svg";
 import { Nav } from "./style";
 import { DivPersonalizada1 } from "./style";
 import { DivPersonalizada2 } from "./style";
-import MenuDropdown from "../MenuDropdown";
+import MobileMenu from "../MobileMenu";
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ export const NavBar = () => {
           </DivPersonalizada2>
         </div>
       </Nav>
-      <MenuDropdown />
+      <MobileMenu />
     </>
   );
 };

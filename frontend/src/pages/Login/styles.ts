@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  padding-top: 4rem;
-  padding-bottom: 6rem;
+  padding-top: 7rem;
+  padding-bottom: 4rem;
   background: var(--color-grey8);
 
   .box {

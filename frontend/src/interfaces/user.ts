@@ -16,15 +16,16 @@ export interface IUserRequest {
   phone: string;
   birth_date: string;
   description: string;
-  cep: string;
-  state: string;
-  city: string;
-  street: string;
-  number: number;
-  complement: string;
+  address: {
+    cep: string;
+    state: string;
+    city: string;
+    street: string;
+    number: number;
+    complement: string;
+  };
   account: string;
   password: string;
-  confirm_password: string;
 }
 
 export interface IUser extends IUserRequest {

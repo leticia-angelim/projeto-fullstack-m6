@@ -17,7 +17,7 @@ import {
 } from "./styles";
 import createAnnouncementSchema from "../../schemas/createAnnouncement";
 
-const CreateAnnouncementeModal = () => {
+const CreateAnnouncementModal = () => {
   const { registerAnnouncement, addAdModal, setAddAdModal } =
     useContext(AnnouncementContext);
 
@@ -291,4 +291,4 @@ const CreateAnnouncementeModal = () => {
   );
 };
 
-export default CreateAnnouncementeModal;
+export default CreateAnnouncementModal;
