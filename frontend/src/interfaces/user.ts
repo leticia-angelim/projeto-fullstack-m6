@@ -12,6 +12,8 @@ export interface IUserContext {
   setAddressModal: Dispatch<SetStateAction<boolean>>;
   user: IUser | null;
   setUser: Dispatch<SetStateAction<IUser | null>>;
+  selectedUser: IUser | undefined;
+  SetSelectedUser: Dispatch<SetStateAction<IUser | undefined>>;
   setEditUserModal: Dispatch<SetStateAction<boolean>>;
   editUserModal: boolean;
 }
