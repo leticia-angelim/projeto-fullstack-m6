@@ -12,7 +12,7 @@ import { ProductContainer, ProductDetails } from "../ProductCard/styles";
 import { ProductButtons } from "./styles";
 
 export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
-  const { setEditModal } = useContext(AnnouncementContext);
+  const { setEditModal, setAnnouncementId } = useContext(AnnouncementContext);
 
   return (
     <>
@@ -50,7 +50,10 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
             fontColorHover={"#ffffff"}
             fontColor={"#212529"}
             border={"1.5px solid #212529"}
-            onClick={() => setEditModal(true)}
+            onClick={() => {
+              setAnnouncementId(announcement.id);
+              setEditModal(true);
+            }}
           />
           <Button
             children={"Ver como"}

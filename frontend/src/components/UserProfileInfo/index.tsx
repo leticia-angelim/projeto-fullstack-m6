@@ -7,28 +7,26 @@ import CreateAnnouncementModal from "../CreateAnnouncement";
 import EditAnnouncementModal from "../EditAnnouncementModal";
 import DeleteAnnouncementModal from "../DeleteAnnouncementModal";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+import { UserContext } from "../../contexts/UserContext";
+import nameAbbreviate from "../../util/nameAbbreviate";
 
 export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);
+  const { user } = useContext(UserContext);
 
   return (
     <>
       <UserInfo>
         <div className="name_div">
-          <p className="name_abbreviate">SL</p>
+          <p className="name_abbreviate">{nameAbbreviate(user!.name)}</p>
         </div>
         <div className="username_div">
-          <p className="username">Samuel Leão</p>
+          <p className="username">{user!.name}</p>
           <div className="span_div">
-            <span className="account">Anunciante</span>
+            <span className="account">{user!.account}</span>
           </div>
         </div>
-        <p className="user_description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci
-          excepturi ratione! Enim iusto, ipsam, commodi distinctio provident
-          quidem tempora sint praesentium, veniam voluptatem consectetur ratione
-          quas cum at iste.
-        </p>
+        <p className="user_description">{user!.description}</p>
 
         <Button
           children="Criar anúncio"
