@@ -9,7 +9,8 @@ import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 const Dropdown = () => {
-  const { user, setUser, setEditUserModal } = useContext(UserContext);
+  const { user, setUser, setEditUserModal, setAddressModal } =
+    useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -58,9 +59,7 @@ const Dropdown = () => {
         <MenuItem onClick={() => setEditUserModal(true)}>
           Editar perfil
         </MenuItem>
-        <MenuItem
-        // onClick={() => setEditAddressModal(true)}
-        >
+        <MenuItem onClick={() => setAddressModal(true)}>
           Editar endereço
         </MenuItem>
         <MenuItem>Minhas compras</MenuItem>

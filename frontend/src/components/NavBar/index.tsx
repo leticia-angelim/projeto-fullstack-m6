@@ -9,11 +9,12 @@ import Dropdown from "../Dropdown";
 import { DivNavBar, DivNavBarUser, Nav } from "./styles";
 import { UserContext } from "../../contexts/UserContext";
 import { EditUserProfileModal } from "../EditUserProfileModal";
+import EditAddressModal from "../EditAddressModal";
 
 export const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("@user:token");
-  const { editUserModal } = useContext(UserContext);
+  const { editUserModal, modalAddress } = useContext(UserContext);
 
   return token ? (
     <>
@@ -29,6 +30,7 @@ export const NavBar = () => {
           </DivNavBar>
           <Dropdown />
           {editUserModal && <EditUserProfileModal />}
+          {modalAddress && <EditAddressModal />}
         </div>
       </Nav>
       <MobileMenu />

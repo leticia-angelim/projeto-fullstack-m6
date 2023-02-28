@@ -9,7 +9,7 @@ export interface IUserContext {
   editAddress: (data: IAddress) => Promise<void>;
   editUser: (data: IUserUpdate) => Promise<void>;
   modalAddress: boolean;
-  setModalAddress: Dispatch<SetStateAction<boolean>>;
+  setAddressModal: Dispatch<SetStateAction<boolean>>;
   user: IUser | null;
   setUser: Dispatch<SetStateAction<IUser | null>>;
   setEditUserModal: Dispatch<SetStateAction<boolean>>;

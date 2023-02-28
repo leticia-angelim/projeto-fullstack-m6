@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
-import EditAddressModal from "../../components/EditAddressModal";
-import { UserContext } from "../../contexts/UserContext";
+import React from "react";
 
 const ProfileUser = () => {
-  const { setModalAddress } = useContext(UserContext);
   return (
     <>
-      <button onClick={() => setModalAddress(true)}>Profile user</button>;
-      <EditAddressModal />
+      <h1>Profile User</h1>
     </>
   );
 };

@@ -16,8 +16,8 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [registerModal, setRegisterModal] = useState(false);
-  const [modalAddress, setModalAddress] = useState(false);
+  const [registerModal, setRegisterModal] = useState<boolean>(false);
+  const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .patch(`/address/${user?.address.id}`, data)
       .then((res) => {
         console.log(res);
-        setModalAddress(false);
+        setAddressModal(false);
       })
       .catch((err) => {
         console.log(err);
@@ -116,7 +116,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         editAddress,
         editUser,
         modalAddress,
-        setModalAddress,
+        setAddressModal,
         user,
         setUser,
         setEditUserModal,

@@ -2,7 +2,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../contexts/UserContext";
-import { IUserUpdate } from "../../interfaces/user";
 import { editUserSchema } from "../../schemas/editUser";
 import Button from "../Button";
 import {
@@ -21,19 +20,9 @@ export const EditUserProfileModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(editUserSchema),
-  });
+  } = useForm();
 
   const onSubmitFunction = (data: any) => {
-    // const data = {
-    //   name: "teste",
-    //   email: "teste@gmail.com",
-    //   cpf: "87988722234",
-    //   phone: "03068901060",
-    //   description: "descrição editada",
-    // };
-
     editUser(data);
   };
 
@@ -81,27 +70,33 @@ export const EditUserProfileModal = () => {
             />
             <DescriptionField>
               <label htmlFor="description">Descrição</label>
-              <textarea id="description" placeholder="Digitar descrição" />
+              <textarea
+                id="description"
+                placeholder="Digitar descrição"
+                {...register("description")}
+              />
             </DescriptionField>
 
-            <Button
-              children="Cancelar"
-              backgroundColor="#DEE2E6"
-              backgroundColorHover="#868E96"
-              fontColor="#495057"
-              fontColorHover="#FFFFFF"
-              onClick={() => setEditUserModal(false)}
-              type="button"
-            />
-            <Button
-              children="Salvar Alterações"
-              backgroundColor="#B0A6F0"
-              backgroundColorHover="#5126EA"
-              border="#B0A6F0"
-              fontColor="#0B0D0D"
-              fontColorHover="#FFFFFF"
-              type="submit"
-            />
+            <div>
+              <Button
+                children="Cancelar"
+                backgroundColor="#DEE2E6"
+                backgroundColorHover="#868E96"
+                fontColor="#495057"
+                fontColorHover="#FFFFFF"
+                onClick={() => setEditUserModal(false)}
+                type="button"
+              />
+              <Button
+                children="Salvar Alterações"
+                backgroundColor="#B0A6F0"
+                backgroundColorHover="#5126EA"
+                border="#B0A6F0"
+                fontColor="#0B0D0D"
+                fontColorHover="#FFFFFF"
+                type="submit"
+              />
+            </div>
           </CreateForm>
         </FormAnnouncement>
       </ModalContainer>
