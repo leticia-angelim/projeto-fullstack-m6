@@ -16,6 +16,9 @@ export interface IUserContext {
   setSelectedUser: Dispatch<SetStateAction<IUser | null>>;
   setEditUserModal: Dispatch<SetStateAction<boolean>>;
   editUserModal: boolean;
+  deleteUserModal: boolean;
+  setDeleteUserModal: Dispatch<SetStateAction<boolean>>;
+  deleteUser: () => Promise<void>;
 }
 
 export interface IUserProviderProps {

@@ -65,7 +65,6 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           />
         </ProductButtons>
       </ProductContainer>
-      <EditAnnouncementModal />
     </>
   );
 };

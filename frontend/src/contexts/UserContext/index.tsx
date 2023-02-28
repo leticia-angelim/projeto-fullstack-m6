@@ -20,6 +20,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const [registerModal, setRegisterModal] = useState<boolean>(false);
   const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
+  const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -55,6 +56,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       setUser(res.data);
 
       localStorage.setItem("@user:id", res.data.id);
+      localStorage.setItem("@user:name", res.data.name);
 
       if (res.data.account === "Anunciante") {
         navigate("/profileAdmin", { replace: true });
@@ -80,6 +82,20 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .patch<IUser>("/users", data)
       .then((res) => {
         setEditUserModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteUser = async () => {
+    await api
+      .delete<IUser>("/users")
+      .then((res) => {
+        setDeleteUserModal(false);
+        localStorage.clear();
+        setUser(null);
+        navigate("/home", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -121,6 +137,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setSelectedUser,
         setEditUserModal,
         editUserModal,
+        deleteUserModal,
+        setDeleteUserModal,
+        deleteUser,
       }}
     >
       {children}
