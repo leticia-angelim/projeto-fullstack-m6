@@ -20,6 +20,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const [registerModal, setRegisterModal] = useState<boolean>(false);
   const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
+  const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -86,6 +87,20 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       });
   };
 
+  const deleteUser = async () => {
+    await api
+      .delete<IUser>("/users")
+      .then((res) => {
+        setDeleteUserModal(false);
+        localStorage.clear();
+        setUser(null);
+        navigate("/home", { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const loadUser = () => {
       const token = localStorage.getItem("@user:token");
@@ -121,6 +136,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setSelectedUser,
         setEditUserModal,
         editUserModal,
+        deleteUserModal,
+        setDeleteUserModal,
+        deleteUser,
       }}
     >
       {children}

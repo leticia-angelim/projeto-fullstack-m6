@@ -10,6 +10,7 @@ import { DivNavBar, DivNavBarUser, Nav } from "./styles";
 import { UserContext } from "../../contexts/UserContext";
 import { EditUserProfileModal } from "../EditUserProfileModal";
 import EditAddressModal from "../EditAddressModal";
+import DeleteUserModal from "../DeleteUserModal";
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ export const NavBar = () => {
           <Dropdown />
           {editUserModal && <EditUserProfileModal />}
           {modalAddress && <EditAddressModal />}
+          <DeleteUserModal />
         </div>
       </Nav>
       <MobileMenu />

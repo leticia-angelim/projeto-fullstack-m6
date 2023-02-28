@@ -13,7 +13,7 @@ import { ProductCardAdmin } from "../ProductCardAdmin";
 import { UserContext } from "../../contexts/UserContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const { user } = useContext(UserContext);
+  const userId = localStorage.getItem("@user:id");
 
   return (
     <Container>
@@ -51,7 +51,7 @@ const Slider = ({ title, children }: ISliderProps) => {
         >
           {children.map((announcement, index) => (
             <SwiperSlide key={index}>
-              {user?.account === "Anunciante" ? (
+              {userId === announcement.user.id ? (
                 <ProductCardAdmin announcement={announcement} />
               ) : (
                 <ProductCard announcement={announcement} />
