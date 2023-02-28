@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../Button";
@@ -7,10 +7,13 @@ import logo from "../../assets/logo.svg";
 import MobileMenu from "../MobileMenu";
 import Dropdown from "../Dropdown";
 import { DivNavBar, DivNavBarUser, Nav } from "./styles";
+import { UserContext } from "../../contexts/UserContext";
+import { EditUserProfileModal } from "../EditUserProfileModal";
 
 export const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("@user:token");
+  const { editUserModal } = useContext(UserContext);
 
   return token ? (
     <>
@@ -25,6 +28,7 @@ export const NavBar = () => {
             <a href="#Leilão">Leilão</a>
           </DivNavBar>
           <Dropdown />
+          {editUserModal && <EditUserProfileModal />}
         </div>
       </Nav>
       <MobileMenu />
