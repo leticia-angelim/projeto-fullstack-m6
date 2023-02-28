@@ -9,6 +9,9 @@ export const ProductList = () => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
 
+  const auction = userAnnouncements.filter(
+    (announcement) => announcement.announcement_type == "Leilão"
+  );
   const cars = userAnnouncements.filter(
     (announcement) => announcement.vehicle_type == "Carro"
   );
@@ -22,7 +25,7 @@ export const ProductList = () => {
 
   return (
     <ProductListDiv className="products_div">
-      <Slider title="Leilão" children={userAnnouncements} />
+      <Slider title="Leilão" children={auction} />
       <Slider title="Carros" children={cars} />
       <Slider title="Motos" children={motorcycles} />
     </ProductListDiv>
