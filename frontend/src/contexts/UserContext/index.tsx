@@ -16,6 +16,7 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [registerModal, setRegisterModal] = useState<boolean>(false);
   const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
@@ -45,8 +46,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
 
-        navigate("/profileAdmin", { replace: true });
-
         console.log(data);
       })
       .catch((err) => {
@@ -59,6 +58,12 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       setUser(res.data);
 
       localStorage.setItem("@user:id", res.data.id);
+
+      if (res.data.account === "Anunciante") {
+        navigate("/profileAdmin", { replace: true });
+      } else {
+        navigate("/home", { replace: true });
+      }
 
       console.log(res);
     });
@@ -119,6 +124,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setAddressModal,
         user,
         setUser,
+        selectedUser,
+        setSelectedUser,
         setEditUserModal,
         editUserModal,
       }}

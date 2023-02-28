@@ -5,9 +5,11 @@ import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
-export const ProductList = () => {
+export const ProductList = (userId: string) => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
+
+  const loggedUserId = localStorage.getItem("@user:id");
 
   const cars = userAnnouncements.filter(
     (announcement) => announcement.vehicle_type == "Carro"
@@ -17,12 +19,17 @@ export const ProductList = () => {
   );
 
   useEffect(() => {
-    listUserAnnouncements("8e0a4dd6-439c-40e8-846a-914c4c5a63b4"); // Esse id deve ser obtido pelo userSelected?
+    listUserAnnouncements(userId);
   }, []);
 
-  return (
+  return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
       <Slider title="Leilão" children={userAnnouncements} />
+      <Slider title="Carros" children={cars} />
+      <Slider title="Motos" children={motorcycles} />
+    </ProductListDiv>
+  ) : (
+    <ProductListDiv className="products_div">
       <Slider title="Carros" children={cars} />
       <Slider title="Motos" children={motorcycles} />
     </ProductListDiv>

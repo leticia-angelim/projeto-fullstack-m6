@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
-import { IAnnouncement } from "../../interfaces/announcements";
 
 import { ThemeTitle } from "../../styles/typography";
+import { UserContext } from "../../contexts/UserContext";
+import { IProductCardProps } from "../../interfaces/produtCard";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 
-export const ProductCard = (announcement: IAnnouncement) => {
+export const ProductCard = ({ announcement }: IProductCardProps) => {
+  const { setSelectedUser, selectedUser, user } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
   return (
     <ProductContainer>
       <div className="product-img">
@@ -20,7 +26,13 @@ export const ProductCard = (announcement: IAnnouncement) => {
         <p>{announcement.description}</p>
       </div>
 
-      <ProductOwner>
+      <ProductOwner
+        onClick={() => {
+          setSelectedUser(announcement.user);
+
+          navigate("/profileUser", { replace: true });
+        }}
+      >
         <p
           className="owner-avatar"
           style={{ backgroundColor: stringToColor(announcement.user.name) }}
