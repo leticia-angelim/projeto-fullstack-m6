@@ -4,9 +4,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   padding-left: 1.5rem;
-  > #basic-button {
+
+  button {
     display: flex;
     gap: 8px;
+    margin: 1rem;
 
     font-family: "Inter";
     font-style: normal;
@@ -15,8 +17,10 @@ export const Container = styled.div`
     line-height: 28px;
     color: var(--color-grey2);
 
+    border-radius: 0;
+
     :hover {
-      background-color: red;
+      background: inherit;
     }
   }
 
