@@ -6,13 +6,15 @@ import { UserProfileInfo } from "../../components/UserProfileInfo";
 import { PageContainer } from "./styles";
 
 const ProfileAdmin = () => {
+  const userId = localStorage.getItem("@user:id");
+
   return (
     <>
       <NavBar />
       <PageContainer>
         <div className="blue_div"></div>
         <UserProfileInfo />
-        <ProductList />
+        {ProductList(userId!)}
       </PageContainer>
       <Footer />
     </>

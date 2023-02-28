@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import NavBar from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
+import { UserContext } from "../../contexts/UserContext";
 import { ProductList } from "../../components/ProductList";
 
-import { UserInfo } from "../../components/UserProfileInfo/styles";
 import { PageContainer } from "../ProfileAdmin/styles";
+import { UserInfo } from "../../components/UserProfileInfo/styles";
 
 const ProfileUser = () => {
+  const { selectedUser } = useContext(UserContext);
+
   return (
     <>
       <NavBar />
@@ -18,7 +21,7 @@ const ProfileUser = () => {
             <p className="name_abbreviate">SL</p>
           </div>
           <div className="username_div">
-            <p className="username">Samuel Leão</p>
+            <p className="username">{selectedUser?.name}</p>
             <div className="span_div">
               <span className="account">Anunciante</span>
             </div>
@@ -30,7 +33,7 @@ const ProfileUser = () => {
             ratione quas cum at iste.
           </p>
         </UserInfo>
-        <ProductList />
+        {ProductList(selectedUser!.id)}
       </PageContainer>
       <Footer />
     </>

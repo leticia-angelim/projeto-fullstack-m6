@@ -16,7 +16,7 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [selectedUser, SetSelectedUser] = useState<IUser>();
+  const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
   const [registerModal, setRegisterModal] = useState<boolean>(false);
   const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
@@ -125,7 +125,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         user,
         setUser,
         selectedUser,
-        SetSelectedUser,
+        setSelectedUser,
         setEditUserModal,
         editUserModal,
       }}

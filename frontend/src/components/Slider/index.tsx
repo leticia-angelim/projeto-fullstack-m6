@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,11 +9,8 @@ import "swiper/modules/free-mode/free-mode.min.css";
 import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { ISliderProps } from "../../interfaces/slider";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const { setAnnouncementId, setEditModal } = useContext(AnnouncementContext);
-
   return (
     <Container>
       <h3 id={title} style={{ paddingLeft: "1rem" }}>
@@ -49,14 +46,8 @@ const Slider = ({ title, children }: ISliderProps) => {
           }}
         >
           {children.map((announcement, index) => (
-            <SwiperSlide
-              key={index}
-              onClick={() => {
-                setAnnouncementId(announcement.id);
-                setEditModal(true);
-              }}
-            >
-              {ProductCard(announcement)}
+            <SwiperSlide key={index}>
+              {<ProductCard announcement={announcement} />}
             </SwiperSlide>
           ))}
         </Swiper>
