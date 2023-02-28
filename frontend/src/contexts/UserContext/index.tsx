@@ -27,7 +27,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     await api
       .post<IUser>("/users", data)
       .then((res) => {
-        console.log(res);
         setRegisterModal(true);
       })
       .catch((err) => {
@@ -45,8 +44,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
-
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -64,8 +61,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       } else {
         navigate("/home", { replace: true });
       }
-
-      console.log(res);
     });
   };
 
@@ -73,7 +68,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     await api
       .patch(`/address/${user?.address.id}`, data)
       .then((res) => {
-        console.log(res);
         setAddressModal(false);
       })
       .catch((err) => {
@@ -85,7 +79,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     await api
       .patch<IUser>("/users", data)
       .then((res) => {
-        console.log(res);
         setEditUserModal(false);
       })
       .catch((err) => {

@@ -14,7 +14,8 @@ import Input from "../Input";
 import ModalContainer from "../ModalContainer";
 
 export const EditUserProfileModal = () => {
-  const { editUser, editUserModal, setEditUserModal } = useContext(UserContext);
+  const { editUser, editUserModal, setEditUserModal, user } =
+    useContext(UserContext);
 
   const {
     register,
@@ -40,7 +41,7 @@ export const EditUserProfileModal = () => {
               type="text"
               label="Nome"
               fieldName="name"
-              placeholder="Samuel Leão Silva"
+              placeholder={user!.name}
               register={register}
               name="name"
             />
@@ -48,7 +49,7 @@ export const EditUserProfileModal = () => {
               type="email"
               label="Email"
               fieldName="email"
-              placeholder="samuel@kenzie.com.br"
+              placeholder={user!.email}
               register={register}
               name="email"
             />
@@ -56,7 +57,7 @@ export const EditUserProfileModal = () => {
               type="text"
               label="CPF"
               fieldName="cpf"
-              placeholder="900.880.090-00"
+              placeholder={user!.cpf}
               register={register}
               name="cpf"
             />
@@ -64,7 +65,7 @@ export const EditUserProfileModal = () => {
               type="text"
               label="Celular"
               fieldName="phone"
-              placeholder="(084) 90909-9092"
+              placeholder={user!.phone}
               register={register}
               name="phone"
             />
@@ -72,7 +73,7 @@ export const EditUserProfileModal = () => {
               <label htmlFor="description">Descrição</label>
               <textarea
                 id="description"
-                placeholder="Digitar descrição"
+                placeholder={user!.description}
                 {...register("description")}
               />
             </DescriptionField>
