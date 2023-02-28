@@ -38,10 +38,10 @@ export const UserProfileInfo = () => {
           onClick={() => setAddAdModal(true)}
         />
       </UserInfo>
-      <CreateAnnouncementModal />
+      {/* <CreateAnnouncementModal />
       <ModalSuccess />
       <EditAnnouncementModal />
-      <DeleteAnnouncementModal />
+      <DeleteAnnouncementModal /> */}
     </>
   );
 };

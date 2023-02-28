@@ -38,3 +38,12 @@ export interface IAnnouncement {
   photos: string;
   user: IUser;
 }
+
+export interface IAnnouncementAdmin {
+  title: string;
+  year: string;
+  mileage: number;
+  price: number;
+  description: string;
+  cover_img: string;
+}

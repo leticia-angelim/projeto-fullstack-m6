@@ -10,9 +10,12 @@ import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { ISliderProps } from "../../interfaces/slider";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+import { ProductCardAdmin } from "../ProductCardAdmin";
+import { UserContext } from "../../contexts/UserContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
   const { setAnnouncementId, setEditModal } = useContext(AnnouncementContext);
+  const { user } = useContext(UserContext);
 
   return (
     <Container>
@@ -56,7 +59,9 @@ const Slider = ({ title, children }: ISliderProps) => {
                 setEditModal(true);
               }}
             >
-              {ProductCard(announcement)}
+              {user?.account === "Anunciante"
+                ? ProductCardAdmin(announcement)
+                : ProductCard(announcement)}
             </SwiperSlide>
           ))}
         </Swiper>

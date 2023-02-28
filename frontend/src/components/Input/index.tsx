@@ -6,7 +6,7 @@ const Input = ({
   type,
   label,
   fieldName,
-  placeholder,
+  // placeholder,
   register,
   name,
   onChange,
@@ -17,7 +17,7 @@ const Input = ({
       <input
         id={fieldName}
         type={type}
-        placeholder={placeholder}
+        // placeholder={placeholder}
         {...register(name)}
         onChange={onChange}
       />

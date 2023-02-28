@@ -27,10 +27,10 @@ export const NavBar = () => {
             <a href="#Leilão">Leilão</a>
           </DivPersonalizada1>
 
-          <Dropdown />
+          {/* <Dropdown /> */}
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   ) : (
     <>
@@ -62,7 +62,7 @@ export const NavBar = () => {
           </DivPersonalizada2>
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   );
 };

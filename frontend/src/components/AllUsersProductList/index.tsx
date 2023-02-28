@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import Slider from "../Slider";
+// import Slider from "../Slider";
 
 const AllUsersProductList = () => {
   const { allAnnouncements, listAllAnnouncements } =
@@ -19,9 +19,9 @@ const AllUsersProductList = () => {
 
   return (
     <>
-      <Slider title="Leilão" children={allAnnouncements} />
+      {/* <Slider title="Leilão" children={allAnnouncements} />
       <Slider title="Carros" children={cars} />
-      <Slider title="Motos" children={motorcycles} />
+      <Slider title="Motos" children={motorcycles} /> */}
     </>
   );
 };

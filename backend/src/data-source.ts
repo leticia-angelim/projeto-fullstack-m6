@@ -4,7 +4,7 @@ import { User } from "./entities/user.entity";
 import { Announcement } from "./entities/announcement.entity";
 import { Photo } from "./entities/photo.entity";
 import { Address } from "./entities/address.entity";
-import { createEntities1677510502337 } from "./migrations/1677510502337-createEntities";
+import { createTables1677597041032 } from "./migrations/1677597041032-createTables";
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -16,7 +16,7 @@ const AppDataSource = new DataSource({
   synchronize: false,
   logging: true,
   entities: [User, Announcement, Photo, Address],
-  migrations: [createEntities1677510502337],
+  migrations: [createTables1677597041032],
 });
 
 AppDataSource.initialize()
