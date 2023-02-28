@@ -8,6 +8,7 @@ import {
   IUserLoginResponse,
   IUserProviderProps,
   IUserRequest,
+  IUserUpdate,
 } from "../../interfaces/user";
 import api from "../../services/api";
 
@@ -17,6 +18,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [registerModal, setRegisterModal] = useState(false);
   const [modalAddress, setModalAddress] = useState(false);
+  const [editUserModal, setEditUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -74,6 +76,18 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       });
   };
 
+  const editUser = async (data: IUserUpdate) => {
+    await api
+      .patch<IUser>("/users", data)
+      .then((res) => {
+        console.log(res);
+        setEditUserModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const loadUser = () => {
       const token = localStorage.getItem("@user:token");
@@ -100,10 +114,13 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         registerModal,
         setRegisterModal,
         editAddress,
+        editUser,
         modalAddress,
         setModalAddress,
         user,
         setUser,
+        setEditUserModal,
+        editUserModal,
       }}
     >
       {children}

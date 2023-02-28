@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../Button";
@@ -9,10 +9,13 @@ import { DivPersonalizada1 } from "./style";
 import { DivPersonalizada2 } from "./style";
 import MobileMenu from "../MobileMenu";
 import Dropdown from "../Dropdown";
+import { UserContext } from "../../contexts/UserContext";
+import { EditUserProfileModal } from "../EditUserProfileModal";
 
 export const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("@user:token");
+  const { editUserModal } = useContext(UserContext);
 
   return token ? (
     <>
@@ -28,6 +31,7 @@ export const NavBar = () => {
           </DivPersonalizada1>
 
           <Dropdown />
+          {editUserModal && <EditUserProfileModal />}
         </div>
       </Nav>
       <MobileMenu />

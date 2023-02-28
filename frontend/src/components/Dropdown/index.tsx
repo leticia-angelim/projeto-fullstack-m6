@@ -9,7 +9,7 @@ import { Container } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 const Dropdown = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setEditUserModal } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -55,9 +55,7 @@ const Dropdown = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem
-        // onClick={() => setEditUserModal(true)}
-        >
+        <MenuItem onClick={() => setEditUserModal(true)}>
           Editar perfil
         </MenuItem>
         <MenuItem
