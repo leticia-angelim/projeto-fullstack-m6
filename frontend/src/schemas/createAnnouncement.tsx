@@ -17,7 +17,6 @@ const createAnnouncementSchema = yup.object().shape({
     .typeError("Campo obrigatório"),
   description: yup.string().required("Campo obrigratório"),
   cover_img: yup.string().required("Campo obrigratório"),
-  // photos: yup.string().required("Campo obrigratório"),
   vehicle_type: yup.string(),
 });
 

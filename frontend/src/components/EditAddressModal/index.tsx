@@ -11,7 +11,6 @@ const EditAddressModal = () => {
   const { modalAddress, setAddressModal, editAddress, user } =
     useContext(UserContext);
 
-  console.log(user);
   const { register, handleSubmit } = useForm();
 
   const onSubmitFunction = (data: any) => {
@@ -30,7 +29,7 @@ const EditAddressModal = () => {
           <Input
             label="CEP"
             type="text"
-            placeholder="{user!.address.cep}"
+            placeholder={user!.address.cep}
             fieldName="cep"
             name="cep"
             register={register}
@@ -40,7 +39,7 @@ const EditAddressModal = () => {
               <Input
                 label="Estado"
                 type="text"
-                placeholder="{user!.address.state}"
+                placeholder={user!.address.state}
                 fieldName="state"
                 name="state"
                 register={register}
@@ -48,7 +47,7 @@ const EditAddressModal = () => {
               <Input
                 label="Cidade"
                 type="text"
-                placeholder="{user!.address.city}"
+                placeholder={user!.address.city}
                 fieldName="city"
                 name="city"
                 register={register}
@@ -58,7 +57,7 @@ const EditAddressModal = () => {
           <Input
             label="Rua"
             type="text"
-            placeholder="{user!.address.street}"
+            placeholder={user!.address.street}
             fieldName="street"
             name="street"
             register={register}
@@ -68,7 +67,7 @@ const EditAddressModal = () => {
               <Input
                 label="Numero"
                 type="number"
-                placeholder="{user!.address.number}"
+                placeholder={user!.address.number.toString()}
                 fieldName="number"
                 name="number"
                 register={register}
@@ -77,7 +76,7 @@ const EditAddressModal = () => {
               <Input
                 label="Complemento"
                 type="text"
-                placeholder="{user!.address.complement}"
+                placeholder={user!.address.complement}
                 fieldName="complement"
                 name="complement"
                 register={register}
