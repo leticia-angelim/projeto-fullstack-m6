@@ -8,6 +8,7 @@ import {
   IUserLoginResponse,
   IUserProviderProps,
   IUserRequest,
+  IUserUpdate,
 } from "../../interfaces/user";
 import api from "../../services/api";
 
@@ -15,8 +16,10 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [registerModal, setRegisterModal] = useState(false);
-  const [modalAddress, setModalAddress] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
+  const [registerModal, setRegisterModal] = useState<boolean>(false);
+  const [modalAddress, setAddressModal] = useState<boolean>(false);
+  const [editUserModal, setEditUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -43,8 +46,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
 
-        navigate("/profileAdmin", { replace: true });
-
         console.log(data);
       })
       .catch((err) => {
@@ -58,6 +59,12 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
       localStorage.setItem("@user:id", res.data.id);
 
+      if (res.data.account === "Anunciante") {
+        navigate("/profileAdmin", { replace: true });
+      } else {
+        navigate("/home", { replace: true });
+      }
+
       console.log(res);
     });
   };
@@ -67,7 +74,19 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .patch(`/address/${user?.address.id}`, data)
       .then((res) => {
         console.log(res);
-        setModalAddress(false);
+        setAddressModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const editUser = async (data: IUserUpdate) => {
+    await api
+      .patch<IUser>("/users", data)
+      .then((res) => {
+        console.log(res);
+        setEditUserModal(false);
       })
       .catch((err) => {
         console.log(err);
@@ -100,10 +119,15 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         registerModal,
         setRegisterModal,
         editAddress,
+        editUser,
         modalAddress,
-        setModalAddress,
+        setAddressModal,
         user,
         setUser,
+        selectedUser,
+        setSelectedUser,
+        setEditUserModal,
+        editUserModal,
       }}
     >
       {children}

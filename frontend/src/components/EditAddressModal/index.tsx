@@ -8,7 +8,7 @@ import { CreateForm, FinalButtons, FormAnnouncement, SubTitle } from "./styles";
 import { UserContext } from "../../contexts/UserContext";
 
 const EditAddressModal = () => {
-  const { modalAddress, setModalAddress, editAddress, user } =
+  const { modalAddress, setAddressModal, editAddress, user } =
     useContext(UserContext);
 
   console.log(user);
@@ -23,7 +23,7 @@ const EditAddressModal = () => {
       <ModalContainer
         title="Editar endereço"
         openModal={modalAddress}
-        closeModal={() => setModalAddress(false)}
+        closeModal={() => setAddressModal(false)}
       >
         <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
           <SubTitle>Informações do endereço</SubTitle>
@@ -92,7 +92,7 @@ const EditAddressModal = () => {
                 backgroundColorHover="#868E96"
                 fontColor="#495057"
                 fontColorHover="#FFFFFF"
-                onClick={() => setModalAddress(false)}
+                onClick={() => setAddressModal(false)}
                 type="button"
               />
               <Button

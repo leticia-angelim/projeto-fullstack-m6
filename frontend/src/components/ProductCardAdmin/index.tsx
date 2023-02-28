@@ -4,13 +4,14 @@ import {
   IAnnouncement,
   IAnnouncementAdmin,
 } from "../../interfaces/announcements";
+import { IProductCardProps } from "../../interfaces/produtCard";
 import { ThemeTitle } from "../../styles/typography";
 import Button from "../Button";
 import EditAnnouncementModal from "../EditAnnouncementModal";
 import { ProductContainer, ProductDetails } from "../ProductCard/styles";
 import { ProductButtons } from "./styles";
 
-export const ProductCardAdmin = (announcement: IAnnouncement) => {
+export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
   const { setEditModal } = useContext(AnnouncementContext);
 
   return (
