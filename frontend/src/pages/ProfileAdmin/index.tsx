@@ -10,7 +10,7 @@ const ProfileAdmin = () => {
 
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <PageContainer>
         <div className="blue_div"></div>
         <UserProfileInfo />

@@ -62,7 +62,14 @@ const Dropdown = () => {
         <MenuItem onClick={() => setAddressModal(true)}>
           Editar endereço
         </MenuItem>
-        <MenuItem>Minhas compras</MenuItem>
+        {user?.account === "Anunciante" && (
+          <MenuItem
+            onClick={() => navigate("/profileAdmin", { replace: true })}
+          >
+            Meus anúncios
+          </MenuItem>
+        )}
+
         <MenuItem
           onClick={() => {
             localStorage.clear();
