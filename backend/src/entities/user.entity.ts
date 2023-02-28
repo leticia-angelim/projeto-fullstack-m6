@@ -8,6 +8,7 @@ import {
 } from "typeorm";
 import { Exclude } from "class-transformer";
 import { Announcement } from "./announcement.entity";
+import { Comments } from "./Comments";
 
 @Entity("users")
 export class User {
@@ -68,8 +69,8 @@ export class User {
   })
   announcements: Announcement[];
 
-  // @OneToMany(() => Comment, (comment) => comment.user, {
-  //   cascade: true,
-  // })
-  // comments: Comment[]
+   @OneToMany(() => Comments, (comment) => comment.user, {
+     cascade: true,
+   })
+   comments: Comments[]
 }

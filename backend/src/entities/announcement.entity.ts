@@ -5,7 +5,9 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  OneToMany,
 } from "typeorm";
+import { Comments } from "./Comments";
 import { User } from "./user.entity";
 
 @Entity("announcements")
@@ -48,4 +50,8 @@ export class Announcement {
 
   @ManyToOne(() => User, { onDelete: "CASCADE" })
   user: User;
+  @OneToMany(() => Comments, (comment) => comment.announcement, {
+    cascade: true,
+  })
+  comments: Comments[]
 }
