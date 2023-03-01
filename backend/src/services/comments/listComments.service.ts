@@ -9,11 +9,15 @@ const listCommentService = async (id: string): Promise<Comment[]> => {
     relations: { announcement: { user: true } },
   });
 
-  if (!findComment) {
+  const commentList = findComment.filter(
+    (comment) => comment.announcement.id === id
+  );
+
+  if (!commentList) {
     throw new AppError("comment not found", 404);
   }
 
-  return findComment;
+  return commentList;
 };
 
 export default listCommentService;

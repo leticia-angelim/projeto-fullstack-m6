@@ -7,7 +7,7 @@ const listCommentController = async (req: Request, res: Response) => {
 
   const comment = await listCommentService(id);
 
-  return res.status(201).json(instanceToPlain(comment));
+  return res.status(200).json(instanceToPlain(comment));
 };
 
 export default listCommentController;
