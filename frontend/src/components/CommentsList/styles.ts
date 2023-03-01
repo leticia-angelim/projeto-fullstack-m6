@@ -62,9 +62,14 @@ export const RegisterCommentBox = styled.div`
     color: var(--color-grey1);
   }
 
+  .comment-form {
+    position: relative;
+  }
+
   .comment {
     border-radius: 4px;
     width: 100%;
+    max-width: 630px;
     height: 128px;
     padding: 33px 28px;
     border: 1.5px solid var(--color-grey7);
@@ -80,12 +85,15 @@ export const RegisterCommentBox = styled.div`
     align-items: center;
 
     position: absolute;
+    bottom: 15px;
+    right: 11px;
+    /* position: absolute; */
     width: 108px;
     height: 38px;
     /* left: 44%;
     top: 281%; */
-    left: 600px;
-    top: 1810px;
+    /* left: 600px;
+    top: 1810px; */
     border-radius: 4px;
   }
 

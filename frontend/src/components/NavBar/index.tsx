@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button";
 import logo from "../../assets/logo.svg";
 
-import MobileMenu from "../MobileMenu";
-import Dropdown from "../Dropdown";
+// import MobileMenu from "../MobileMenu";
+// import Dropdown from "../Dropdown";
 
 import { UserContext } from "../../contexts/UserContext";
 import { EditUserProfileModal } from "../EditUserProfileModal";
@@ -30,13 +30,13 @@ export const NavBar = () => {
             <a href="#Motos">Motos</a>
             <a href="#Leilão">Leilão</a>
           </DivNavBar>
-          <Dropdown />
-          {editUserModal && <EditUserProfileModal />}
-          {modalAddress && <EditAddressModal />}
-          <DeleteUserModal />
+          {/* <Dropdown /> */}
+          {/* {editUserModal && <EditUserProfileModal />} */}
+          {/* {modalAddress && <EditAddressModal />} */}
+          {/* <DeleteUserModal /> */}
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   ) : (
     <>
@@ -66,7 +66,7 @@ export const NavBar = () => {
           </DivNavBarUser>
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   );
 };

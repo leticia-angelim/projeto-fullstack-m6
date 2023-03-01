@@ -75,7 +75,7 @@ const ProductDetail = () => {
           <CommentsList announcement={selectedAnnouncement} />
         </Product>
         <Aside>
-          {selectedAnnouncement!.photos! ? (
+          {/* {selectedAnnouncement!.photos! ? (
             <Photos>
               <Title>Fotos</Title>
               <div>
@@ -92,20 +92,20 @@ const ProductDetail = () => {
                 ))}
               </div>
             </Photos>
-          ) : (
-            <Photos>
-              <Title>Fotos</Title>
-              <p>Esse anúncio não possui fotos extras</p>
-            </Photos>
-          )}
+          ) : ( */}
+          <Photos>
+            <Title>Fotos</Title>
+            <p>Esse anúncio não possui fotos extras</p>
+          </Photos>
+          {/* )} */}
 
           <UserInfos>
             <div
-              style={{
-                backgroundColor: stringToColor(selectedAnnouncement!.user.name),
-              }}
+            // style={{
+            //   backgroundColor: stringToColor(selectedAnnouncement!.user.name),
+            // }}
             >
-              {nameAbbreviate(selectedAnnouncement!.user.name)}
+              {nameAbbreviate("selectedAnnouncement!.user.name")}
             </div>
             <span>{selectedAnnouncement?.user.name}</span>
 
@@ -125,7 +125,7 @@ const ProductDetail = () => {
           </UserInfos>
         </Aside>
       </Container>
-      <PhotoModal />
+      {/* <PhotoModal /> */}
     </Main>
   );
 };

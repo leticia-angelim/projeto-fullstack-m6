@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -12,14 +12,16 @@ import { Comment } from "../Comment";
 import { CommentsListBox, RegisterCommentBox } from "./styles";
 
 export const CommentsList = ({ announcement }: any) => {
-  const { registerComment, announcementComments, listComments } =
-    useContext(CommentsContext);
+  const { registerComment, listComments } = useContext(CommentsContext);
+  const { user } = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    // formState: { errors },
-  } = useForm({
+  const [commentText, setCommentText] = useState("");
+
+  const handleSuggestionClick = (text: string) => {
+    setCommentText(text);
+  };
+
+  const { register, handleSubmit } = useForm({
     resolver: yupResolver(createCommentSchema),
   });
 
@@ -28,7 +30,7 @@ export const CommentsList = ({ announcement }: any) => {
   };
 
   useEffect(() => {
-    listComments("6d39d0bc-297f-4f2b-97f8-5c3d93a36a19");
+    listComments(announcement.id);
   }, []);
   return (
     <>
@@ -42,7 +44,7 @@ export const CommentsList = ({ announcement }: any) => {
             Comentários
           </ThemeTitle>
           <div className="comments-div">
-            <Comment />;
+            <Comment />
           </div>
         </div>
 
@@ -50,20 +52,24 @@ export const CommentsList = ({ announcement }: any) => {
           <div className="userInfo-div">
             <p
               className="name_abbreviate"
-              style={{ backgroundColor: stringToColor("Samuel Leão") }}
+              style={{ backgroundColor: stringToColor(user!.name) }}
             >
-              {nameAbbreviate("Samuel Leão")}
+              {nameAbbreviate(user!.name)}
             </p>
-            <p className="username">Samuel Leão</p>
+            <p className="username">{user?.name}</p>
           </div>
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <form
+            className="comment-form"
+            onSubmit={handleSubmit(onSubmitFunction)}
+          >
             <textarea
               className="comment"
-              // name="comment"
               cols={30}
               rows={10}
               placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
               {...register("message")}
+              value={commentText}
+              onChange={(event) => setCommentText(event.target.value)}
             />
             <Button
               className="comment-button"
@@ -75,9 +81,24 @@ export const CommentsList = ({ announcement }: any) => {
           </form>
 
           <div className="comment-sugestions">
-            <button className="sugestion-btn">Gostei muito!</button>
-            <button className="sugestion-btn">Incrível</button>
-            <button className="sugestion-btn">
+            <button
+              className="sugestion-btn"
+              onClick={() => handleSuggestionClick("Gostei muito!")}
+            >
+              Gostei muito!
+            </button>
+            <button
+              className="sugestion-btn"
+              onClick={() => handleSuggestionClick("Incrível")}
+            >
+              Incrível
+            </button>
+            <button
+              className="sugestion-btn"
+              onClick={() =>
+                handleSuggestionClick("Recomendarei para meus amigos!")
+              }
+            >
               Recomendarei para meus amigos!
             </button>
           </div>
