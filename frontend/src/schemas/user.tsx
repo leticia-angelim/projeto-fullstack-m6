@@ -5,7 +5,10 @@ export const userSchema = yup.object({
   email: yup.string().required("Campo obrigatório").email("Email inválido"),
   cpf: yup.string().required("Campo obrigatório"),
   phone: yup.string().required("Campo obrigatório"),
-  birth_date: yup.string().required("Campo obrigatório"),
+  birth_date: yup
+    .string()
+    .required("Campo obrigatório")
+    .matches(/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/),
   description: yup.string().required("Campo obrigatório"),
   cep: yup.string().required("Campo obrigatório"),
   state: yup.string().required("Campo obrigatório"),
