@@ -17,10 +17,9 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
 
   const registerComment = async (announcement_id: string, data: IComment) => {
     await api
-      .post<IComment>(`/comments${announcement_id}`, data)
+      .post<IComment>(`/comments/${announcement_id}`, data)
       .then((res) => {
         console.log(res);
-        // setAnnouncementComments([...announcementComments, res.data]);
       })
       .catch((err) => {
         console.log(err);
@@ -29,10 +28,9 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
 
   const listComments = async (announcement_id: string) => {
     await api
-      .get<IComment>(`/comments/${announcement_id}`)
+      .get<IComment[]>(`/comments/${announcement_id}`)
       .then((res) => {
-        console.log(res);
-        setAnnouncementComments([...announcementComments, res.data]);
+        setAnnouncementComments(res.data);
       })
       .catch((err) => {
         console.log(err);

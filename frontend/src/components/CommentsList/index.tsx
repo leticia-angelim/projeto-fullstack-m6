@@ -15,30 +15,6 @@ export const CommentsList = ({ announcement }: any) => {
   const { registerComment, announcementComments, listComments } =
     useContext(CommentsContext);
 
-  const announcementsComments = [
-    {
-      user: {
-        name: "Júlia Lima",
-        description:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi assumenda maiores hic voluptates dolores doloribus obcaecati earum nulla quisquam quia laudantium, odio distinctio repellendus expedita, iure, eaque minus nam debitis.",
-      },
-    },
-    {
-      user: {
-        name: "Marcos Antînio",
-        description:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi assumenda maiores hic voluptates dolores doloribus obcaecati earum nulla quisquam quia laudantium, odio distinctio repellendus expedita, iure, eaque minus nam debitis.",
-      },
-    },
-    {
-      user: {
-        name: "Camila Silva",
-        description:
-          "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi assumenda maiores hic voluptates dolores doloribus obcaecati earum nulla quisquam quia laudantium, odio distinctio repellendus expedita, iure, eaque minus nam debitis.",
-      },
-    },
-  ];
-
   const {
     register,
     handleSubmit,
@@ -52,12 +28,8 @@ export const CommentsList = ({ announcement }: any) => {
   };
 
   useEffect(() => {
-    listComments(announcement.id);
+    listComments("6d39d0bc-297f-4f2b-97f8-5c3d93a36a19");
   }, []);
-
-  const comments = announcementsComments.map((comment) => {
-    return <Comment comment={comment} />;
-  });
 
   return (
     <>
@@ -70,7 +42,9 @@ export const CommentsList = ({ announcement }: any) => {
           >
             Comentários
           </ThemeTitle>
-          <div className="comments-div">{comments}</div>
+          <div className="comments-div">
+            <Comment />;
+          </div>
         </div>
 
         <RegisterCommentBox>

@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-
 import {
   Aside,
   DivInfos,
@@ -22,8 +20,6 @@ import nameAbbreviate from "../../util/nameAbbreviate";
 import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
-import car from "../../assets/car1.svg";
-import nameAbbreviate from "../../util/nameAbbreviate";
 import { CommentsList } from "../CommentsList";
 
 const ProductDetail = () => {
@@ -76,14 +72,14 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
-          <CommentsList announcement={""} />
+          <CommentsList announcement={selectedAnnouncement} />
         </Product>
         <Aside>
-          {selectedAnnouncement!.photos.length > 0 ? (
+          {selectedAnnouncement!.photos! ? (
             <Photos>
               <Title>Fotos</Title>
               <div>
-                {selectedAnnouncement?.photos.map((photo) => (
+                {selectedAnnouncement!.photos!.map((photo) => (
                   <figure
                     key={photo.id}
                     onClick={() => {
