@@ -11,6 +11,7 @@ import {
 import { Exclude } from "class-transformer";
 import { Announcement } from "./announcement.entity";
 import { Address } from "./address.entity";
+import { Comment } from "./comments.entity";
 
 @Entity("users")
 export class User {
@@ -57,8 +58,8 @@ export class User {
   @JoinColumn()
   address: Address;
 
-  // @OneToMany(() => Comment, (comment) => comment.user, {
-  //   cascade: true,
-  // })
-  // comments: Comment[]
+  @OneToMany(() => Comment, (comment) => comment.user, {
+    cascade: true,
+  })
+  comments: Comment[];
 }
