@@ -21,6 +21,10 @@ import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+import { useNavigate } from "react-router-dom";
+import car from "../../assets/car1.svg";
+import nameAbbreviate from "../../util/nameAbbreviate";
+import { CommentsList } from "../CommentsList";
 
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
@@ -72,6 +76,7 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
+          <CommentsList announcement={""} />
         </Product>
         <Aside>
           {selectedAnnouncement!.photos.length > 0 ? (
