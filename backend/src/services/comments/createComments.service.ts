@@ -3,7 +3,6 @@ import { Announcement } from "../../entities/announcement.entity";
 import { Comment } from "../../entities/comments.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../errors/appError";
-import { ICommentRequest } from "../../interfaces/comment.interfaces";
 
 const createCommentService = async (
   message: string,
@@ -13,7 +12,7 @@ const createCommentService = async (
   const userRepository = AppDataSource.getRepository(User);
   const announcementRepository = AppDataSource.getRepository(Announcement);
   const commentRepository = AppDataSource.getRepository(Comment);
-
+  console.log(message, announcementId, userId);
   const findUser = await userRepository.findOneBy({ id: userId });
 
   if (!findUser) {
