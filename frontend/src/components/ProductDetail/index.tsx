@@ -17,6 +17,7 @@ import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
 import car from "../../assets/car1.svg";
 import nameAbbreviate from "../../util/nameAbbreviate";
+import { CommentsList } from "../CommentsList";
 
 const ProductDetail = () => {
   const { userAnnouncements } = useContext(AnnouncementContext);
@@ -70,6 +71,7 @@ const ProductDetail = () => {
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </ProductDescription>
+          {/* <CommentsList /> */}
         </Product>
         <Aside>
           {userAnnouncements.length > 0 ? (
@@ -114,6 +116,9 @@ const ProductDetail = () => {
           </UserInfos>
         </Aside>
       </Container>
+      <Product>
+        <CommentsList />
+      </Product>
     </Main>
   );
 };

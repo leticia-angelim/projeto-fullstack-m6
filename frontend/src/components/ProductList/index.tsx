@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useContext } from "react";
 
-import Slider from "../Slider";
+// import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
@@ -22,9 +22,9 @@ export const ProductList = () => {
 
   return (
     <ProductListDiv className="products_div">
-      <Slider title="Leilão" children={userAnnouncements} />
+      {/* <Slider title="Leilão" children={userAnnouncements} />
       <Slider title="Carros" children={cars} />
-      <Slider title="Motos" children={motorcycles} />
+      <Slider title="Motos" children={motorcycles} /> */}
     </ProductListDiv>
   );
 };

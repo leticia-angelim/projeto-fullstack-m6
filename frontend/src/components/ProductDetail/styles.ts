@@ -43,6 +43,7 @@ export const Product = styled.div`
   align-items: center;
   width: 95%;
   max-width: 700px;
+  margin-left: 33px;
 `;
 
 export const CoverImg = styled.section`
@@ -166,7 +167,7 @@ export const ProductDescription = styled.section`
   width: 100%;
   margin-top: 2rem;
   border-radius: 5px;
-  margin-bottom: 4rem;
+  margin-bottom: 16px;
   text-overflow: ellipsis;
   overflow: hidden;
   background-color: var(--color-whiteFixed);
