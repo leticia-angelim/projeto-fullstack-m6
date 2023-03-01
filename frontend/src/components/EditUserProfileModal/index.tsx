@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FormHelperText } from "@mui/material";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../contexts/UserContext";
@@ -21,7 +22,9 @@ export const EditUserProfileModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(editUserSchema),
+  });
 
   const onSubmitFunction = (data: any) => {
     editUser(data);
@@ -69,6 +72,15 @@ export const EditUserProfileModal = () => {
               register={register}
               name="phone"
             />
+            <Input
+              type="text"
+              label="Data de nascimento"
+              fieldName="birth_date"
+              placeholder={user!.birth_date}
+              register={register}
+              name="birth_date"
+            />
+            <FormHelperText error>{errors.birth_date?.message}</FormHelperText>
             <DescriptionField>
               <label htmlFor="description">Descrição</label>
               <textarea
