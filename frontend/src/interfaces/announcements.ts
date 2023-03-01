@@ -26,6 +26,8 @@ export interface IAnnouncementContext {
   setSelectedAnnouncement: Dispatch<SetStateAction<IAnnouncement | null>>;
   selectedPhoto: IPhoto | null;
   setSelectedPhoto: Dispatch<SetStateAction<IPhoto | null>>;
+  gallery: string[];
+  setGallery: Dispatch<SetStateAction<string[]>>;
 }
 
 export interface AnnouncementProps {

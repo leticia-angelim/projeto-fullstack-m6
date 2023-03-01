@@ -20,10 +20,16 @@ import {
 import { FormHelperText } from "@mui/material";
 
 const EditAnnouncementModal = () => {
-  const { editModal, setEditModal, setDeleteModal, editAnnouncement } =
-    useContext(AnnouncementContext);
+  const {
+    editModal,
+    setEditModal,
+    setDeleteModal,
+    editAnnouncement,
+    gallery,
+    setGallery,
+  } = useContext(AnnouncementContext);
 
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
@@ -64,9 +70,7 @@ const EditAnnouncementModal = () => {
     data.vehicle_type = vehicleType;
     data.is_published = published;
 
-    data.photos = [
-      "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-    ];
+    data.photos = gallery.filter((img) => img !== "");
 
     editAnnouncement(data);
   };
@@ -263,31 +267,27 @@ const EditAnnouncementModal = () => {
           />
           <FormHelperText error>{errors.cover_img?.message}</FormHelperText>
           <div>
-            <Input
-              label="1° Imagem da galeria"
-              placeholder="Inserir URL da imagem"
-              fieldName="photos"
-              type="text"
-              name="photos"
-              register={register}
-            />
-            <FormHelperText error>{errors.photos?.message}</FormHelperText>
             <AddImg>
-              {addImg.map((num) => (
+              {addImg.map((_, num) => (
                 <Input
                   key={num}
-                  label={`${num}° Imagem da galeria`}
+                  label={`${num + 1}° Imagem da galeria`}
                   placeholder="Inserir URL da imagem"
                   fieldName="photos"
                   type="text"
-                  name="photos"
+                  name={`photos`}
                   register={register}
+                  onChange={(event: any) => {
+                    const galleryToUpdate = [...gallery];
+                    galleryToUpdate[num] = event.target.value;
+                    setGallery(galleryToUpdate);
+                  }}
                 />
               ))}
             </AddImg>
           </div>
           <ImgButton>
-            {count <= 6 && addImg.length <= 6 ? (
+            {count <= 5 && addImg.length <= 5 ? (
               <Button
                 children="Adicionar campo para imagem da galeria"
                 backgroundColor="#EDEAFD"

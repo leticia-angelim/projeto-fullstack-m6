@@ -18,6 +18,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [photoModal, setPhotoModal] = useState(false);
   const [announcementId, setAnnouncementId] = useState("");
+  const [gallery, setGallery] = useState([""]);
   const [allAnnouncements, setAllAnnouncements] = useState<IAnnouncement[]>([]);
   const [selectedAnnouncement, setSelectedAnnouncement] =
     useState<IAnnouncement | null>(null);
@@ -137,6 +138,8 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         setPhotoModal,
         selectedPhoto,
         setSelectedPhoto,
+        gallery,
+        setGallery,
       }}
     >
       {children}
