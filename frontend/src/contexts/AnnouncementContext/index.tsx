@@ -3,6 +3,7 @@ import {
   AnnouncementProps,
   IAnnouncement,
   IAnnouncementContext,
+  IPhoto,
 } from "../../interfaces/announcements";
 import api from "../../services/api";
 
@@ -15,8 +16,12 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [successModal, setSuccessModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
+  const [photoModal, setPhotoModal] = useState(false);
   const [announcementId, setAnnouncementId] = useState("");
   const [allAnnouncements, setAllAnnouncements] = useState<IAnnouncement[]>([]);
+  const [selectedAnnouncement, setSelectedAnnouncement] =
+    useState<IAnnouncement | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<IPhoto | null>(null);
 
   const [userAnnouncements, setUserAnnouncements] = useState<
     Array<IAnnouncement>
@@ -123,8 +128,15 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         setDeleteModal,
         editAnnouncement,
         deleteAnnouncement,
+        announcementId,
         setAnnouncementId,
         allAnnouncements,
+        selectedAnnouncement,
+        setSelectedAnnouncement,
+        photoModal,
+        setPhotoModal,
+        selectedPhoto,
+        setSelectedPhoto,
       }}
     >
       {children}

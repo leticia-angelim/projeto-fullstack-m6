@@ -18,6 +18,7 @@ const Dropdown = () => {
   } = useContext(UserContext);
 
   const navigate = useNavigate();
+  const userName = localStorage.getItem("@user:name");
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -49,8 +50,8 @@ const Dropdown = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Avatar {...stringAvatar(user ? user.name : "null")} />
-        {user?.name}
+        <Avatar {...stringAvatar(userName!)} />
+        {userName}
       </IconButton>
       <Menu
         id="basic-menu"
@@ -68,9 +69,7 @@ const Dropdown = () => {
           Editar endereço
         </MenuItem>
         {user?.account === "Anunciante" && (
-          <MenuItem
-            onClick={() => navigate("/profileAdmin", { replace: true })}
-          >
+          <MenuItem onClick={() => navigate("/profileAdmin")}>
             Meus anúncios
           </MenuItem>
         )}

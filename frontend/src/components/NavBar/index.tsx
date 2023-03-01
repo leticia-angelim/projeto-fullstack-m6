@@ -20,7 +20,7 @@ export const NavBar = () => {
   return token ? (
     <>
       <Nav>
-        <figure onClick={() => navigate("/home", { replace: true })}>
+        <figure onClick={() => navigate("/home")}>
           <img src={logo} alt="logo da empresa" />
         </figure>
         <div className="navbar-teste">
@@ -40,7 +40,7 @@ export const NavBar = () => {
   ) : (
     <>
       <Nav>
-        <figure onClick={() => navigate("/home", { replace: true })}>
+        <figure onClick={() => navigate("/home")}>
           <img src={logo} alt="logo da empresa" />
         </figure>
         <div className="navbar-teste">
@@ -51,16 +51,14 @@ export const NavBar = () => {
           </DivNavBar>
 
           <DivNavBarUser>
-            <span onClick={() => navigate("/login", { replace: true })}>
-              Fazer login
-            </span>
+            <span onClick={() => navigate("/login")}>Fazer login</span>
             <Button
               backgroundColor="#ffffff"
               backgroundColorHover="#212529"
               border="#212529"
               fontColor="#212529"
               fontColorHover="#ffffff"
-              onClick={() => navigate("/register", { replace: true })}
+              onClick={() => navigate("/register")}
             >
               Cadastrar
             </Button>
