@@ -19,8 +19,12 @@ import PhotoModal from "../PhotoModal";
 import Button from "../../components/Button";
 import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
+
+import { CommentsList } from "../CommentsList";
+
 import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+
 
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
@@ -72,6 +76,7 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
+          <CommentsList announcement={""} />
         </Product>
         <Aside>
           {selectedAnnouncement!.photos.length > 0 ? (

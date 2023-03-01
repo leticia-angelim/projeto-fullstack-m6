@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IAddress } from "../../interfaces/address";
+import { IComment } from "../../interfaces/comments";
 import {
   IUser,
   IUserContext,
