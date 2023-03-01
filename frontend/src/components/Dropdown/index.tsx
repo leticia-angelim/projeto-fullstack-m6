@@ -1,15 +1,21 @@
 import React, { MouseEvent, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { UserContext } from "../../contexts/UserContext";
-import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
+import nameAbbreviate from "../../util/nameAbbreviate";
+import { UserContext } from "../../contexts/UserContext";
 
 import { Avatar, IconButton, Menu, MenuItem } from "@mui/material";
 import { Container } from "./styles";
-import { useNavigate } from "react-router-dom";
 
 const Dropdown = () => {
-  const { user, setUser } = useContext(UserContext);
+  const {
+    user,
+    setUser,
+    setEditUserModal,
+    setAddressModal,
+    setDeleteUserModal,
+  } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -55,17 +61,22 @@ const Dropdown = () => {
           "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem
-        // onClick={() => setEditUserModal(true)}
-        >
+        <MenuItem onClick={() => setEditUserModal(true)}>
           Editar perfil
         </MenuItem>
-        <MenuItem
-        // onClick={() => setEditAddressModal(true)}
-        >
+        <MenuItem onClick={() => setAddressModal(true)}>
           Editar endereço
         </MenuItem>
-        <MenuItem>Minhas compras</MenuItem>
+        {user?.account === "Anunciante" && (
+          <MenuItem
+            onClick={() => navigate("/profileAdmin", { replace: true })}
+          >
+            Meus anúncios
+          </MenuItem>
+        )}
+        <MenuItem onClick={() => setDeleteUserModal(true)}>
+          Excluir conta
+        </MenuItem>
         <MenuItem
           onClick={() => {
             localStorage.clear();

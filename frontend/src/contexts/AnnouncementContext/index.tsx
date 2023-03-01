@@ -26,7 +26,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .post<IAnnouncement>("/announcement", data)
       .then((res) => {
-        console.log(res);
         setUserAnnouncements([...userAnnouncements, res.data]);
         setAddAdModal(false);
         setSuccessModal(true);
@@ -40,7 +39,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get<IAnnouncement[]>("/announcement")
       .then((res) => {
-        console.log(res);
         setAllAnnouncements(res.data);
       })
       .catch((err) => {
@@ -52,7 +50,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get<IAnnouncement>(`/announcement/${announcement_id}`)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -64,7 +62,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
       .get(`announcement/user/${user_id}`)
       .then((res) => {
         setUserAnnouncements(res.data);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -82,7 +79,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
         userAnnouncements.splice(announcementIndex, 1, data);
 
-        console.log(res);
         setEditModal(false);
       })
       .catch((err) => {
@@ -101,7 +97,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
         userAnnouncements.splice(contactIndex, 1);
 
-        console.log(res);
         setDeleteModal(false);
         setEditModal(false);
       })

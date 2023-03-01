@@ -7,10 +7,18 @@ export interface IUserContext {
   registerModal: boolean;
   setRegisterModal: Dispatch<SetStateAction<boolean>>;
   editAddress: (data: IAddress) => Promise<void>;
+  editUser: (data: IUserUpdate) => Promise<void>;
   modalAddress: boolean;
-  setModalAddress: Dispatch<SetStateAction<boolean>>;
+  setAddressModal: Dispatch<SetStateAction<boolean>>;
   user: IUser | null;
   setUser: Dispatch<SetStateAction<IUser | null>>;
+  selectedUser: IUser | null;
+  setSelectedUser: Dispatch<SetStateAction<IUser | null>>;
+  setEditUserModal: Dispatch<SetStateAction<boolean>>;
+  editUserModal: boolean;
+  deleteUserModal: boolean;
+  setDeleteUserModal: Dispatch<SetStateAction<boolean>>;
+  deleteUser: () => Promise<void>;
 }
 
 export interface IUserProviderProps {
@@ -50,4 +58,12 @@ export interface IUserLoginResponse {
 export interface IUserLogin {
   email: string;
   password: string;
+}
+
+export interface IUserUpdate {
+  name: string;
+  email: string;
+  cpf: string;
+  phone: string;
+  description: string;
 }

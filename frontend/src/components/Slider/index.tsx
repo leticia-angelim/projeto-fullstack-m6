@@ -9,10 +9,11 @@ import React, { useContext, useEffect } from "react";
 import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { ISliderProps } from "../../interfaces/slider";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+import { ProductCardAdmin } from "../ProductCardAdmin";
+import { UserContext } from "../../contexts/UserContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const { setAnnouncementId, setEditModal } = useContext(AnnouncementContext);
+  const userId = localStorage.getItem("@user:id");
 
   return (
     <Container>
@@ -49,14 +50,12 @@ const Slider = ({ title, children }: ISliderProps) => {
           }}
         >
           {children.map((announcement, index) => (
-            <SwiperSlide
-              key={index}
-              onClick={() => {
-                setAnnouncementId(announcement.id);
-                setEditModal(true);
-              }}
-            >
-              {ProductCard(announcement)}
+            <SwiperSlide key={index}>
+              {userId === announcement.user.id ? (
+                <ProductCardAdmin announcement={announcement} />
+              ) : (
+                <ProductCard announcement={announcement} />
+              )}
             </SwiperSlide>
           ))}
         </Swiper> */}

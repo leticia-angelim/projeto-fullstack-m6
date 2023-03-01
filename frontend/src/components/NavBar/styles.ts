@@ -17,7 +17,7 @@ export const Nav = styled.nav`
     cursor: pointer;
   }
 
-  div {
+  .navbar-teste {
     width: 50%;
     height: 100%;
     display: flex;
@@ -30,7 +30,7 @@ export const Nav = styled.nav`
   }
 `;
 
-export const DivPersonalizada2 = styled.nav`
+export const DivNavBarUser = styled.nav`
   width: 100%;
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ export const DivPersonalizada2 = styled.nav`
   }
 `;
 
-export const DivPersonalizada1 = styled.nav`
+export const DivNavBar = styled.nav`
   width: 100%;
   height: 100%;
   display: flex;

@@ -71,7 +71,7 @@ const ProductDetail = () => {
               tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </ProductDescription>
-          {/* <CommentsList /> */}
+          <CommentsList announcement={""} />
         </Product>
         <Aside>
           {userAnnouncements.length > 0 ? (
@@ -116,9 +116,9 @@ const ProductDetail = () => {
           </UserInfos>
         </Aside>
       </Container>
-      <Product>
+      {/* <Product>
         <CommentsList />
-      </Product>
+      </Product> */}
     </Main>
   );
 };

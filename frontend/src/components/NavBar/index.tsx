@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../Button";
 import logo from "../../assets/logo.svg";
 
-import { Nav } from "./style";
-import { DivPersonalizada1 } from "./style";
-import { DivPersonalizada2 } from "./style";
 import MobileMenu from "../MobileMenu";
 import Dropdown from "../Dropdown";
+import { DivNavBar, DivNavBarUser, Nav } from "./styles";
+import { UserContext } from "../../contexts/UserContext";
+import { EditUserProfileModal } from "../EditUserProfileModal";
+import EditAddressModal from "../EditAddressModal";
+import DeleteUserModal from "../DeleteUserModal";
 
 export const NavBar = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("@user:token");
+  const { editUserModal, modalAddress } = useContext(UserContext);
 
   return token ? (
     <>
@@ -20,14 +23,16 @@ export const NavBar = () => {
         <figure onClick={() => navigate("/home", { replace: true })}>
           <img src={logo} alt="logo da empresa" />
         </figure>
-        <div>
-          <DivPersonalizada1>
+        <div className="navbar-teste">
+          <DivNavBar>
             <a href="#Carros">Carros</a>
             <a href="#Motos">Motos</a>
             <a href="#Leilão">Leilão</a>
-          </DivPersonalizada1>
-
+          </DivNavBar>
           {/* <Dropdown /> */}
+          {/* {editUserModal && <EditUserProfileModal />} */}
+          {/* {modalAddress && <EditAddressModal />} */}
+          {/* <DeleteUserModal /> */}
         </div>
       </Nav>
       {/* <MobileMenu /> */}
@@ -38,14 +43,14 @@ export const NavBar = () => {
         <figure onClick={() => navigate("/home", { replace: true })}>
           <img src={logo} alt="logo da empresa" />
         </figure>
-        <div>
-          <DivPersonalizada1>
+        <div className="navbar-teste">
+          <DivNavBar>
             <a href="#Carros">Carros</a>
             <a href="#Motos">Motos</a>
             <a href="#Leilão">Leilão</a>
-          </DivPersonalizada1>
+          </DivNavBar>
 
-          <DivPersonalizada2>
+          <DivNavBarUser>
             <span onClick={() => navigate("/login", { replace: true })}>
               Fazer login
             </span>
@@ -59,7 +64,7 @@ export const NavBar = () => {
             >
               Cadastrar
             </Button>
-          </DivPersonalizada2>
+          </DivNavBarUser>
         </div>
       </Nav>
       {/* <MobileMenu /> */}

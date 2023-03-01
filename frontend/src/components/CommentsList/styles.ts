@@ -84,8 +84,8 @@ export const RegisterCommentBox = styled.div`
     height: 38px;
     /* left: 44%;
     top: 281%; */
-    left: 580px;
-    top: 1785px;
+    left: 600px;
+    top: 1810px;
     border-radius: 4px;
   }
 

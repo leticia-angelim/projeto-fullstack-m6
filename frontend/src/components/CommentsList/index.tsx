@@ -1,12 +1,20 @@
-import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import React, { useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { CommentsContext } from "../../contexts/CommentsContext";
+import { UserContext } from "../../contexts/UserContext";
+import { createCommentSchema } from "../../schemas/createComment";
 import { ThemeTitle } from "../../styles/typography";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
 import Button from "../Button";
-import { Comment } from "../Comments";
+import { Comment } from "../Comment";
 import { CommentsListBox, RegisterCommentBox } from "./styles";
 
-export const CommentsList = () => {
+export const CommentsList = ({ announcement }: any) => {
+  const { registerComment, announcementComments, listComments } =
+    useContext(CommentsContext);
+
   const announcementsComments = [
     {
       user: {
@@ -31,8 +39,24 @@ export const CommentsList = () => {
     },
   ];
 
-  const comments = announcementsComments.map((announcement) => {
-    return <Comment announcement={announcement} />;
+  const {
+    register,
+    handleSubmit,
+    // formState: { errors },
+  } = useForm({
+    resolver: yupResolver(createCommentSchema),
+  });
+
+  const onSubmitFunction = (data: any) => {
+    registerComment(announcement.id, data);
+  };
+
+  useEffect(() => {
+    listComments(announcement.id);
+  }, []);
+
+  const comments = announcementsComments.map((comment) => {
+    return <Comment comment={comment} />;
   });
 
   return (
@@ -59,19 +83,24 @@ export const CommentsList = () => {
             </p>
             <p className="username">Samuel Leão</p>
           </div>
-          <textarea
-            className="comment"
-            name="comment"
-            cols={30}
-            rows={10}
-            placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
-          />
-          <Button
-            className="comment-button"
-            children="Comentar"
-            backgroundColor="#4529E6"
-            backgroundColorHover={""}
-          />
+          <form onSubmit={handleSubmit(onSubmitFunction)}>
+            <textarea
+              className="comment"
+              // name="comment"
+              cols={30}
+              rows={10}
+              placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
+              {...register("message")}
+            />
+            <Button
+              className="comment-button"
+              children="Comentar"
+              backgroundColor="#4529E6"
+              backgroundColorHover={""}
+              type="submit"
+            />
+          </form>
+
           <div className="comment-sugestions">
             <button className="sugestion-btn">Gostei muito!</button>
             <button className="sugestion-btn">Incrível</button>

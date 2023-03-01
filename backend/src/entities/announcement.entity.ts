@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
+import { Comment } from "./comments.entity";
 import { Photo } from "./photo.entity";
 import { User } from "./user.entity";
 
@@ -55,4 +56,9 @@ export class Announcement {
 
   @ManyToOne(() => User, { onDelete: "CASCADE" })
   user: User;
+
+  @OneToMany(() => Comment, (Comment) => Comment.announcement, {
+    onDelete: "SET NULL",
+  })
+  comments: Comment[];
 }

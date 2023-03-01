@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IAddress } from "../../interfaces/address";
+import { IComment } from "../../interfaces/comments";
 import {
   IUser,
   IUserContext,
@@ -8,6 +9,7 @@ import {
   IUserLoginResponse,
   IUserProviderProps,
   IUserRequest,
+  IUserUpdate,
 } from "../../interfaces/user";
 import api from "../../services/api";
 
@@ -15,8 +17,11 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export const UserProvider = ({ children }: IUserProviderProps) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [registerModal, setRegisterModal] = useState(false);
-  const [modalAddress, setModalAddress] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<IUser | null>(null);
+  const [registerModal, setRegisterModal] = useState<boolean>(false);
+  const [modalAddress, setAddressModal] = useState<boolean>(false);
+  const [editUserModal, setEditUserModal] = useState<boolean>(false);
+  const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -24,7 +29,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     await api
       .post<IUser>("/users", data)
       .then((res) => {
-        console.log(res);
         setRegisterModal(true);
       })
       .catch((err) => {
@@ -42,10 +46,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
-
-        navigate("/profileAdmin", { replace: true });
-
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -58,7 +58,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
       localStorage.setItem("@user:id", res.data.id);
 
-      console.log(res);
+      if (res.data.account === "Anunciante") {
+        navigate("/profileAdmin", { replace: true });
+      } else {
+        navigate("/home", { replace: true });
+      }
     });
   };
 
@@ -66,8 +70,32 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     await api
       .patch(`/address/${user?.address.id}`, data)
       .then((res) => {
-        console.log(res);
-        setModalAddress(false);
+        setAddressModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const editUser = async (data: IUserUpdate) => {
+    await api
+      .patch<IUser>("/users", data)
+      .then((res) => {
+        setEditUserModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteUser = async () => {
+    await api
+      .delete<IUser>("/users")
+      .then((res) => {
+        setDeleteUserModal(false);
+        localStorage.clear();
+        setUser(null);
+        navigate("/home", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -100,10 +128,18 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         registerModal,
         setRegisterModal,
         editAddress,
+        editUser,
         modalAddress,
-        setModalAddress,
+        setAddressModal,
         user,
         setUser,
+        selectedUser,
+        setSelectedUser,
+        setEditUserModal,
+        editUserModal,
+        deleteUserModal,
+        setDeleteUserModal,
+        deleteUser,
       }}
     >
       {children}
