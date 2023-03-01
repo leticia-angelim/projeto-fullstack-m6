@@ -23,7 +23,6 @@ export const UserInfo = styled.div`
     width: 104px;
     height: 104px;
     border-radius: 50%;
-    background: var(--color-brand1);
   }
 
   .name_abbreviate {

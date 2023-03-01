@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FreeMode } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,7 +10,6 @@ import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
 import { ISliderProps } from "../../interfaces/slider";
 import { ProductCardAdmin } from "../ProductCardAdmin";
-import { UserContext } from "../../contexts/UserContext";
 
 const Slider = ({ title, children }: ISliderProps) => {
   const userId = localStorage.getItem("@user:id");
