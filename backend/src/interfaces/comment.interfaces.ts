@@ -1,8 +1,7 @@
 export interface ICommentRequest {
   message: string;
   announcementId: string;
-  //   user: string;
-  //   created_at: Date;
+  user: string;
 }
 
 export interface IComment {

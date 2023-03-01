@@ -9,7 +9,7 @@ const listAnnouncementByIdService = async (
 
   const findAnnouncement = await announcementRepository.findOne({
     where: { id },
-    relations: { user: true, comments: true },
+    relations: { user: true },
   });
 
   if (!findAnnouncement) {
