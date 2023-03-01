@@ -19,10 +19,12 @@ export const ProductContainer = styled.section`
     background-color: var(--color-grey7);
     border: 2px solid var(--color-grey7);
     overflow: hidden;
+    position: relative;
 
     img {
       width: 100%;
       transform: scale(1);
+      position: absolute;
 
       transition: 0.4s;
 
@@ -30,6 +32,21 @@ export const ProductContainer = styled.section`
         transform: scale(1.2);
         cursor: pointer;
       }
+    }
+
+    label {
+      top: 5px;
+      left: 5px;
+      position: absolute;
+      padding: 0 0.5rem;
+
+      font-family: "Inter";
+      font-style: normal;
+      font-size: 14px;
+      text-align: center;
+
+      color: #ffffff;
+      background: ${(props) => props.color};
     }
 
     :hover {

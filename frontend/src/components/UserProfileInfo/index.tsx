@@ -16,19 +16,21 @@ export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);
   const { user } = useContext(UserContext);
 
+  const userName = localStorage.getItem("@user:name");
+
   return (
     <>
       <UserInfo>
         <div
           className="name_div"
           style={{
-            backgroundColor: stringToColor(user!.name),
+            backgroundColor: stringToColor(userName!),
           }}
         >
-          <p className="name_abbreviate">{nameAbbreviate(user!.name)}</p>
+          <p className="name_abbreviate">{nameAbbreviate(userName!)}</p>
         </div>
         <div className="username_div">
-          <p className="username">{user?.name}</p>
+          <p className="username">{userName}</p>
           <div className="span_div">
             <span className="account">{user?.account}</span>
           </div>

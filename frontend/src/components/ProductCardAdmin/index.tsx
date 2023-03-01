@@ -51,7 +51,7 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           backgroundColorHover={"#212529"}
           fontColorHover={"#ffffff"}
           fontColor={"#212529"}
-          border={"1.5px solid #212529"}
+          border={"#212529"}
           onClick={() => {
             setAnnouncementId(announcement.id);
             setEditModal(true);
@@ -63,7 +63,7 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           backgroundColorHover={"#212529"}
           fontColorHover={"#ffffff"}
           fontColor={"#212529"}
-          border={"1.5px solid #212529"}
+          border={"#212529"}
         />
       </ProductButtons>
     </ProductContainer>

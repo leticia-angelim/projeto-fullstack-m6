@@ -27,7 +27,7 @@ const EditAnnouncementModal = () => {
   const [addImg, setAddImg] = useState<number[]>([]);
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
-  const [published, setPublished] = useState<string>("");
+  const [published, setPublished] = useState<boolean>(true);
   const [activeAnnoucementTypeBtn, setActiveAnnouncementTypeButton] =
     useState<number>(0);
   const [activeVehicleTypeBtn, setActiveVehicleTypeButton] =
@@ -62,7 +62,7 @@ const EditAnnouncementModal = () => {
   const onSubmitFunction = (data: any) => {
     data.announcement_type = type;
     data.vehicle_type = vehicleType;
-    data.published = published;
+    data.is_published = published;
 
     data.photos = [
       "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
@@ -233,7 +233,7 @@ const EditAnnouncementModal = () => {
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
                 onClick={() => {
-                  setPublished("Sim");
+                  setPublished(true);
                   setactivePublishedBtn(1);
                 }}
                 type="button"
@@ -247,7 +247,7 @@ const EditAnnouncementModal = () => {
                 fontColor="#0B0D0D"
                 fontColorHover="#FFFFFF"
                 onClick={() => {
-                  setPublished("Não");
+                  setPublished(false);
                   setactivePublishedBtn(2);
                 }}
                 type="button"
