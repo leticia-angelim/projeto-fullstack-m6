@@ -3,7 +3,7 @@ import { instanceToPlain } from "class-transformer";
 import createCommentService from "../../services/comments/createComments.service";
 
 const createCommentController = async (req: Request, res: Response) => {
-  const data = req.body;
+  const data = req.body.message;
   const announcement = req.params.id;
   const { id } = req.user;
 
