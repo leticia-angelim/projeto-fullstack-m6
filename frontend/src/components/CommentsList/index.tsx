@@ -30,7 +30,6 @@ export const CommentsList = ({ announcement }: any) => {
   useEffect(() => {
     listComments("6d39d0bc-297f-4f2b-97f8-5c3d93a36a19");
   }, []);
-
   return (
     <>
       <CommentsListBox>

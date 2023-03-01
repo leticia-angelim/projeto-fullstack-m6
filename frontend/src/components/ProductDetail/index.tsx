@@ -17,10 +17,14 @@ import PhotoModal from "../PhotoModal";
 import Button from "../../components/Button";
 import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
+
+import { CommentsList } from "../CommentsList";
+
 import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
 import { CommentsList } from "../CommentsList";
+
 
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
