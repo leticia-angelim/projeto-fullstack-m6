@@ -16,17 +16,33 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
 
   const navigate = useNavigate();
 
+  const url = window.location.href;
+
   return (
-    <ProductContainer>
-      <div
-        className="product-img"
-        onClick={() => {
-          setSelectedAnnouncement(announcement);
-          navigate("/product");
-        }}
-      >
-        <img src={announcement.cover_img} alt={announcement.title} />
-      </div>
+    <ProductContainer color={announcement.is_published ? "#4529E6" : "#ADB5BD"}>
+      {url === "http://localhost:3000/profileUser" ? (
+        <div
+          className="product-img"
+          onClick={() => {
+            setSelectedAnnouncement(announcement);
+            navigate("/product");
+          }}
+        >
+          <img src={announcement.cover_img} alt={announcement.title} />
+          <label>{announcement.is_published ? "Ativo" : "Inativo"}</label>
+        </div>
+      ) : (
+        <div
+          className="product-img"
+          onClick={() => {
+            setSelectedAnnouncement(announcement);
+            navigate("/product");
+          }}
+        >
+          <img src={announcement.cover_img} alt={announcement.title} />
+        </div>
+      )}
+
       <ThemeTitle tag="h2" className="product-title" titleSize="Heading-7-600">
         {announcement.title}
       </ThemeTitle>

@@ -40,6 +40,7 @@ export interface IAnnouncement {
   mileage: number;
   price: number;
   description: string;
+  is_published: boolean;
   vehicle_type: string;
   cover_img: string;
   photos: IPhoto[];
