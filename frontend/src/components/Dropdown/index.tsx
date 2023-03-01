@@ -68,9 +68,7 @@ const Dropdown = () => {
           Editar endereço
         </MenuItem>
         {user?.account === "Anunciante" && (
-          <MenuItem
-            onClick={() => navigate("/profileAdmin", { replace: true })}
-          >
+          <MenuItem onClick={() => navigate("/profileAdmin")}>
             Meus anúncios
           </MenuItem>
         )}

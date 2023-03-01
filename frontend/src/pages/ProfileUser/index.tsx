@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 
 import NavBar from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
+import stringToColor from "../../util/stringToColor";
+import nameAbbreviate from "../../util/nameAbbreviate";
 import { UserContext } from "../../contexts/UserContext";
 import { ProductList } from "../../components/ProductList";
 
@@ -17,21 +19,23 @@ const ProfileUser = () => {
       <PageContainer>
         <div className="blue_div"></div>
         <UserInfo>
-          <div className="name_div">
-            <p className="name_abbreviate">SL</p>
+          <div
+            className="name_div"
+            style={{
+              backgroundColor: stringToColor(selectedUser!.name),
+            }}
+          >
+            <p className="name_abbreviate">
+              {nameAbbreviate(selectedUser!.name)}
+            </p>
           </div>
           <div className="username_div">
             <p className="username">{selectedUser?.name}</p>
             <div className="span_div">
-              <span className="account">Anunciante</span>
+              <span className="account">{selectedUser?.account}</span>
             </div>
           </div>
-          <p className="user_description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex adipisci
-            excepturi ratione! Enim iusto, ipsam, commodi distinctio provident
-            quidem tempora sint praesentium, veniam voluptatem consectetur
-            ratione quas cum at iste.
-          </p>
+          <p className="user_description">{selectedUser?.description}</p>
         </UserInfo>
         {ProductList(selectedUser!.id)}
       </PageContainer>

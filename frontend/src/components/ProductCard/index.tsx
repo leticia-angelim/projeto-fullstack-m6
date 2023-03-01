@@ -7,16 +7,24 @@ import nameAbbreviate from "../../util/nameAbbreviate";
 import { ThemeTitle } from "../../styles/typography";
 import { UserContext } from "../../contexts/UserContext";
 import { IProductCardProps } from "../../interfaces/produtCard";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { ProductContainer, ProductOwner, ProductDetails } from "./styles";
 
 export const ProductCard = ({ announcement }: IProductCardProps) => {
-  const { setSelectedUser, selectedUser, user } = useContext(UserContext);
+  const { setSelectedUser } = useContext(UserContext);
+  const { setSelectedAnnouncement } = useContext(AnnouncementContext);
 
   const navigate = useNavigate();
 
   return (
     <ProductContainer>
-      <div className="product-img">
+      <div
+        className="product-img"
+        onClick={() => {
+          setSelectedAnnouncement(announcement);
+          navigate("/product");
+        }}
+      >
         <img src={announcement.cover_img} alt={announcement.title} />
       </div>
       <ThemeTitle tag="h2" className="product-title" titleSize="Heading-7-600">
@@ -29,8 +37,7 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
       <ProductOwner
         onClick={() => {
           setSelectedUser(announcement.user);
-
-          navigate("/profileUser", { replace: true });
+          navigate("/profileUser");
         }}
       >
         <p
@@ -40,7 +47,6 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
           {nameAbbreviate(announcement.user.name)}
         </p>
         <span className="owner-name">{announcement.user.name}</span>
-        {/* onClick={() => setUserSelected(announcement.user.id)} */}
       </ProductOwner>
 
       <ProductDetails>

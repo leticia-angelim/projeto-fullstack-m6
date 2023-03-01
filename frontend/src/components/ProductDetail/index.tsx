@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import Button from "../../components/Button";
+import { useNavigate } from "react-router-dom";
+
 import {
   Aside,
   DivInfos,
@@ -13,14 +14,19 @@ import {
   ProductDescription,
   UserInfos,
 } from "./styles";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import { useNavigate } from "react-router-dom";
-import car from "../../assets/car1.svg";
+
+import PhotoModal from "../PhotoModal";
+import Button from "../../components/Button";
+import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
+import { UserContext } from "../../contexts/UserContext";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 
 const ProductDetail = () => {
-  const { userAnnouncements } = useContext(AnnouncementContext);
-  const price = 10000000;
+  const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
+    useContext(AnnouncementContext);
+  const { setSelectedUser } = useContext(UserContext);
+
   const history = useNavigate();
 
   return (
@@ -29,21 +35,22 @@ const ProductDetail = () => {
         <Product>
           <CoverImg>
             <div>
-              <img src={car} alt="Nome do produto" />
+              <img
+                src={selectedAnnouncement?.cover_img}
+                alt={selectedAnnouncement?.title}
+              />
             </div>
           </CoverImg>
           <ProductDetails>
-            <Title>
-              Mercedes Benz A 200 CGI ADVANCE SEDAN Mercedes Benz A 200
-            </Title>
+            <Title>{selectedAnnouncement?.title}</Title>
             <DivInfos>
               <div>
                 <div>
-                  <span>2023</span>
-                  <span>0 KM</span>
+                  <span>{selectedAnnouncement?.year}</span>
+                  <span>{selectedAnnouncement?.mileage} KM</span>
                 </div>
                 <span>
-                  {price.toLocaleString("pt-br", {
+                  {selectedAnnouncement?.price.toLocaleString("pt-br", {
                     style: "currency",
                     currency: "BRL",
                   })}
@@ -63,57 +70,61 @@ const ProductDetail = () => {
           <ProductDescription>
             <Title>Descrição</Title>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem
-              ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
         </Product>
         <Aside>
-          {userAnnouncements.length > 0 ? (
+          {selectedAnnouncement!.photos.length > 0 ? (
             <Photos>
               <Title>Fotos</Title>
-              <p>Esse anúncio não possui fotos extras</p>
+              <div>
+                {selectedAnnouncement?.photos.map((photo) => (
+                  <figure
+                    key={photo.id}
+                    onClick={() => {
+                      setSelectedPhoto(photo);
+                      setPhotoModal(true);
+                    }}
+                  >
+                    <img src={photo.url} alt="" />
+                  </figure>
+                ))}
+              </div>
             </Photos>
           ) : (
             <Photos>
               <Title>Fotos</Title>
-              <div>
-                <figure>
-                  <img src={car} alt="Car Photo" />
-                </figure>
-                <figure>
-                  <img src={car} alt="Car Photo" />
-                </figure>
-                <figure>
-                  <img src={car} alt="Car Photo" />
-                </figure>
-              </div>
+              <p>Esse anúncio não possui fotos extras</p>
             </Photos>
           )}
 
           <UserInfos>
-            <div>{nameAbbreviate("Thiago Araujo")}</div>
-            <span>Thiago Araujo</span>
+            <div
+              style={{
+                backgroundColor: stringToColor(selectedAnnouncement!.user.name),
+              }}
+            >
+              {nameAbbreviate(selectedAnnouncement!.user.name)}
+            </div>
+            <span>{selectedAnnouncement?.user.name}</span>
 
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <p>{selectedAnnouncement?.user.description}</p>
 
             <Button
               backgroundColor="#0B0D0D"
               backgroundColorHover=""
               fontColor="#FFFFFF"
-              onClick={() => history(`/home`)}
+              onClick={() => {
+                setSelectedUser(selectedAnnouncement!.user);
+                history("/profileUser");
+              }}
             >
-              Ver todos anuncios
+              Ver todos anúncios
             </Button>
           </UserInfos>
         </Aside>
       </Container>
+      <PhotoModal />
     </Main>
   );
 };
