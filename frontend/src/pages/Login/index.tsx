@@ -76,7 +76,7 @@ const Login = () => {
               fontColor="#0B0D0D"
               fontColorHover="#FDFDFD"
               type="button"
-              onClick={() => navigate("/register", { replace: true })}
+              onClick={() => navigate("/register")}
             />
           </form>
         </div>

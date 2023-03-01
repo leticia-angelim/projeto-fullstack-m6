@@ -1,32 +1,41 @@
 import React, { useContext } from "react";
 
+import stringToColor from "../../util/stringToColor";
+import nameAbbreviate from "../../util/nameAbbreviate";
+import { UserContext } from "../../contexts/UserContext";
+import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+
 import Button from "../Button";
 import { UserInfo } from "./styles";
 import ModalSuccess from "../ModalSucess";
 import CreateAnnouncementModal from "../CreateAnnouncement";
 import EditAnnouncementModal from "../EditAnnouncementModal";
 import DeleteAnnouncementModal from "../DeleteAnnouncementModal";
-import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import { UserContext } from "../../contexts/UserContext";
-import nameAbbreviate from "../../util/nameAbbreviate";
 
 export const UserProfileInfo = () => {
   const { setAddAdModal } = useContext(AnnouncementContext);
   const { user } = useContext(UserContext);
 
+  const userName = localStorage.getItem("@user:name");
+
   return (
     <>
       <UserInfo>
-        <div className="name_div">
-          <p className="name_abbreviate">{nameAbbreviate(user!.name)}</p>
+        <div
+          className="name_div"
+          style={{
+            backgroundColor: stringToColor(userName!),
+          }}
+        >
+          <p className="name_abbreviate">{nameAbbreviate(userName!)}</p>
         </div>
         <div className="username_div">
-          <p className="username">{user!.name}</p>
+          <p className="username">{userName}</p>
           <div className="span_div">
-            <span className="account">{user!.account}</span>
+            <span className="account">{user?.account}</span>
           </div>
         </div>
-        <p className="user_description">{user!.description}</p>
+        <p className="user_description">{user?.description}</p>
 
         <Button
           children="Criar anúncio"

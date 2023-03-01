@@ -218,8 +218,16 @@ export const Photos = styled.div`
   > div {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+
     figure {
+      display: flex;
+      align-items: center;
+      width: 108px;
+      height: 108px;
       background-color: var(--color-grey7);
+      cursor: pointer;
     }
   }
 `;
@@ -242,7 +250,6 @@ export const UserInfos = styled.div`
     width: 90px;
     height: 90px;
     border-radius: 50%;
-    background-color: var(--color-brand2);
     font-size: 36px;
     color: var(--color-whiteFixed);
     font-family: "Inter", sans-serif;

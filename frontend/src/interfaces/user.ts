@@ -65,5 +65,6 @@ export interface IUserUpdate {
   email: string;
   cpf: string;
   phone: string;
+  birth_date: string;
   description: string;
 }

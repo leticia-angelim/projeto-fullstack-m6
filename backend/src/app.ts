@@ -7,6 +7,7 @@ import announcementRoutes from "./routes/announcement.routes";
 import loginRoutes from "./routes/login.routes";
 import userRoutes from "./routes/user.routes";
 import addressRoutes from "./routes/address.routes";
+import commentsRoutes from "./routes/comments.routes";
 
 const app = express();
 const cors = require("cors");
@@ -18,6 +19,7 @@ app.use("/login", loginRoutes);
 app.use("/users", userRoutes);
 app.use("/announcement", announcementRoutes);
 app.use("/address", addressRoutes);
+app.use("/comments", commentsRoutes);
 
 app.use(errorMiddleware);
 

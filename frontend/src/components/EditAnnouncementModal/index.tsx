@@ -64,6 +64,10 @@ const EditAnnouncementModal = () => {
     data.vehicle_type = vehicleType;
     data.is_published = published;
 
+    data.photos = [
+      "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+    ];
+
     editAnnouncement(data);
   };
 

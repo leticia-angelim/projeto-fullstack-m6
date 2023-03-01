@@ -13,12 +13,19 @@ export interface IAnnouncementContext {
   userAnnouncements: Array<IAnnouncement>;
   editModal: boolean;
   deleteModal: boolean;
+  photoModal: boolean;
   setEditModal: Dispatch<SetStateAction<boolean>>;
   setDeleteModal: Dispatch<SetStateAction<boolean>>;
+  setPhotoModal: Dispatch<SetStateAction<boolean>>;
   editAnnouncement: (data: IAnnouncement) => Promise<void>;
   deleteAnnouncement: () => Promise<void>;
+  announcementId: string;
   setAnnouncementId: Dispatch<SetStateAction<string>>;
   allAnnouncements: IAnnouncement[];
+  selectedAnnouncement: IAnnouncement | null;
+  setSelectedAnnouncement: Dispatch<SetStateAction<IAnnouncement | null>>;
+  selectedPhoto: IPhoto | null;
+  setSelectedPhoto: Dispatch<SetStateAction<IPhoto | null>>;
 }
 
 export interface AnnouncementProps {
@@ -33,10 +40,16 @@ export interface IAnnouncement {
   mileage: number;
   price: number;
   description: string;
+  is_published: boolean;
   vehicle_type: string;
   cover_img: string;
-  photos: string;
+  photos: IPhoto[];
   user: IUser;
+}
+
+export interface IPhoto {
+  id: string;
+  url: string;
 }
 
 export interface IAnnouncementAdmin {

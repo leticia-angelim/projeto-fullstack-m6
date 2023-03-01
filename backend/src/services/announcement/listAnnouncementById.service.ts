@@ -1,7 +1,7 @@
+import { userInfo } from "os";
 import AppDataSource from "../../data-source";
 import { Announcement } from "../../entities/announcement.entity";
 import { AppError } from "../../errors/appError";
-import { IAnnouncement } from "../../interfaces/announcement.interfaces";
 
 const listAnnouncementByIdService = async (
   id: string
@@ -10,7 +10,7 @@ const listAnnouncementByIdService = async (
 
   const findAnnouncement = await announcementRepository.findOne({
     where: { id },
-    relations: { user: true },
+    relations: { user: true, comments: { user: true } },
   });
 
   if (!findAnnouncement) {

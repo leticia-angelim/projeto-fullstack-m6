@@ -45,6 +45,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
+
+        navigate("/home", { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -57,12 +59,6 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
       localStorage.setItem("@user:id", res.data.id);
       localStorage.setItem("@user:name", res.data.name);
-
-      if (res.data.account === "Anunciante") {
-        navigate("/profileAdmin", { replace: true });
-      } else {
-        navigate("/home", { replace: true });
-      }
     });
   };
 
