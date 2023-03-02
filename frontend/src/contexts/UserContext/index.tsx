@@ -60,6 +60,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
       localStorage.setItem("@user:id", res.data.id);
       localStorage.setItem("@user:name", res.data.name);
+      localStorage.setItem("@user:account", res.data.account);
     });
   };
 
