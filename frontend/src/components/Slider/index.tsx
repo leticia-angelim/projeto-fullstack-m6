@@ -35,8 +35,8 @@ const Slider = ({ title, children }: ISliderProps) => {
               spaceBetween: 10,
             },
             768: {
-              slidesPerView: 2,
-              spaceBetween: 10,
+              slidesPerView: 3,
+              spaceBetween: 150,
             },
             1024: {
               slidesPerView: 3,
@@ -45,6 +45,14 @@ const Slider = ({ title, children }: ISliderProps) => {
             1280: {
               slidesPerView: 4,
               spaceBetween: 10,
+            },
+            1440: {
+              slidesPerView: 5,
+              spaceBetween: 60,
+            },
+            1920: {
+              slidesPerView: 6,
+              spaceBetween: 20,
             },
           }}
         >
