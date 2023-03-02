@@ -37,10 +37,17 @@ export const InputContainer = styled.div`
       font-weight: 400;
       font-size: 16px;
       color: var(--color-grey3);
+
+      @media (max-width: 425px) {
+        font-size: 12px;
+      }
     }
 
     &:focus::placeholder {
       color: transparent;
+    }
+
+    @media (max-width: 425px) {
     }
   }
 `;
