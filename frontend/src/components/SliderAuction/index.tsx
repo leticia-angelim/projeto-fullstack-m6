@@ -33,16 +33,20 @@ const SliderAuction = () => {
               spaceBetween: 20,
             },
             1024: {
-              slidesPerView: 1,
-              spaceBetween: 10,
+              slidesPerView: 2,
+              spaceBetween: 500,
             },
             1280: {
               slidesPerView: 2,
               spaceBetween: 130,
             },
             1440: {
+              slidesPerView: 2,
+              spaceBetween: 150,
+            },
+            1920: {
               slidesPerView: 3,
-              spaceBetween: 400,
+              spaceBetween: 300,
             },
           }}
         >
