@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.section`
-  min-width: 17rem;
-  max-width: 25rem;
+  width: 20rem;
   display: flex;
   gap: 15px;
   flex-direction: column;

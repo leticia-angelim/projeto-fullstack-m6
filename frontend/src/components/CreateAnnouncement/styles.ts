@@ -151,9 +151,13 @@ export const FinalButtons = styled.div`
     button:nth-child(2) {
       width: 60%;
 
-      @media (max-width: 426px) {
+      @media (max-width: 425px) {
         font-size: 12px;
       }
     }
+  }
+
+  @media (max-width: 425px) {
+    padding-left: 0;
   }
 `;

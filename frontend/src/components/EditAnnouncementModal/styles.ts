@@ -148,5 +148,13 @@ export const FinalButtons = styled.div`
     button:nth-child(2) {
       width: 40%;
     }
+
+    @media (max-width: 425px) {
+      gap: 10px;
+
+      button:nth-child(2) {
+        width: 50%;
+      }
+    }
   }
 `;
