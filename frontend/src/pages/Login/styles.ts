@@ -7,8 +7,8 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  padding-top: 7rem;
-  padding-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
   background: var(--color-grey8);
 
   .box {
@@ -64,6 +64,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+  @media (min-width: 1440px) {
+    height: 80vh;
+    margin-bottom: 0.45rem;
   }
 `;
 

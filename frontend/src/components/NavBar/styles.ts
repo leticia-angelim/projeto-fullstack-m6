@@ -23,6 +23,7 @@ export const Nav = styled.nav`
     display: flex;
 
     align-items: center;
+    justify-content: space-evenly;
   }
 
   @media (max-width: 768px) {
@@ -53,7 +54,7 @@ export const DivNavBar = styled.nav`
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-right: 2px solid var(--color-grey6);
 
   a {
