@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import clock from "../../assets/seta.svg";
 import arrow from "../../assets/relogio.svg";
 import auctionImg from "../../assets/auction.svg";
@@ -13,10 +13,11 @@ import {
   DivInfos,
 } from "./styles";
 import nameAbbreviate from "../../util/nameAbbreviate";
+import { UserContext } from "../../contexts/UserContext";
 
 const CardAuction = () => {
+  const { user } = useContext(UserContext);
   const token = localStorage.getItem("@user:token");
-
   return (
     <Container>
       <AuctionCard className="divCard-auction">
@@ -60,7 +61,7 @@ const CardAuction = () => {
       </AuctionCard>
 
       <DivButtons>
-        {token ? (
+        {user?.name !== "Rodrigo" ? (
           <>
             <p>Acessar página do leilão</p>
 
@@ -70,7 +71,6 @@ const CardAuction = () => {
           <>
             <Button
               type="button"
-              //   onClick={() => setEditModal(auction.id)}
               backgroundColor="#4529E6"
               fontColor="#FFFFFF"
               border="#FFFFFF"
@@ -81,7 +81,6 @@ const CardAuction = () => {
               Editar
             </Button>
             <Button
-              //   onClick={() => console.log("Ver como")}
               backgroundColor="#4529E6"
               fontColor="#FFFFFF"
               border="#FFFFFF"

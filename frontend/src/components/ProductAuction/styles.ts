@@ -16,7 +16,7 @@ export const Container = styled.div`
 
   @media (max-width: 768px) {
     width: 325px;
-    height: 435px;
+    height: 490px;
     margin: 1rem;
 
     .divCard-auction {

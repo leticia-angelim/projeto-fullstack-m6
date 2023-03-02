@@ -6,7 +6,8 @@ import { Footer } from "../../components/Footer";
 import AllUsersProductList from "../../components/AllUsersProductList";
 
 import { Buttons, Container } from "./styles";
-import { CardAuction } from "../../components/ProductAuction";
+import AuctionList from "../../components/SliderAuction";
+import SliderAuction from "../../components/SliderAuction";
 
 const Home = () => {
   return (
@@ -39,7 +40,7 @@ const Home = () => {
             </a>
           </Buttons>
         </div>
-        <CardAuction />
+        <SliderAuction />
         <AllUsersProductList />
       </Container>
       <Footer />
