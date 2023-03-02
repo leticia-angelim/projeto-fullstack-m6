@@ -18,7 +18,7 @@ export const Nav = styled.nav`
   }
 
   .navbar-teste {
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
 
