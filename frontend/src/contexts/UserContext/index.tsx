@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { IAddress } from "../../interfaces/address";
 import { IComment } from "../../interfaces/comments";
 import {
+  IPasswordReset,
   IUser,
   IUserContext,
   IUserLogin,
@@ -102,6 +103,28 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       });
   };
 
+  const forgotPassword = async (email: string) => {
+    await api
+      .post("/login/forgot_password", email)
+      .then((res) => {
+        setForgotPasswordModal(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const passwordReset = async (date: IPasswordReset) => {
+    await api
+      .post("/login/reset_password", date)
+      .then((res) => {
+        navigate("/login", { replace: true });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     const loadUser = () => {
       const token = localStorage.getItem("@user:token");
@@ -142,6 +165,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         deleteUser,
         forgotPasswordModal,
         setForgotPasswordModal,
+        forgotPassword,
+        passwordReset,
       }}
     >
       {children}
