@@ -26,12 +26,13 @@ export const CommentsList = ({ announcement }: any) => {
   });
 
   const onSubmitFunction = (data: any) => {
-    registerComment(announcement.id, data);
+    registerComment("6db4d294-d75d-42b4-9c36-f6a93758e7a1", data);
   };
 
   useEffect(() => {
-    listComments(announcement.id);
+    listComments("6db4d294-d75d-42b4-9c36-f6a93758e7a1");
   }, []);
+
   return (
     <>
       <CommentsListBox>
@@ -52,9 +53,9 @@ export const CommentsList = ({ announcement }: any) => {
           <div className="userInfo-div">
             <p
               className="name_abbreviate"
-              style={{ backgroundColor: stringToColor(user!.name) }}
+              // style={{ backgroundColor: stringToColor(user!.name) }}
             >
-              {nameAbbreviate(user!.name)}
+              {/* {nameAbbreviate(user!.name)} */}
             </p>
             <p className="username">{user?.name}</p>
           </div>

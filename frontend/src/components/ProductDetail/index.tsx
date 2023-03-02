@@ -11,6 +11,7 @@ import {
   ProductDetails,
   ProductDescription,
   UserInfos,
+  DivBox1,
 } from "./styles";
 
 import PhotoModal from "../PhotoModal";
@@ -72,7 +73,7 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
-          <CommentsList announcement={selectedAnnouncement} />
+          {/* <CommentsList announcement={selectedAnnouncement} /> */}
         </Product>
         <Aside>
           {/* {selectedAnnouncement!.photos! ? (
@@ -125,6 +126,11 @@ const ProductDetail = () => {
           </UserInfos>
         </Aside>
       </Container>
+      <DivBox1>
+        <div className="div-box2">
+          <CommentsList announcement={selectedAnnouncement} />
+        </div>
+      </DivBox1>
       {/* <PhotoModal /> */}
     </Main>
   );

@@ -5,10 +5,8 @@ export const CommentsListBox = styled.div`
   flex-direction: column;
   gap: 24px;
   margin-bottom: 33px;
-  /* margin-left: 33px; */
 
-  /* width: 100%; */
-  /* margin-left: 65px; */
+  width: 100%;
 
   .comments {
     padding: 36px 44px;
@@ -87,13 +85,8 @@ export const RegisterCommentBox = styled.div`
     position: absolute;
     bottom: 15px;
     right: 11px;
-    /* position: absolute; */
     width: 108px;
     height: 38px;
-    /* left: 44%;
-    top: 281%; */
-    /* left: 600px;
-    top: 1810px; */
     border-radius: 4px;
   }
 
@@ -118,6 +111,25 @@ export const RegisterCommentBox = styled.div`
 
     &:hover {
       color: black;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .comment-button {
+      position: inherit;
+      margin-top: 24px;
+      margin-left: 10px;
+    }
+
+    .sugestion-btn {
+      height: 32px;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    .comment-sugestions {
+      flex-wrap: wrap;
+      width: 200px;
     }
   }
 `;

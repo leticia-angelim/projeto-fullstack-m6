@@ -44,6 +44,10 @@ export const Product = styled.div`
   width: 95%;
   max-width: 700px;
   margin-left: 33px;
+
+  @media screen and (max-width: 1024px) {
+    margin-left: unset;
+  }
 `;
 
 export const CoverImg = styled.section`
@@ -197,6 +201,10 @@ export const Aside = styled.aside`
     border-radius: 4px;
   }
 
+  @media screen and (min-width: 768px) {
+    max-width: 700px;
+  }
+
   @media screen and (min-width: 1024px) {
     width: 600px;
   }
@@ -271,5 +279,52 @@ export const UserInfos = styled.div`
     color: var(--color-grey2);
     line-height: 2rem;
     padding: 10px;
+  }
+`;
+
+export const DivBox1 = styled.div`
+  display: flex;
+  width: 95%;
+  margin-left: 33px;
+
+  .div-box2 {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    max-width: 700px;
+    margin-left: 33px;
+  }
+
+  @media screen and (min-width: 320px) {
+    margin-left: unset;
+
+    .div-box2 {
+      margin-left: auto;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .div-box2 {
+      margin-left: 60px;
+      width: 50.5%;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-left: 10px;
+    width: unset;
+  }
+
+  @media screen and (min-width: 1269px) {
+    .div-box2 {
+      width: 690px;
+    }
+  }
+
+  @media screen and (min-width: 2560px) {
+    margin-left: 525px;
+    .div-box2 {
+      width: 700px;
+    }
   }
 `;
