@@ -22,6 +22,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const [modalAddress, setAddressModal] = useState<boolean>(false);
   const [editUserModal, setEditUserModal] = useState<boolean>(false);
   const [deleteUserModal, setDeleteUserModal] = useState<boolean>(false);
+  const [forgotPasswordModal, setForgotPasswordModal] =
+    useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -138,6 +140,8 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         deleteUserModal,
         setDeleteUserModal,
         deleteUser,
+        forgotPasswordModal,
+        setForgotPasswordModal,
       }}
     >
       {children}

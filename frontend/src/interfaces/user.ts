@@ -19,6 +19,8 @@ export interface IUserContext {
   deleteUserModal: boolean;
   setDeleteUserModal: Dispatch<SetStateAction<boolean>>;
   deleteUser: () => Promise<void>;
+  forgotPasswordModal: boolean;
+  setForgotPasswordModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IUserProviderProps {
