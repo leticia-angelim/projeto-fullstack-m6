@@ -19,6 +19,10 @@ export interface IUserContext {
   deleteUserModal: boolean;
   setDeleteUserModal: Dispatch<SetStateAction<boolean>>;
   deleteUser: () => Promise<void>;
+  forgotPasswordModal: boolean;
+  setForgotPasswordModal: Dispatch<SetStateAction<boolean>>;
+  forgotPassword: (email: string) => Promise<void>;
+  passwordReset: (date: IPasswordReset) => Promise<void>;
 }
 
 export interface IUserProviderProps {
@@ -67,4 +71,10 @@ export interface IUserUpdate {
   phone: string;
   birth_date: string;
   description: string;
+}
+
+export interface IPasswordReset {
+  email: string;
+  token: string;
+  password: string;
 }

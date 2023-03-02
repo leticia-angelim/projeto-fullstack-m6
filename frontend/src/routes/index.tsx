@@ -7,6 +7,7 @@ import Product from "../pages/Product";
 import Register from "../pages/Register";
 import ProfileUser from "../pages/ProfileUser";
 import ProfileAdmin from "../pages/ProfileAdmin";
+import ResetPassword from "../pages/ResetPassword";
 import ProtectedRoutes from "../components/ProtectedRoutes";
 import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin";
 
@@ -24,6 +25,7 @@ const MyRoutes = () => {
       <Route element={<ProtectedProfileAdmin />}>
         <Route path="/profileAdmin" element={<ProfileAdmin />} />
       </Route>
+      <Route path="/resetPassword" element={<ResetPassword />} />
     </Routes>
   );
 };

@@ -32,3 +32,13 @@ export const loginSchema = yup.object({
   email: yup.string().required("Campo obrigatório"),
   password: yup.string().required("Campo obrigatório"),
 });
+
+export const forgotPasswordSchema = yup.object({
+  email: yup.string().required("Campo obrigatório"),
+});
+
+export const resetPasswordSchema = yup.object({
+  email: yup.string().required("Campo obrigatório"),
+  token: yup.string().required("Campo obrigatório"),
+  password: yup.string().required("Campo obrigatório"),
+});

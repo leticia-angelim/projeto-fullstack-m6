@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext";
 import { loginSchema } from "../../schemas/user";
 
+import ForgotPasswordModal from "../../components/ForgotPasswordModal";
 import { Footer } from "../../components/Footer";
 import Button from "../../components/Button";
 import NavBar from "../../components/NavBar";
@@ -15,7 +16,7 @@ import { FormHelperText } from "@mui/material";
 import { Container, Password } from "./styles";
 
 const Login = () => {
-  const { loginUser } = useContext(UserContext);
+  const { loginUser, setForgotPasswordModal } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -58,7 +59,9 @@ const Login = () => {
                 register={register}
               />
               <FormHelperText error>{errors.password?.message}</FormHelperText>
-              <p>Esqueci minha senha</p>
+              <p onClick={() => setForgotPasswordModal(true)}>
+                Esqueci minha senha
+              </p>
             </Password>
 
             <Button
@@ -81,6 +84,7 @@ const Login = () => {
           </form>
         </div>
       </Container>
+      <ForgotPasswordModal />
       <Footer />
     </>
   );

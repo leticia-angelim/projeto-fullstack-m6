@@ -49,6 +49,14 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 
+  @Column({ nullable: true })
+  @Exclude()
+  passwordResetToken: string;
+
+  @Column({ nullable: true })
+  @Exclude()
+  passwordResetExpires: Date;
+
   @OneToMany(() => Announcement, (announcement) => announcement.user, {
     cascade: true,
   })
