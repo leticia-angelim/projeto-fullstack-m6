@@ -1,0 +1,21 @@
+import { ReactNode } from "react";
+import { IAnnouncement } from "./announcements";
+import { IUser } from "./user";
+
+export interface ICommentsContext {
+  registerComment: (announcement_id: string, data: IComment) => void;
+  announcementComments: Array<IComment>;
+  listComments: (announcement_id: string) => void;
+}
+
+export interface CommentsProps {
+  children: ReactNode;
+}
+
+export interface IComment {
+  id: string;
+  message: string;
+  created_at: string;
+  user: IUser;
+  announcement: IAnnouncement;
+}

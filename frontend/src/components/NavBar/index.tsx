@@ -6,11 +6,12 @@ import logo from "../../assets/logo.svg";
 
 import MobileMenu from "../MobileMenu";
 import Dropdown from "../Dropdown";
-import { DivNavBar, DivNavBarUser, Nav } from "./styles";
+
 import { UserContext } from "../../contexts/UserContext";
 import { EditUserProfileModal } from "../EditUserProfileModal";
 import EditAddressModal from "../EditAddressModal";
 import DeleteUserModal from "../DeleteUserModal";
+import { DivNavBar, DivNavBarUser, Nav } from "./styles";
 
 export const NavBar = () => {
   const navigate = useNavigate();

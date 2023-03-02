@@ -45,7 +45,7 @@ export interface IAnnouncement {
   is_published: boolean;
   vehicle_type: string;
   cover_img: string;
-  photos: IPhoto[];
+  photos?: IPhoto[];
   user: IUser;
 }
 

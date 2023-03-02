@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IAddress } from "../../interfaces/address";
+import { IComment } from "../../interfaces/comments";
 import {
   IUser,
   IUserContext,
@@ -59,6 +60,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
 
       localStorage.setItem("@user:id", res.data.id);
       localStorage.setItem("@user:name", res.data.name);
+      localStorage.setItem("@user:account", res.data.account);
     });
   };
 
