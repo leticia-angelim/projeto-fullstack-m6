@@ -5,11 +5,12 @@ const ProtectedProfileAdmin = () => {
   const location = useLocation();
 
   const token = localStorage.getItem("@user:token");
+  const account = localStorage.getItem("@user:account");
 
-  return token ? (
+  return token && account === "Anunciante" ? (
     <Outlet />
   ) : (
-    <Navigate to={"/login"} replace state={{ from: location }} />
+    <Navigate to={"/home"} replace state={{ from: location }} />
   );
 };
 

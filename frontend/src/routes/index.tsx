@@ -8,7 +8,7 @@ import Register from "../pages/Register";
 import ProfileUser from "../pages/ProfileUser";
 import ProfileAdmin from "../pages/ProfileAdmin";
 import ProtectedRoutes from "../components/ProtectedRoutes";
-import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin copy";
+import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin";
 
 const MyRoutes = () => {
   return (
