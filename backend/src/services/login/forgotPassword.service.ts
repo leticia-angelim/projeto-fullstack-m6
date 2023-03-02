@@ -23,8 +23,6 @@ const forgotPasswordService = async (email: string): Promise<void> => {
     passwordResetExpires: now,
   });
 
-  console.log(token, now);
-
   const transporter = nodemailer.createTransport({
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
