@@ -24,7 +24,6 @@ export const ProductList = (userId: string) => {
 
   return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
-      <Slider title="Leilão" children={userAnnouncements} />
       <Slider title="Carros" children={cars} />
       <Slider title="Motos" children={motorcycles} />
     </ProductListDiv>

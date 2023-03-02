@@ -18,8 +18,13 @@ import {
 import createAnnouncementSchema from "../../schemas/createAnnouncement";
 
 const CreateAnnouncementModal = () => {
-  const { registerAnnouncement, addAdModal, setAddAdModal } =
-    useContext(AnnouncementContext);
+  const {
+    registerAnnouncement,
+    addAdModal,
+    setAddAdModal,
+    setGallery,
+    gallery,
+  } = useContext(AnnouncementContext);
 
   const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
@@ -36,7 +41,6 @@ const CreateAnnouncementModal = () => {
   const handleAnnouncementBtnClick = (buttonIndex: number) => {
     setActiveAnnouncementTypeButton(buttonIndex);
   };
-  const [gallery, setGallery] = useState([""]);
 
   const newInput = () => {
     if (count <= 5 && addImg.length <= 5) {

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding-left: 1.5rem;
+  padding-left: 0.5rem;
 
   button {
     display: flex;
@@ -21,6 +21,10 @@ export const Container = styled.div`
 
     :hover {
       background: inherit;
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 2.5rem;
     }
   }
 

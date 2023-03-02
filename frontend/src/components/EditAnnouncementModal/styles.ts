@@ -136,6 +136,7 @@ export const ImgButton = styled.div`
 `;
 
 export const FinalButtons = styled.div`
+  margin-top: 1rem;
   .final-buttons {
     display: flex;
     gap: 20px;

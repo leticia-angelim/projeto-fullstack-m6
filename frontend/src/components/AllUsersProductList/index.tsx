@@ -19,7 +19,6 @@ const AllUsersProductList = () => {
 
   return (
     <>
-      <Slider title="Leilão" children={allAnnouncements} />
       <Slider title="Carros" children={cars} />
       <Slider title="Motos" children={motorcycles} />
     </>

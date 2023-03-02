@@ -11,14 +11,14 @@ import Dropdown from "../Dropdown";
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const handleNavLinks = () => setIsOpen(!isOpen);
+  const navigate = useNavigate();
 
-  const history = useNavigate();
   const token = localStorage.getItem("@user:token");
 
   return token ? (
     <Container>
       <MenuDropdownSt>
-        <img src={logo} alt="Motors Shop" />
+        <img src={logo} alt="Motors Shop" onClick={() => navigate("/home")} />
         {isOpen ? (
           <img src={xmark} onClick={handleNavLinks} />
         ) : (
@@ -74,7 +74,7 @@ const MobileMenu = () => {
                 backgroundColorHover="#F1F3F5"
                 border={"#ADB5BD"}
                 fontColor="#0B0D0D"
-                onClick={() => history("/register")}
+                onClick={() => navigate("/register")}
               >
                 Cadastrar
               </Button>

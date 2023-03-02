@@ -9,6 +9,7 @@ import { ProductList } from "../../components/ProductList";
 
 import { PageContainer } from "../ProfileAdmin/styles";
 import { UserInfo } from "../../components/UserProfileInfo/styles";
+import nameAbbreviate from "../../util/nameAbbreviate";
 
 const ProfileUser = () => {
   const { selectedUser } = useContext(UserContext);

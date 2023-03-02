@@ -51,9 +51,13 @@ const Slider = ({ title, children }: ISliderProps) => {
           {children.map((announcement, index) => (
             <SwiperSlide key={index}>
               {url === "http://localhost:3000/profileAdmin" ? (
-                <ProductCardAdmin announcement={announcement} />
+                <>
+                  <ProductCardAdmin announcement={announcement} />
+                </>
               ) : (
-                <ProductCard announcement={announcement} />
+                <>
+                  <ProductCard announcement={announcement} />
+                </>
               )}
             </SwiperSlide>
           ))}
