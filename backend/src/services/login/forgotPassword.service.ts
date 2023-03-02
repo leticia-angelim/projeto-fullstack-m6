@@ -3,6 +3,7 @@ import { AppError } from "../../errors/appError";
 import AppDataSource from "../../data-source";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
+import "dotenv/config";
 
 const forgotPasswordService = async (email: string): Promise<void> => {
   const userRepository = AppDataSource.getRepository(User);
@@ -27,13 +28,13 @@ const forgotPasswordService = async (email: string): Promise<void> => {
     host: "sandbox.smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "e8a00225db8072",
-      pass: "2cd4dc07d8a5fd",
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
     },
   });
 
   transporter.sendMail({
-    from: "Motors Shop <72f697ab36-50e36b@inbox.mailtrap.io>",
+    from: "Motors Shop <motorsshop@mail.com>",
     to: email,
     subject: "Recuperação de Senha!",
     html: `<p>Informe <a href="http://localhost:3000/resetPassword">aqui</a> sua nova senha utilizando o código: ${token}.</p>`,
