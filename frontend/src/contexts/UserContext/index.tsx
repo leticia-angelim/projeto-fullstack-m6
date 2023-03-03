@@ -87,6 +87,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .then(() => {
         setEditUserModal(false);
         toast.success("Perfil atualizado!");
+        getUserProfile();
       })
       .catch(() => {
         toast.error("Ops! Este email já está cadastrado em outra conta");
