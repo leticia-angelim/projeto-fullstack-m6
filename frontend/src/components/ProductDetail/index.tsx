@@ -22,7 +22,6 @@ import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { CommentsList } from "../CommentsList";
-import { BsFillFileImageFill } from "react-icons/bs";
 import noPhotos from "../../assets/no-photos.jpg";
 
 const ProductDetail = () => {
@@ -81,7 +80,6 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
-          <CommentsList announcement={selectedAnnouncement} />
         </Product>
         <Aside>
           {selectedAnnouncement?.photos! ? (
@@ -123,7 +121,7 @@ const ProductDetail = () => {
                   ),
                 }}
               >
-                {nameAbbreviate("selectedAnnouncement!.user.name")}
+                {nameAbbreviate(selectedAnnouncement!.user.name)}
               </div>
               <span>{selectedAnnouncement?.user.name}</span>
 

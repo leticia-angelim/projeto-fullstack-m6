@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ProductListDiv = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 200px;
+  padding-top: 100px;
 
   .no-announcements {
     background-color: #f2f2f2;

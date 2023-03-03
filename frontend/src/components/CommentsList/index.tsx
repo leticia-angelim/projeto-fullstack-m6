@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import { UserContext } from "../../contexts/UserContext";
 import { createCommentSchema } from "../../schemas/createComment";
@@ -25,12 +26,14 @@ export const CommentsList = ({ announcement }: any) => {
     resolver: yupResolver(createCommentSchema),
   });
 
+  const { id } = useParams();
+
   const onSubmitFunction = (data: any) => {
-    registerComment(announcement.id, data);
+    registerComment(id!, data);
   };
 
   useEffect(() => {
-    listComments(announcement.id);
+    listComments(id!);
   }, []);
 
   return (

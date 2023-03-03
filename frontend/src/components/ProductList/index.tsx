@@ -21,10 +21,10 @@ export const ProductList = (userId: string) => {
   useEffect(() => {
     listUserAnnouncements(userId);
   }, []);
-
+  console.log(cars);
   return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
-      {cars.length >= 1 ? (
+      {cars.length <= 0 ? (
         <div className="no-announcements">
           <h4>Carros</h4>
           <p>Você ainda não possui anúncios de carros publicados!</p>
@@ -32,7 +32,7 @@ export const ProductList = (userId: string) => {
       ) : (
         <Slider title="Carros" children={cars} />
       )}
-      {motorcycles.length >= 1 ? (
+      {motorcycles.length <= 0 ? (
         <div className="no-announcements">
           <h4>Motos</h4>
           <p>Você ainda não possui anúncios de carros publicados!</p>
@@ -43,15 +43,15 @@ export const ProductList = (userId: string) => {
     </ProductListDiv>
   ) : (
     <ProductListDiv className="products_div">
-      {cars.length >= 1 ? (
+      {cars.length <= 0 ? (
         <div className="no-announcements">
           <h4>Carros</h4>
-          <p>Esste usuário ainda não possui anúncios de carros publicados!</p>
+          <p>Este usuário ainda não possui anúncios de carros publicados!</p>
         </div>
       ) : (
         <Slider title="Carros" children={cars} />
       )}
-      {motorcycles.length >= 1 ? (
+      {motorcycles.length <= 0 ? (
         <div className="no-announcements">
           <h4>Motos</h4>
           <p>Este usuário ainda não possui anúncios de carros publicados!</p>
