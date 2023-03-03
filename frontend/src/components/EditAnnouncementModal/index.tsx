@@ -34,18 +34,17 @@ const EditAnnouncementModal = () => {
   const [type, setType] = useState<string>("");
   const [vehicleType, setVehicleType] = useState<string>("");
   const [published, setPublished] = useState<boolean>(true);
-  const [activeAnnoucementTypeBtn, setActiveAnnouncementTypeButton] =
+  const [activeAnnouncementTypeBtn, setActiveAnnouncementTypeBtn] =
     useState<number>(0);
-  const [activeVehicleTypeBtn, setActiveVehicleTypeButton] =
-    useState<number>(0);
+  const [activeVehicleTypeBtn, setActiveVehicleTypeBtn] = useState<number>(0);
   const [activePublishedBtn, setactivePublishedBtn] = useState<number>(0);
 
   const handleVehicleBtnClick = (buttonIndex: number) => {
-    setActiveVehicleTypeButton(buttonIndex);
+    setActiveVehicleTypeBtn(buttonIndex);
   };
 
   const handleAnnouncementBtnClick = (buttonIndex: number) => {
-    setActiveAnnouncementTypeButton(buttonIndex);
+    setActiveAnnouncementTypeBtn(buttonIndex);
   };
 
   const newInput = () => {
@@ -88,7 +87,7 @@ const EditAnnouncementModal = () => {
             <div>
               <Button
                 className={
-                  activeAnnoucementTypeBtn === 1 ? "button_active" : ""
+                  activeAnnouncementTypeBtn === 1 ? "button_active" : ""
                 }
                 children="Venda"
                 backgroundColor="#FFFFFF"
@@ -104,7 +103,7 @@ const EditAnnouncementModal = () => {
               />
               <Button
                 className={
-                  activeAnnoucementTypeBtn === 2 ? "button_active" : ""
+                  activeAnnouncementTypeBtn === 2 ? "button_active" : ""
                 }
                 children="Leilão"
                 backgroundColor="#FFFFFF"

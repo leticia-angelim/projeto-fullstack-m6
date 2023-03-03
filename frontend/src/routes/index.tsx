@@ -10,6 +10,8 @@ import ProfileAdmin from "../pages/ProfileAdmin";
 import ResetPassword from "../pages/ResetPassword";
 import ProtectedRoutes from "../components/ProtectedRoutes";
 import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin";
+import EditAnnouncementModal from "../components/EditAnnouncementModal";
+import CreateAnnouncementModal from "../components/CreateAnnouncement";
 
 const MyRoutes = () => {
   return (

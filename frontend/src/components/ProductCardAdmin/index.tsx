@@ -64,6 +64,10 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           fontColorHover={"#ffffff"}
           fontColor={"#212529"}
           border={"#212529"}
+          onClick={() => {
+            setSelectedAnnouncement(announcement);
+            navigate(`/product/${announcement.id}`);
+          }}
         />
       </ProductButtons>
     </ProductContainer>
