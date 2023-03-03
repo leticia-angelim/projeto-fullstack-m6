@@ -36,7 +36,7 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
           className="product-img"
           onClick={() => {
             setSelectedAnnouncement(announcement);
-            navigate("/product");
+            navigate(`/product/${announcement.id}`);
           }}
         >
           <img src={announcement.cover_img} alt={announcement.title} />
