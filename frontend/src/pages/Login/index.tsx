@@ -59,9 +59,9 @@ const Login = () => {
                 register={register}
               />
               <FormHelperText error>{errors.password?.message}</FormHelperText>
-              <p onClick={() => setForgotPasswordModal(true)}>
+              <h4 onClick={() => setForgotPasswordModal(true)}>
                 Esqueci minha senha
-              </p>
+              </h4>
             </Password>
 
             <Button

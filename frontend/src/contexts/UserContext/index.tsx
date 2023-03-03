@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { IAddress } from "../../interfaces/address";
-import { IComment } from "../../interfaces/comments";
 import {
   IPasswordReset,
   IUser,
@@ -31,11 +31,11 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const registerUser = async (data: IUserRequest) => {
     await api
       .post<IUser>("/users", data)
-      .then((res) => {
+      .then(() => {
         setRegisterModal(true);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast.error("Ops! Email já cadastrado");
       });
   };
 
@@ -50,10 +50,12 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         localStorage.clear();
         localStorage.setItem("@user:token", data.token);
 
+        toast.success("Login efetuado com sucesso!");
+
         navigate("/home", { replace: true });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast.error("Ops! Email e/ou senha incorretos");
       });
   };
 
@@ -70,8 +72,9 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const editAddress = async (data: IAddress) => {
     await api
       .patch(`/address/${user?.address.id}`, data)
-      .then((res) => {
+      .then(() => {
         setAddressModal(false);
+        toast.success("Endereço atualizado!");
       })
       .catch((err) => {
         console.log(err);
@@ -81,20 +84,23 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const editUser = async (data: IUserUpdate) => {
     await api
       .patch<IUser>("/users", data)
-      .then((res) => {
+      .then(() => {
         setEditUserModal(false);
+        toast.success("Perfil atualizado!");
         getUserProfile();
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast.error("Ops! Este email já está cadastrado em outra conta");
       });
   };
 
   const deleteUser = async () => {
     await api
       .delete<IUser>("/users")
-      .then((res) => {
+      .then(() => {
         setDeleteUserModal(false);
+        toast.success("Conta excluída!");
+
         localStorage.clear();
         setUser(null);
         navigate("/home", { replace: true });
@@ -107,22 +113,32 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
   const forgotPassword = async (email: string) => {
     await api
       .post("/login/forgot_password", email)
-      .then((res) => {
+      .then(() => {
         setForgotPasswordModal(false);
+        toast.success("Email enviado!");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        toast.error("Email não cadastrado");
       });
   };
 
   const passwordReset = async (date: IPasswordReset) => {
     await api
       .post("/login/reset_password", date)
-      .then((res) => {
+      .then(() => {
+        toast.success("Senha atualizada!");
         navigate("/login", { replace: true });
       })
       .catch((err) => {
-        console.log(err);
+        const msg = err.response.data.message;
+
+        if (msg === "User not registered") {
+          toast.error("Email incorreto");
+        } else if (msg === "Invalid reset token") {
+          toast.error("Código inválido");
+        } else {
+          toast.error("Código expirado");
+        }
       });
   };
 

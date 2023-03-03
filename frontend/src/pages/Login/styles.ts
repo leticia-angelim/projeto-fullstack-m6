@@ -72,7 +72,7 @@ export const Container = styled.div`
 `;
 
 export const Password = styled.div`
-  p {
+  h4 {
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
