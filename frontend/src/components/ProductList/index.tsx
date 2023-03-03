@@ -21,7 +21,7 @@ export const ProductList = (userId: string) => {
   useEffect(() => {
     listUserAnnouncements(userId);
   }, []);
-  console.log(cars);
+
   return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
       {cars.length <= 0 ? (

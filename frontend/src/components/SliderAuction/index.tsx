@@ -12,7 +12,9 @@ import { Container } from "../Slider/styles";
 const SliderAuction = () => {
   return (
     <Container>
-      <h3 style={{ paddingLeft: "1rem" }}>Leilão</h3>
+      <h3 id="Leilão" style={{ paddingLeft: "1rem" }}>
+        Leilão
+      </h3>
       <div>
         <Swiper
           freeMode={true}
