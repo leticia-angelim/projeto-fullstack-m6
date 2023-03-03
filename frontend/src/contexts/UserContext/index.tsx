@@ -83,6 +83,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
       .patch<IUser>("/users", data)
       .then((res) => {
         setEditUserModal(false);
+        getUserProfile();
       })
       .catch((err) => {
         console.log(err);
