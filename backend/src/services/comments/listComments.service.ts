@@ -6,7 +6,7 @@ const listCommentService = async (id: string): Promise<Comment[]> => {
   const commentRepository = AppDataSource.getRepository(Comment);
 
   const findComment = await commentRepository.find({
-    relations: { announcement: { user: true } },
+    relations: { announcement: true, user: true },
   });
 
   const commentList = findComment.filter(

@@ -5,10 +5,8 @@ import { UserContext } from "../../contexts/UserContext";
 
 const ProtectedRoutes = () => {
   const location = useLocation();
-
   const { selectedUser } = useContext(UserContext);
   const { selectedAnnouncement } = useContext(AnnouncementContext);
-
   return selectedUser || selectedAnnouncement ? (
     <Outlet />
   ) : (

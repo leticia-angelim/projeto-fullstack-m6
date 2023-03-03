@@ -18,6 +18,10 @@ const MyRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
+      <Route
+        path="                                                                                                                                                                                                                        "
+        element={<Navigate replace to={"/product"} />}
+      />
       <Route element={<ProtectedRoutes />}>
         <Route path="/product" element={<Product />} />
         <Route path="/profileUser" element={<ProfileUser />} />

@@ -23,6 +23,7 @@ import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
 import { CommentsList } from "../CommentsList";
 import { BsFillFileImageFill } from "react-icons/bs";
+import noPhotos from "../../assets/no-photos.jpg";
 
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
@@ -74,10 +75,10 @@ const ProductDetail = () => {
 
             <p>{selectedAnnouncement?.description}</p>
           </ProductDescription>
-          {/* <CommentsList announcement={selectedAnnouncement} /> */}
+          <CommentsList announcement={selectedAnnouncement} />
         </Product>
         <Aside>
-          {/* {selectedAnnouncement!.photos! ? (
+          {selectedAnnouncement!.photos! ? (
             <Photos>
               <Title>Fotos</Title>
               <div>
@@ -94,24 +95,24 @@ const ProductDetail = () => {
                 ))}
               </div>
             </Photos>
-          ) : ( */}
-          <Photos>
-            <Title>Fotos</Title>
-            <div>
-              <img
-                className="no-photos"
-                src="https://agroam.com.br/img/p/br-default-home_default.jpg"
-                alt="Esse produto não possui fotos extras"
-              />
-            </div>
-          </Photos>
-          {/* )} */}
+          ) : (
+            <Photos>
+              <Title>Fotos</Title>
+              <div>
+                <img
+                  className="no-photos"
+                  src={noPhotos}
+                  alt="Esse produto não possui fotos extras"
+                />
+              </div>
+            </Photos>
+          )}
 
           <UserInfos>
             <div
-            // style={{
-            //   backgroundColor: stringToColor(selectedAnnouncement!.user.name),
-            // }}
+              style={{
+                backgroundColor: stringToColor(selectedAnnouncement!.user.name),
+              }}
             >
               {nameAbbreviate("selectedAnnouncement!.user.name")}
             </div>
@@ -138,7 +139,7 @@ const ProductDetail = () => {
           <CommentsList announcement={selectedAnnouncement} />
         </div>
       </DivBox1>
-      {/* <PhotoModal /> */}
+      <PhotoModal />
     </Main>
   );
 };

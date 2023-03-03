@@ -4,6 +4,7 @@ import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
 import { CommentDiv } from "./styles";
 import moment from "moment";
+// import "moment/dist/locale/pt-br";
 
 export const Comment = () => {
   const { announcementComments } = useContext(CommentsContext);
@@ -11,6 +12,8 @@ export const Comment = () => {
   return (
     <>
       {announcementComments.map((comment) => {
+        // const time = moment(comment.created_at, "YYYYMMDD").fromNow();
+
         const minutes = moment().diff(comment.created_at, "minutes");
         const hours = moment().diff(comment.created_at, "hours");
         const days = moment().diff(comment.created_at, "days");
@@ -38,15 +41,13 @@ export const Comment = () => {
               <div className="comment-info">
                 <p
                   className="name_abbreviate"
-                  // style={{
-                  //   backgroundColor: stringToColor(
-                  //     comment.announcement.user.name
-                  //   ),
-                  // }}
+                  style={{
+                    backgroundColor: stringToColor(comment.user.name),
+                  }}
                 >
-                  {/* {nameAbbreviate(comment.announcement.user.name)} */}
+                  {nameAbbreviate(comment.user.name)}
                 </p>
-                <span className="name">{comment.announcement.user.name}</span>
+                <span className="name">{comment.user.name}</span>
                 <div className="dot" />
                 <p className="date">{time}</p>
               </div>

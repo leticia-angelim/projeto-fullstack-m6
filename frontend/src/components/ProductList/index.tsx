@@ -24,29 +24,40 @@ export const ProductList = (userId: string) => {
 
   return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
-      <Slider title="Leilão" children={userAnnouncements} />
-      {cars.length < 1 ? (
+      {cars.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Carros</h4>
+          <p>Você ainda não possui anúncios de carros publicados!</p>
+        </div>
+      ) : (
         <Slider title="Carros" children={cars} />
-      ) : (
-        <p>Você ainda não possui anúncios</p>
       )}
-      {motorcycles.length < 1 ? (
-        <Slider title="Motos" children={motorcycles} />
+      {motorcycles.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Motos</h4>
+          <p>Você ainda não possui anúncios de carros publicados!</p>
+        </div>
       ) : (
-        <p>Você ainda não possui anúncios</p>
+        <Slider title="Motos" children={motorcycles} />
       )}
     </ProductListDiv>
   ) : (
     <ProductListDiv className="products_div">
       {cars.length >= 1 ? (
-        <Slider title="Carros" children={cars} />
+        <div className="no-announcements">
+          <h4>Carros</h4>
+          <p>Esste usuário ainda não possui anúncios de carros publicados!</p>
+        </div>
       ) : (
-        <p>Este usuário ainda não possui anúncios</p>
+        <Slider title="Carros" children={cars} />
       )}
       {motorcycles.length >= 1 ? (
-        <Slider title="Motos" children={motorcycles} />
+        <div className="no-announcements">
+          <h4>Motos</h4>
+          <p>Este usuário ainda não possui anúncios de carros publicados!</p>
+        </div>
       ) : (
-        <p>Este usuário ainda não possui anúncios</p>
+        <Slider title="Motos" children={motorcycles} />
       )}
     </ProductListDiv>
   );
