@@ -22,6 +22,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import { useNavigate } from "react-router-dom";
 import { CommentsList } from "../CommentsList";
+import { BsFillFileImageFill } from "react-icons/bs";
 
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
@@ -96,7 +97,13 @@ const ProductDetail = () => {
           ) : ( */}
           <Photos>
             <Title>Fotos</Title>
-            <p>Esse anúncio não possui fotos extras</p>
+            <div>
+              <img
+                className="no-photos"
+                src="https://agroam.com.br/img/p/br-default-home_default.jpg"
+                alt="Esse produto não possui fotos extras"
+              />
+            </div>
           </Photos>
           {/* )} */}
 

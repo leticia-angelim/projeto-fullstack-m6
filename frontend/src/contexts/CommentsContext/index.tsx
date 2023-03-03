@@ -41,6 +41,7 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
       })
       .then((res) => {
         // setAnnouncementComments([...announcementComments, res.data]);
+        console.log(announcementComments);
         setAnnouncementComments(res.data);
       })
       .catch((err) => {

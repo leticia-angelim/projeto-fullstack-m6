@@ -239,6 +239,10 @@ export const Photos = styled.div`
       cursor: pointer;
     }
   }
+
+  .no-photos {
+    width: 150px;
+  }
 `;
 
 export const UserInfos = styled.div`

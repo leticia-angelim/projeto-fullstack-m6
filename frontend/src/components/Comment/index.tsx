@@ -38,13 +38,13 @@ export const Comment = () => {
               <div className="comment-info">
                 <p
                   className="name_abbreviate"
-                  style={{
-                    backgroundColor: stringToColor(
-                      comment.announcement.user.name
-                    ),
-                  }}
+                  // style={{
+                  //   backgroundColor: stringToColor(
+                  //     comment.announcement.user.name
+                  //   ),
+                  // }}
                 >
-                  {nameAbbreviate(comment.announcement.user.name)}
+                  {/* {nameAbbreviate(comment.announcement.user.name)} */}
                 </p>
                 <span className="name">{comment.announcement.user.name}</span>
                 <div className="dot" />
