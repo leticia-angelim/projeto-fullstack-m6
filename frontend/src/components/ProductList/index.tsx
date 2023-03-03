@@ -24,13 +24,41 @@ export const ProductList = (userId: string) => {
 
   return userId === loggedUserId ? (
     <ProductListDiv className="products_div">
-      <Slider title="Carros" children={cars} />
-      <Slider title="Motos" children={motorcycles} />
+      {cars.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Carros</h4>
+          <p>Você ainda não possui anúncios de carros publicados!</p>
+        </div>
+      ) : (
+        <Slider title="Carros" children={cars} />
+      )}
+      {motorcycles.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Motos</h4>
+          <p>Você ainda não possui anúncios de carros publicados!</p>
+        </div>
+      ) : (
+        <Slider title="Motos" children={motorcycles} />
+      )}
     </ProductListDiv>
   ) : (
     <ProductListDiv className="products_div">
-      <Slider title="Carros" children={cars} />
-      <Slider title="Motos" children={motorcycles} />
+      {cars.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Carros</h4>
+          <p>Esste usuário ainda não possui anúncios de carros publicados!</p>
+        </div>
+      ) : (
+        <Slider title="Carros" children={cars} />
+      )}
+      {motorcycles.length >= 1 ? (
+        <div className="no-announcements">
+          <h4>Motos</h4>
+          <p>Este usuário ainda não possui anúncios de carros publicados!</p>
+        </div>
+      ) : (
+        <Slider title="Motos" children={motorcycles} />
+      )}
     </ProductListDiv>
   );
 };

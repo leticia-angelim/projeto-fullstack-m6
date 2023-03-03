@@ -20,6 +20,7 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
       .post<IComment>(`/comments/${announcement_id}`, data)
       .then((res) => {
         console.log(res);
+        listComments(announcement_id);
       })
       .catch((err) => {
         console.log(err);

@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import NavBar from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 import stringToColor from "../../util/stringToColor";
-import nameAbbreviate from "../../util/nameAbbreviate";
 import { UserContext } from "../../contexts/UserContext";
 import { ProductList } from "../../components/ProductList";
 
