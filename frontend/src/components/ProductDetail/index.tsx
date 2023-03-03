@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Aside,
   DivInfos,
@@ -20,7 +20,7 @@ import stringToColor from "../../util/stringToColor";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import { UserContext } from "../../contexts/UserContext";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CommentsList } from "../CommentsList";
 import { BsFillFileImageFill } from "react-icons/bs";
 import noPhotos from "../../assets/no-photos.jpg";
@@ -29,8 +29,14 @@ const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
     useContext(AnnouncementContext);
   const { setSelectedUser } = useContext(UserContext);
+  const { listAnnouncement } = useContext(AnnouncementContext);
 
   const history = useNavigate();
+  const { id } = useParams();
+
+  useEffect(() => {
+    listAnnouncement(id!);
+  }, []);
 
   return (
     <Main>
@@ -78,11 +84,11 @@ const ProductDetail = () => {
           <CommentsList announcement={selectedAnnouncement} />
         </Product>
         <Aside>
-          {selectedAnnouncement!.photos! ? (
+          {selectedAnnouncement?.photos! ? (
             <Photos>
               <Title>Fotos</Title>
               <div>
-                {selectedAnnouncement!.photos!.map((photo) => (
+                {selectedAnnouncement?.photos!.map((photo) => (
                   <figure
                     key={photo.id}
                     onClick={() => {
@@ -108,30 +114,34 @@ const ProductDetail = () => {
             </Photos>
           )}
 
-          <UserInfos>
-            <div
-              style={{
-                backgroundColor: stringToColor(selectedAnnouncement!.user.name),
-              }}
-            >
-              {nameAbbreviate("selectedAnnouncement!.user.name")}
-            </div>
-            <span>{selectedAnnouncement?.user.name}</span>
+          {selectedAnnouncement?.user && (
+            <UserInfos>
+              <div
+                style={{
+                  backgroundColor: stringToColor(
+                    selectedAnnouncement!.user.name
+                  ),
+                }}
+              >
+                {nameAbbreviate("selectedAnnouncement!.user.name")}
+              </div>
+              <span>{selectedAnnouncement?.user.name}</span>
 
-            <p>{selectedAnnouncement?.user.description}</p>
+              <p>{selectedAnnouncement?.user.description}</p>
 
-            <Button
-              backgroundColor="#0B0D0D"
-              backgroundColorHover=""
-              fontColor="#FFFFFF"
-              onClick={() => {
-                setSelectedUser(selectedAnnouncement!.user);
-                history("/profileUser");
-              }}
-            >
-              Ver todos anúncios
-            </Button>
-          </UserInfos>
+              <Button
+                backgroundColor="#0B0D0D"
+                backgroundColorHover=""
+                fontColor="#FFFFFF"
+                onClick={() => {
+                  setSelectedUser(selectedAnnouncement!.user);
+                  history("/profileUser");
+                }}
+              >
+                Ver todos anúncios
+              </Button>
+            </UserInfos>
+          )}
         </Aside>
       </Container>
       <DivBox1>

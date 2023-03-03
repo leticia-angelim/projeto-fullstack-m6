@@ -49,61 +49,63 @@ export const CommentsList = ({ announcement }: any) => {
           </div>
         </div>
 
-        <RegisterCommentBox>
-          <div className="userInfo-div">
-            <p
-              className="name_abbreviate"
-              style={{ backgroundColor: stringToColor(user!.name) }}
+        {user && (
+          <RegisterCommentBox>
+            <div className="userInfo-div">
+              <p
+                className="name_abbreviate"
+                style={{ backgroundColor: stringToColor(user!.name) }}
+              >
+                {nameAbbreviate(user!.name)}
+              </p>
+              <p className="username">{user!.name}</p>
+            </div>
+            <form
+              className="comment-form"
+              onSubmit={handleSubmit(onSubmitFunction)}
             >
-              {nameAbbreviate(user!.name)}
-            </p>
-            <p className="username">{user!.name}</p>
-          </div>
-          <form
-            className="comment-form"
-            onSubmit={handleSubmit(onSubmitFunction)}
-          >
-            <textarea
-              className="comment"
-              cols={30}
-              rows={10}
-              placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
-              {...register("message")}
-              value={commentText}
-              onChange={(event) => setCommentText(event.target.value)}
-            />
-            <Button
-              className="comment-button"
-              children="Comentar"
-              backgroundColor="#4529E6"
-              backgroundColorHover={""}
-              type="submit"
-            />
-          </form>
+              <textarea
+                className="comment"
+                cols={30}
+                rows={10}
+                placeholder="Carro muito confortável, foi uma ótima experiência de compra..."
+                {...register("message")}
+                value={commentText}
+                onChange={(event) => setCommentText(event.target.value)}
+              />
+              <Button
+                className="comment-button"
+                children="Comentar"
+                backgroundColor="#4529E6"
+                backgroundColorHover={""}
+                type="submit"
+              />
+            </form>
 
-          <div className="comment-sugestions">
-            <button
-              className="sugestion-btn"
-              onClick={() => handleSuggestionClick("Gostei muito!")}
-            >
-              Gostei muito!
-            </button>
-            <button
-              className="sugestion-btn"
-              onClick={() => handleSuggestionClick("Incrível")}
-            >
-              Incrível
-            </button>
-            <button
-              className="sugestion-btn"
-              onClick={() =>
-                handleSuggestionClick("Recomendarei para meus amigos!")
-              }
-            >
-              Recomendarei para meus amigos!
-            </button>
-          </div>
-        </RegisterCommentBox>
+            <div className="comment-sugestions">
+              <button
+                className="sugestion-btn"
+                onClick={() => handleSuggestionClick("Gostei muito!")}
+              >
+                Gostei muito!
+              </button>
+              <button
+                className="sugestion-btn"
+                onClick={() => handleSuggestionClick("Incrível")}
+              >
+                Incrível
+              </button>
+              <button
+                className="sugestion-btn"
+                onClick={() =>
+                  handleSuggestionClick("Recomendarei para meus amigos!")
+                }
+              >
+                Recomendarei para meus amigos!
+              </button>
+            </div>
+          </RegisterCommentBox>
+        )}
       </CommentsListBox>
     </>
   );
