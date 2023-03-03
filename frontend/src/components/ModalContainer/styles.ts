@@ -37,5 +37,5 @@ export const Container = styled.div`
 `;
 
 export const Geral = styled.div`
-  margin: 32px;
+  /* margin: 32px; */
 `;

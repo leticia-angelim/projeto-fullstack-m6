@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  /* height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-  padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
   background: var(--color-grey8);
 
   .box {
@@ -18,7 +16,7 @@ export const Container = styled.div`
     justify-content: center;
 
     width: 90vw;
-    padding: 2.5rem;
+    padding: 2rem;
 
     background: var(--color-grey10);
     border-radius: 4px;
@@ -64,27 +62,5 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-  }
-  @media (min-width: 1440px) {
-    height: 80vh;
-    margin-bottom: 0.45rem;
-  }
-`;
-
-export const Password = styled.div`
-  h4 {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
-    color: var(--color-grey2);
-
-    text-align: end;
-    cursor: pointer;
-
-    :hover {
-      color: var(--color-grey0);
-    }
   }
 `;

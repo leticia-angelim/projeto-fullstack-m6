@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import { toast } from "react-toastify";
 import {
   AnnouncementProps,
   IAnnouncement,
@@ -18,6 +19,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [photoModal, setPhotoModal] = useState(false);
   const [announcementId, setAnnouncementId] = useState("");
+  const [gallery, setGallery] = useState([""]);
   const [allAnnouncements, setAllAnnouncements] = useState<IAnnouncement[]>([]);
   const [selectedAnnouncement, setSelectedAnnouncement] =
     useState<IAnnouncement | null>(null);
@@ -76,7 +78,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const editAnnouncement = async (data: IAnnouncement) => {
     await api
       .patch(`/announcement/${announcementId}`, data)
-      .then((res) => {
+      .then(() => {
         const findAnnouncement = userAnnouncements.find(
           (announcement) => announcement.id === announcementId
         );
@@ -85,6 +87,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         userAnnouncements.splice(announcementIndex, 1, data);
 
         setEditModal(false);
+        toast.success("Anúncio atualizado!");
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +97,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const deleteAnnouncement = async () => {
     await api
       .delete(`/announcement/${announcementId}`)
-      .then((res) => {
+      .then(() => {
         const findAnnouncement = userAnnouncements.find(
           (announcement) => announcement.id === announcementId
         );
@@ -104,6 +107,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
 
         setDeleteModal(false);
         setEditModal(false);
+        toast.success("Anúncio excluído!");
       })
       .catch((err) => {
         console.log(err);
@@ -137,6 +141,8 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
         setPhotoModal,
         selectedPhoto,
         setSelectedPhoto,
+        gallery,
+        setGallery,
       }}
     >
       {children}

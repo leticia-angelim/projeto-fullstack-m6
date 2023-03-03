@@ -136,6 +136,7 @@ export const ImgButton = styled.div`
 `;
 
 export const FinalButtons = styled.div`
+  margin-top: 1rem;
   .final-buttons {
     display: flex;
     gap: 20px;
@@ -146,6 +147,14 @@ export const FinalButtons = styled.div`
 
     button:nth-child(2) {
       width: 40%;
+    }
+
+    @media (max-width: 425px) {
+      gap: 10px;
+
+      button:nth-child(2) {
+        width: 50%;
+      }
     }
   }
 `;

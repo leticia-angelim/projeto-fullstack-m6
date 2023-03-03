@@ -12,7 +12,7 @@ import { ISliderProps } from "../../interfaces/slider";
 import { ProductCardAdmin } from "../ProductCardAdmin";
 
 const Slider = ({ title, children }: ISliderProps) => {
-  const userId = localStorage.getItem("@user:id");
+  const url = window.location.href;
 
   return (
     <Container>
@@ -36,24 +36,36 @@ const Slider = ({ title, children }: ISliderProps) => {
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 10,
+              spaceBetween: 150,
             },
             1024: {
-              slidesPerView: 4,
-              spaceBetween: 10,
+              slidesPerView: 3,
+              spaceBetween: 30,
             },
             1280: {
               slidesPerView: 4,
               spaceBetween: 10,
             },
+            1440: {
+              slidesPerView: 5,
+              spaceBetween: 60,
+            },
+            1920: {
+              slidesPerView: 6,
+              spaceBetween: 20,
+            },
           }}
         >
           {children.map((announcement, index) => (
             <SwiperSlide key={index}>
-              {userId === announcement.user.id ? (
-                <ProductCardAdmin announcement={announcement} />
+              {url === "http://localhost:3000/profileAdmin" ? (
+                <>
+                  <ProductCardAdmin announcement={announcement} />
+                </>
               ) : (
-                <ProductCard announcement={announcement} />
+                <>
+                  <ProductCard announcement={announcement} />
+                </>
               )}
             </SwiperSlide>
           ))}

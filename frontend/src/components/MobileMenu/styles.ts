@@ -9,12 +9,6 @@ export const Container = styled.header`
   height: 80px;
   background-color: var(--color-grey10);
   border-bottom: 1px solid var(--color-grey4);
-  @media (min-width: 768px) {
-    /* display: flex;
-    align-items: center;
-    margin: 0 auto; */
-    display: none;
-  }
 `;
 
 export const MenuDropdownSt = styled.div<MenuProps>`
@@ -77,12 +71,5 @@ export const MenuDropdownSt = styled.div<MenuProps>`
 
   .close {
     display: none;
-  }
-
-  @media (min-width: 768px) {
-    flex: 1;
-    .open {
-      display: none;
-    }
   }
 `;

@@ -18,7 +18,6 @@ const Dropdown = () => {
   } = useContext(UserContext);
 
   const navigate = useNavigate();
-  const userName = localStorage.getItem("@user:name");
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -50,8 +49,8 @@ const Dropdown = () => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <Avatar {...stringAvatar(userName!)} />
-        {userName}
+        <Avatar {...stringAvatar(user ? user.name : ". .")} />
+        {user?.name}
       </IconButton>
       <Menu
         id="basic-menu"

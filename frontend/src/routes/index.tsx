@@ -7,6 +7,9 @@ import Product from "../pages/Product";
 import Register from "../pages/Register";
 import ProfileUser from "../pages/ProfileUser";
 import ProfileAdmin from "../pages/ProfileAdmin";
+import ResetPassword from "../pages/ResetPassword";
+import ProtectedRoutes from "../components/ProtectedRoutes";
+import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin";
 
 const MyRoutes = () => {
   return (
@@ -15,9 +18,14 @@ const MyRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/product" element={<Product />} />
-      <Route path="/profileUser" element={<ProfileUser />} />
-      <Route path="/profileAdmin" element={<ProfileAdmin />} />
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/product" element={<Product />} />
+        <Route path="/profileUser" element={<ProfileUser />} />
+      </Route>
+      <Route element={<ProtectedProfileAdmin />}>
+        <Route path="/profileAdmin" element={<ProfileAdmin />} />
+      </Route>
+      <Route path="/resetPassword" element={<ResetPassword />} />
     </Routes>
   );
 };

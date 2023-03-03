@@ -18,8 +18,13 @@ import {
 import createAnnouncementSchema from "../../schemas/createAnnouncement";
 
 const CreateAnnouncementModal = () => {
-  const { registerAnnouncement, addAdModal, setAddAdModal } =
-    useContext(AnnouncementContext);
+  const {
+    registerAnnouncement,
+    addAdModal,
+    setAddAdModal,
+    setGallery,
+    gallery,
+  } = useContext(AnnouncementContext);
 
   const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
@@ -36,7 +41,6 @@ const CreateAnnouncementModal = () => {
   const handleAnnouncementBtnClick = (buttonIndex: number) => {
     setActiveAnnouncementTypeButton(buttonIndex);
   };
-  const [gallery, setGallery] = useState([""]);
 
   const newInput = () => {
     if (count <= 5 && addImg.length <= 5) {
@@ -64,230 +68,223 @@ const CreateAnnouncementModal = () => {
   };
 
   return (
-    <>
-      <ModalContainer
-        title="Criar anúncio"
-        openModal={addAdModal}
-        closeModal={() => setAddAdModal(false)}
-      >
-        <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
-          <SubTitle>Tipo de anuncio</SubTitle>
-          <CreateForm>
-            <div>
-              <Button
-                className={
-                  activeAnnoucementTypeBtn === 1 ? "button_active" : ""
-                }
-                children="Venda"
-                backgroundColor="#FFFFFF"
-                backgroundColorHover="#0B0D0D"
-                border="#ADB5BD"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                onClick={() => {
-                  setType("Venda");
-                  handleAnnouncementBtnClick(1);
-                }}
-                type="button"
-              />
-              <Button
-                className={
-                  activeAnnoucementTypeBtn === 2 ? "button_active" : ""
-                }
-                children="Leilão"
-                backgroundColor="#FFFFFF"
-                backgroundColorHover="#0B0D0D"
-                border="#ADB5BD"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                onClick={() => {
-                  setType("Leilão");
-                  handleAnnouncementBtnClick(2);
-                }}
-                type="button"
-              />
-            </div>
-          </CreateForm>
-          <SubTitle>Informações do veículo</SubTitle>
-          <Input
-            label="Título"
-            type="text"
-            placeholder="Digitar título"
-            fieldName="title"
-            name="title"
-            register={register}
-          />
-          <FormHelperText error>{errors.title?.message}</FormHelperText>
-          <CreateForm>
-            <div>
-              <div className="input-errors">
-                <Input
-                  label="Ano"
-                  type="number"
-                  placeholder="Digitar ano"
-                  fieldName="year"
-                  {...register("year")}
-                  name="year"
-                  register={register}
-                />
-                <FormHelperText error>{errors.year?.message}</FormHelperText>
-              </div>
-              <div className="input-errors">
-                <Input
-                  label="Quilometragem"
-                  type="number"
-                  placeholder="0"
-                  fieldName="mileage"
-                  name="mileage"
-                  register={register}
-                />
-                <FormHelperText error>{errors.mileage?.message}</FormHelperText>
-              </div>
-
-              {type === "Venda" ? (
-                <div className="input-errors">
-                  <Input
-                    label="Preço"
-                    type="number"
-                    placeholder="Digitar preço"
-                    fieldName="price"
-                    name="price"
-                    register={register}
-                  />
-                  <FormHelperText error>{errors.price?.message}</FormHelperText>
-                </div>
-              ) : (
-                <div className="input-errors">
-                  <Input
-                    label="Lance inicial"
-                    type="number"
-                    placeholder="Digitar lance"
-                    fieldName="auction"
-                    name="price"
-                    register={register}
-                  />
-                  <FormHelperText error>{errors.price?.message}</FormHelperText>
-                </div>
-              )}
-            </div>
-          </CreateForm>
-          <DescriptionField>
-            <label htmlFor="description">Descrição</label>
-            <textarea
-              id="description"
-              placeholder="Digitar descrição"
-              {...register("description")}
-            />
-          </DescriptionField>
-          <FormHelperText error>{errors.description?.message}</FormHelperText>
-          <SubTitle>Tipo de veículo</SubTitle>
-          <CreateForm>
-            <div>
-              <Button
-                className={activeVehicleTypeBtn === 1 ? "button_active" : ""}
-                children="Carro"
-                backgroundColor="#FFFFFF"
-                backgroundColorHover="#0B0D0D"
-                border="#ADB5BD"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                onClick={() => {
-                  setVehicleType("Carro");
-                  handleVehicleBtnClick(1);
-                }}
-                type="button"
-              />
-              <Button
-                className={activeVehicleTypeBtn === 2 ? "button_active" : ""}
-                children="Moto"
-                backgroundColor="#FFFFFF"
-                backgroundColorHover="#0B0D0D"
-                border="#ADB5BD"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                onClick={() => {
-                  setVehicleType("Moto");
-                  handleVehicleBtnClick(2);
-                }}
-                type="button"
-              />
-            </div>
-          </CreateForm>
-          <Input
-            label="Imagem da capa"
-            type="text"
-            placeholder="Inserir URL da imagem"
-            fieldName="cover_img"
-            name="cover_img"
-            register={register}
-          />
-          <FormHelperText error>{errors.cover_img?.message}</FormHelperText>
+    <ModalContainer
+      title="Criar anúncio"
+      openModal={addAdModal}
+      closeModal={() => setAddAdModal(false)}
+    >
+      <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
+        <SubTitle>Tipo de anuncio</SubTitle>
+        <CreateForm>
           <div>
-            <AddImg>
-              {addImg.map((_, num) => (
-                <Input
-                  key={num}
-                  label={`${num + 1}° Imagem da galeria`}
-                  placeholder="Inserir URL da imagem"
-                  fieldName="photos"
-                  type="text"
-                  name={`${num}photos`}
-                  register={register}
-                  onChange={(event: any) => {
-                    const galleryToUpdate = [...gallery];
-                    galleryToUpdate[num] = event.target.value;
-                    setGallery(galleryToUpdate);
-                  }}
-                />
-              ))}
-            </AddImg>
+            <Button
+              className={activeAnnoucementTypeBtn === 1 ? "button_active" : ""}
+              children="Venda"
+              backgroundColor="#FFFFFF"
+              backgroundColorHover="#0B0D0D"
+              border="#ADB5BD"
+              fontColor="#0B0D0D"
+              fontColorHover="#FFFFFF"
+              onClick={() => {
+                setType("Venda");
+                handleAnnouncementBtnClick(1);
+              }}
+              type="button"
+            />
+            <Button
+              className={activeAnnoucementTypeBtn === 2 ? "button_active" : ""}
+              children="Leilão"
+              backgroundColor="#FFFFFF"
+              backgroundColorHover="#0B0D0D"
+              border="#ADB5BD"
+              fontColor="#0B0D0D"
+              fontColorHover="#FFFFFF"
+              onClick={() => {
+                setType("Leilão");
+                handleAnnouncementBtnClick(2);
+              }}
+              type="button"
+            />
           </div>
-          <ImgButton>
-            {count <= 5 && addImg.length <= 5 ? (
-              <Button
-                children="Adicionar campo para imagem da galeria"
-                backgroundColor="#EDEAFD"
-                backgroundColorHover=""
-                fontColor="#4529E6"
-                onClick={newInput}
-                type="button"
+        </CreateForm>
+        <SubTitle>Informações do veículo</SubTitle>
+        <Input
+          label="Título"
+          type="text"
+          placeholder="Digitar título"
+          fieldName="title"
+          name="title"
+          register={register}
+        />
+        <FormHelperText error>{errors.title?.message}</FormHelperText>
+        <CreateForm>
+          <div>
+            <div className="input-errors">
+              <Input
+                label="Ano"
+                type="number"
+                placeholder="Digitar ano"
+                fieldName="year"
+                name="year"
+                register={register}
               />
-            ) : (
-              <Button
-                children="Limite de campos atingido"
-                backgroundColor="#EDEAFD"
-                backgroundColorHover=""
-                borderHover="#CD2B31"
-                fontColor="#CD2B31"
-                type="button"
-              />
-            )}
-          </ImgButton>
-          <FinalButtons>
-            <div className="final-buttons">
-              <Button
-                children="Cancelar"
-                backgroundColor="#DEE2E6"
-                backgroundColorHover="#868E96"
-                fontColor="#495057"
-                fontColorHover="#FFFFFF"
-                onClick={() => setAddAdModal(false)}
-                type="button"
-              />
-              <Button
-                children="Criar Anúncio"
-                backgroundColor="#B0A6F0"
-                backgroundColorHover="#5126EA"
-                border="#B0A6F0"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                type="submit"
-              />
+              <FormHelperText error>{errors.year?.message}</FormHelperText>
             </div>
-          </FinalButtons>
-        </FormAnnouncement>
-      </ModalContainer>
-    </>
+            <div className="input-errors">
+              <Input
+                label="Quilometragem"
+                type="number"
+                placeholder="0"
+                fieldName="mileage"
+                name="mileage"
+                register={register}
+              />
+              <FormHelperText error>{errors.mileage?.message}</FormHelperText>
+            </div>
+
+            {type === "Venda" ? (
+              <div className="input-errors">
+                <Input
+                  label="Preço"
+                  type="number"
+                  placeholder="Digitar preço"
+                  fieldName="price"
+                  name="price"
+                  register={register}
+                />
+                <FormHelperText error>{errors.price?.message}</FormHelperText>
+              </div>
+            ) : (
+              <div className="input-errors">
+                <Input
+                  label="Lance inicial"
+                  type="number"
+                  placeholder="Digitar lance"
+                  fieldName="auction"
+                  name="price"
+                  register={register}
+                />
+                <FormHelperText error>{errors.price?.message}</FormHelperText>
+              </div>
+            )}
+          </div>
+        </CreateForm>
+        <DescriptionField>
+          <label htmlFor="description">Descrição</label>
+          <textarea
+            id="description"
+            placeholder="Digitar descrição"
+            {...register("description")}
+          />
+        </DescriptionField>
+        <FormHelperText error>{errors.description?.message}</FormHelperText>
+        <SubTitle>Tipo de veículo</SubTitle>
+        <CreateForm>
+          <div>
+            <Button
+              className={activeVehicleTypeBtn === 1 ? "button_active" : ""}
+              children="Carro"
+              backgroundColor="#FFFFFF"
+              backgroundColorHover="#0B0D0D"
+              border="#ADB5BD"
+              fontColor="#0B0D0D"
+              fontColorHover="#FFFFFF"
+              onClick={() => {
+                setVehicleType("Carro");
+                handleVehicleBtnClick(1);
+              }}
+              type="button"
+            />
+            <Button
+              className={activeVehicleTypeBtn === 2 ? "button_active" : ""}
+              children="Moto"
+              backgroundColor="#FFFFFF"
+              backgroundColorHover="#0B0D0D"
+              border="#ADB5BD"
+              fontColor="#0B0D0D"
+              fontColorHover="#FFFFFF"
+              onClick={() => {
+                setVehicleType("Moto");
+                handleVehicleBtnClick(2);
+              }}
+              type="button"
+            />
+          </div>
+        </CreateForm>
+        <Input
+          label="Imagem da capa"
+          type="text"
+          placeholder="Inserir URL da imagem"
+          fieldName="cover_img"
+          name="cover_img"
+          register={register}
+        />
+        <FormHelperText error>{errors.cover_img?.message}</FormHelperText>
+        <div>
+          <AddImg>
+            {addImg.map((_, num) => (
+              <Input
+                key={num}
+                label={`${num + 1}° Imagem da galeria`}
+                placeholder="Inserir URL da imagem"
+                fieldName="photos"
+                type="text"
+                name={`${num}photos`}
+                register={register}
+                onChange={(event: any) => {
+                  const galleryToUpdate = [...gallery];
+                  galleryToUpdate[num] = event.target.value;
+                  setGallery(galleryToUpdate);
+                }}
+              />
+            ))}
+          </AddImg>
+        </div>
+        <ImgButton>
+          {count <= 5 && addImg.length <= 5 ? (
+            <Button
+              children="Adicionar campo para imagem da galeria"
+              backgroundColor="#EDEAFD"
+              backgroundColorHover=""
+              fontColor="#4529E6"
+              onClick={newInput}
+              type="button"
+            />
+          ) : (
+            <Button
+              children="Limite de campos atingido"
+              backgroundColor="#EDEAFD"
+              backgroundColorHover=""
+              borderHover="#CD2B31"
+              fontColor="#CD2B31"
+              type="button"
+            />
+          )}
+        </ImgButton>
+        <FinalButtons>
+          <div className="final-buttons">
+            <Button
+              children="Cancelar"
+              backgroundColor="#DEE2E6"
+              backgroundColorHover="#868E96"
+              fontColor="#495057"
+              fontColorHover="#FFFFFF"
+              onClick={() => setAddAdModal(false)}
+              type="button"
+            />
+            <Button
+              children="Criar Anúncio"
+              backgroundColor="#B0A6F0"
+              backgroundColorHover="#5126EA"
+              border="#B0A6F0"
+              fontColor="#0B0D0D"
+              fontColorHover="#FFFFFF"
+              type="submit"
+            />
+          </div>
+        </FinalButtons>
+      </FormAnnouncement>
+    </ModalContainer>
   );
 };
 

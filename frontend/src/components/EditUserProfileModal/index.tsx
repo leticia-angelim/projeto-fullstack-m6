@@ -8,6 +8,7 @@ import Button from "../Button";
 import {
   CreateForm,
   DescriptionField,
+  FinalButtons,
   FormAnnouncement,
   SubTitle,
 } from "../EditAnnouncementModal/styles";
@@ -90,26 +91,28 @@ export const EditUserProfileModal = () => {
               />
             </DescriptionField>
 
-            <div>
-              <Button
-                children="Cancelar"
-                backgroundColor="#DEE2E6"
-                backgroundColorHover="#868E96"
-                fontColor="#495057"
-                fontColorHover="#FFFFFF"
-                onClick={() => setEditUserModal(false)}
-                type="button"
-              />
-              <Button
-                children="Salvar Alterações"
-                backgroundColor="#B0A6F0"
-                backgroundColorHover="#5126EA"
-                border="#B0A6F0"
-                fontColor="#0B0D0D"
-                fontColorHover="#FFFFFF"
-                type="submit"
-              />
-            </div>
+            <FinalButtons>
+              <div className="final-buttons">
+                <Button
+                  children="Cancelar"
+                  backgroundColor="#DEE2E6"
+                  backgroundColorHover="#868E96"
+                  fontColor="#495057"
+                  fontColorHover="#FFFFFF"
+                  onClick={() => setEditUserModal(false)}
+                  type="button"
+                />
+                <Button
+                  children="Salvar Alterações"
+                  backgroundColor="#B0A6F0"
+                  backgroundColorHover="#5126EA"
+                  border="#B0A6F0"
+                  fontColor="#0B0D0D"
+                  fontColorHover="#FFFFFF"
+                  type="submit"
+                />
+              </div>
+            </FinalButtons>
           </CreateForm>
         </FormAnnouncement>
       </ModalContainer>

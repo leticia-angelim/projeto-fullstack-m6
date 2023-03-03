@@ -4,6 +4,7 @@ export const userSchema = yup.object({
   name: yup.string().required("Campo obrigatório"),
   email: yup.string().required("Campo obrigatório").email("Email inválido"),
   cpf: yup.string().required("Campo obrigatório"),
+  // .matches(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/, "CPF inválido"),
   phone: yup.string().required("Campo obrigatório"),
   birth_date: yup
     .string()
@@ -29,5 +30,15 @@ export const userSchema = yup.object({
 
 export const loginSchema = yup.object({
   email: yup.string().required("Campo obrigatório"),
+  password: yup.string().required("Campo obrigatório"),
+});
+
+export const forgotPasswordSchema = yup.object({
+  email: yup.string().required("Campo obrigatório"),
+});
+
+export const resetPasswordSchema = yup.object({
+  email: yup.string().required("Campo obrigatório"),
+  token: yup.string().required("Campo obrigatório"),
   password: yup.string().required("Campo obrigatório"),
 });
