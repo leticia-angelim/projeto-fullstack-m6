@@ -37,6 +37,8 @@ const ProductDetail = () => {
     listAnnouncement(id!);
   }, []);
 
+  const cel = selectedAnnouncement?.user.phone;
+
   return (
     <Main>
       <Container>
@@ -65,13 +67,12 @@ const ProductDetail = () => {
                 </span>
               </div>
 
-              <Button
-                backgroundColor="#4529E6"
-                backgroundColorHover=""
-                fontColor="#FFFFFF"
+              <a
+                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Ola! Me interessei no seu veiculo, vamos conversar?`}
+                target="_blank"
               >
-                Comprar
-              </Button>
+                Comprar!
+              </a>
             </DivInfos>
           </ProductDetails>
 

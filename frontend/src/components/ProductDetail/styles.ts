@@ -155,6 +155,31 @@ export const DivInfos = styled.div`
     font-weight: 500;
     color: var(--color-grey1);
   }
+
+  > a {
+    height: 48px;
+    width: 100px;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.6rem;
+    border-radius: 5px;
+    border: 1px solid #4529e6;
+
+    cursor: pointer;
+    transition: all 0.3s;
+
+    margin-top: 2rem;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    color: var(--color-whiteFixed);
+    text-decoration: none;
+    background-color: var(--color-brand1);
+
+    &:hover {
+      background-color: var(--color-whiteFixed);
+    }
+  }
 `;
 
 export const Title = styled.h2`
