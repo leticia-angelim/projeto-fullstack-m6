@@ -6,6 +6,7 @@ Ao clicar em um anúncio, é possível ver o perfil do anunciador, as informaç�
 
 </br>
 
+
 ## Funcionalidades
 
 - Cadastro e login de usuários (comprador e anunciante)
@@ -15,6 +16,7 @@ Ao clicar em um anúncio, é possível ver o perfil do anunciador, as informaç�
 - Adição de comentários pelos usuários
 
 </br>
+
 
 ## Tecnologias utilizadas
 
@@ -51,6 +53,7 @@ O frontend do projeto é construído utilizando React.js. Para iniciá-lo, siga 
 4. Execute o comando `yarn dev` para iniciar o servidor de desenvolvimento frontend;
 
    </br>
+   
 
 Após a execução desses comandos, a aplicação fullstack estará rodando em <http://localhost:3000>. Qualquer alteração feita no código fonte será refletida automaticamente nos servidores de desenvolvimento frontend e backend.
 
@@ -109,6 +112,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `POST -> /users - FORMATO DA REQUISIÇÃO - usuário comprador`
 
 ```json
@@ -160,6 +164,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `POST -> /login - FORMATO DA REQUISIÇÃO - login de usuário`
 
 ```json
@@ -178,6 +183,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```
 
 <br/>
+
 
 `GET -> /users/profile - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de usuário`
 
@@ -209,6 +215,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `GET -> /users/:user_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de usuário por id `
 
 **\*Autenticação necessária**
@@ -238,6 +245,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```
 
 <br/>
+
 
 `PATCH -> /users - FORMATO DA REQUISIÇÃO - Edição de usuário`
 
@@ -277,6 +285,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```
 
 <br/>
+
 
 `PATCH -> /address/address_id - FORMATO DA REQUISIÇÃO - Edição de endereço do usuário`
 
@@ -374,6 +383,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `GET -> /announcement - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os anúncios`
 
 **\*Autenticação necessária**
@@ -429,6 +439,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```
 
 <br/>
+
 
 `GET -> /announcement/announcement_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de anúncio por id`
 
@@ -510,6 +521,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `GET -> /announcement/user/user_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os anúncios de um usuário`
 
 ```json
@@ -564,6 +576,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 <br/>
 
+
 `PATCH -> /announcement/announcement_id - FORMATO DA REQUISIÇÃO - Edição de um anúncio`
 
 **\*Autenticação necessária**
@@ -599,6 +612,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 ```
 
 <br/>
+
 
 `DELETE -> /announcement/announcement_id - FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT - deleção de anúncio`
 
@@ -673,9 +687,11 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 }
 ```
 
+
 `GET -> /comments/announcement_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os comentários de um anúncio`
 
 **\*Autenticação necessária**
+
 
 ```json
 [
