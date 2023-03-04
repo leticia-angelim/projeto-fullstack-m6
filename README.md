@@ -434,7 +434,7 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 
 ```json
 {
-	"id": "43a71f46-7dfb-4cd8-bd02-41ac40958eb2",
+	"id": "4ec1b38a-7a58-488a-822a-94cc30de4a98",
 	"announcement_type": "Venda",
 	"title": "Ferrari",
 	"year": 2023,
@@ -444,21 +444,21 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 	"is_published": true,
 	"vehicle_type": "Moto",
 	"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
-	"createdAt": "2023-02-27T17:03:36.876Z",
-	"updatedAt": "2023-02-27T17:03:36.876Z",
+	"createdAt": "2023-03-04T19:16:06.029Z",
+	"updatedAt": "2023-03-04T19:16:06.029Z",
 	"user": {
-		"id": "c561296d-6461-46b5-a2d2-a7a6d3062b22",
-		"name": "Kenzinho editado",
+		"id": "ac83d16a-9565-4525-9e11-f81f8a11a4a4",
+		"name": "Kenzinho",
 		"email": "kenzinho@gmail.com.br",
 		"cpf": "12345678911",
 		"phone": "55999345766",
-		"birth_date": "25/05/1997",
+		"birth_date": "25/05/2000",
 		"description": "Descrição do Kenzinho",
 		"account": "Anunciante",
-		"createdAt": "2023-02-27T15:36:15.275Z",
-		"updatedAt": "2023-02-27T15:51:51.985Z",
+		"createdAt": "2023-03-04T19:15:16.392Z",
+		"updatedAt": "2023-03-04T19:15:16.392Z",
 		"address": {
-			"id": "6501db56-d6f2-4ab7-8ed7-05f65c573680",
+			"id": "0846f56a-24e0-4f94-b4ca-add55f7dab21",
 			"cep": "11101999",
 			"state": "ES",
 			"city": "Vitória",
@@ -467,13 +467,41 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 			"complement": "apt.101"
 		}
 	},
+	"comments": [
+		{
+			"id": "45b0069f-7b87-4022-808e-3c8a9ba5f907",
+			"message": "Ótima moto!",
+			"created_at": "2023-03-04T19:16:46.445Z",
+			"user": {
+				"id": "ac83d16a-9565-4525-9e11-f81f8a11a4a4",
+				"name": "Kenzinho",
+				"email": "kenzinho@gmail.com.br",
+				"cpf": "12345678911",
+				"phone": "55999345766",
+				"birth_date": "25/05/2000",
+				"description": "Descrição do Kenzinho",
+				"account": "Anunciante",
+				"createdAt": "2023-03-04T19:15:16.392Z",
+				"updatedAt": "2023-03-04T19:15:16.392Z",
+				"address": {
+					"id": "0846f56a-24e0-4f94-b4ca-add55f7dab21",
+					"cep": "11101999",
+					"state": "ES",
+					"city": "Vitória",
+					"street": "Rua da Lama",
+					"number": 1000,
+					"complement": "apt.101"
+				}
+			}
+		}
+	],
 	"photos": [
 		{
-			"id": "a220ef7d-51c2-44e5-888d-41545d3db622",
+			"id": "7df503a8-4ad7-4129-9f45-6bb75019b493",
 			"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
 		},
 		{
-			"id": "6ed81deb-7cfd-4149-bc92-fb93b9d9e00b",
+			"id": "305986cf-b3b7-4f0e-9dec-0ffa45534297",
 			"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
 		}
 	]
@@ -577,3 +605,133 @@ Após a execução desses comandos, a aplicação fullstack estará rodando em <
 **\*Autenticação necessária**
 
 Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a aplicação ficará responsável em buscar o usuário que está no parâmetro da rota.
+
+### Endpoints de comentário
+
+`POST -> /comments/announcement_id - FORMATO DA REQUISIÇÃO - registro de um comentário`
+
+**\*Autenticação necessária**
+
+```json
+{
+  "message": "Ótima moto!"
+}
+```
+
+`FORMATO DA RESPOSTA - STATUS 201 - CREATED`
+
+```json
+{
+	"message": "Ótima moto!",
+	"user": {
+		"id": "ac83d16a-9565-4525-9e11-f81f8a11a4a4",
+		"name": "Kenzinho",
+		"email": "kenzinho@gmail.com.br",
+		"cpf": "12345678911",
+		"phone": "55999345766",
+		"birth_date": "25/05/2000",
+		"description": "Descrição do Kenzinho",
+		"account": "Anunciante",
+		"createdAt": "2023-03-04T19:15:16.392Z",
+		"updatedAt": "2023-03-04T19:15:16.392Z",
+		"address": {
+			"id": "0846f56a-24e0-4f94-b4ca-add55f7dab21",
+			"cep": "11101999",
+			"state": "ES",
+			"city": "Vitória",
+			"street": "Rua da Lama",
+			"number": 1000,
+			"complement": "apt.101"
+		}
+	},
+	"announcement": {
+		"id": "4ec1b38a-7a58-488a-822a-94cc30de4a98",
+		"announcement_type": "Venda",
+		"title": "Ferrari",
+		"year": 2023,
+		"mileage": 1000,
+		"price": 200000,
+		"description": "Ferrari vermelha",
+		"is_published": true,
+		"vehicle_type": "Moto",
+		"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+		"createdAt": "2023-03-04T19:16:06.029Z",
+		"updatedAt": "2023-03-04T19:16:06.029Z",
+		"photos": [
+			{
+				"id": "7df503a8-4ad7-4129-9f45-6bb75019b493",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			},
+			{
+				"id": "305986cf-b3b7-4f0e-9dec-0ffa45534297",
+				"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+			}
+		]
+	},
+	"id": "45b0069f-7b87-4022-808e-3c8a9ba5f907",
+	"created_at": "2023-03-04T19:16:46.445Z"
+}
+```
+
+`GET -> /comments/announcement_id - FORMATO DA RESPOSTA - STATUS 200 - OK - listagem de todos os comentários de um anúncio`
+
+**\*Autenticação necessária**
+
+```json
+[
+	{
+		"id": "45b0069f-7b87-4022-808e-3c8a9ba5f907",
+		"message": "Ótima moto!",
+		"created_at": "2023-03-04T19:16:46.445Z",
+		"announcement": {
+			"id": "4ec1b38a-7a58-488a-822a-94cc30de4a98",
+			"announcement_type": "Venda",
+			"title": "Ferrari",
+			"year": 2023,
+			"mileage": 1000,
+			"price": 200000,
+			"description": "Ferrari vermelha",
+			"is_published": true,
+			"vehicle_type": "Moto",
+			"cover_img": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg",
+			"createdAt": "2023-03-04T19:16:06.029Z",
+			"updatedAt": "2023-03-04T19:16:06.029Z",
+			"photos": [
+				{
+					"id": "7df503a8-4ad7-4129-9f45-6bb75019b493",
+					"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+				},
+				{
+					"id": "305986cf-b3b7-4f0e-9dec-0ffa45534297",
+					"url": "https://motorshow.com.br/wp-content/uploads/sites/2/2020/12/ferrari-458-speciale-blindada-2.jpg"
+				}
+			]
+		},
+		"user": {
+			"id": "ac83d16a-9565-4525-9e11-f81f8a11a4a4",
+			"name": "Kenzinho",
+			"email": "kenzinho@gmail.com.br",
+			"cpf": "12345678911",
+			"phone": "55999345766",
+			"birth_date": "25/05/2000",
+			"description": "Descrição do Kenzinho",
+			"account": "Anunciante",
+			"createdAt": "2023-03-04T19:15:16.392Z",
+			"updatedAt": "2023-03-04T19:15:16.392Z",
+			"address": {
+				"id": "0846f56a-24e0-4f94-b4ca-add55f7dab21",
+				"cep": "11101999",
+				"state": "ES",
+				"city": "Vitória",
+				"street": "Rua da Lama",
+				"number": 1000,
+				"complement": "apt.101"
+			}
+		}
+	}
+]
+```
+
+`DELETE -> /comments/comment_id - FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT - deleção de comentário`
+
+**\*Autenticação necessária**
