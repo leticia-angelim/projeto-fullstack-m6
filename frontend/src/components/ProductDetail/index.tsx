@@ -68,7 +68,7 @@ const ProductDetail = () => {
               </div>
 
               <a
-                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Olá, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
+                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Olá ${selectedAnnouncement?.user.name}, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
                 target="_blank"
               >
                 Comprar
@@ -83,7 +83,7 @@ const ProductDetail = () => {
           </ProductDescription>
         </Product>
         <Aside>
-          {selectedAnnouncement?.photos! ? (
+          {selectedAnnouncement!.photos!.length >= 1 ? (
             <Photos>
               <Title>Fotos</Title>
               <div>

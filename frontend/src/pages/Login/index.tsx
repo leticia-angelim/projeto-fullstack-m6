@@ -75,7 +75,7 @@ const Login = () => {
               children="Cadastrar"
               backgroundColor="#ffffff"
               backgroundColorHover="#212529"
-              border="0B0D0D"
+              border="#0B0D0D"
               fontColor="#0B0D0D"
               fontColorHover="#FDFDFD"
               type="button"
