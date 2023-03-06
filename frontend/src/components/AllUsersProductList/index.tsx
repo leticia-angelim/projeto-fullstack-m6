@@ -19,8 +19,8 @@ const AllUsersProductList = () => {
 
   return (
     <>
-      <Slider title="Carros" children={cars} />
-      <Slider title="Motos" children={motorcycles} />
+      {/* <Slider title="Carros" children={cars} />
+      <Slider title="Motos" children={motorcycles} /> */}
     </>
   );
 };
