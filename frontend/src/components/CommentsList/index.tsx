@@ -29,11 +29,11 @@ export const CommentsList = ({ announcement }: any) => {
   const { id } = useParams();
 
   const onSubmitFunction = (data: any) => {
-    registerComment(id!, data);
+    registerComment("4ec1b38a-7a58-488a-822a-94cc30de4a98", data);
   };
 
   useEffect(() => {
-    listComments(id!);
+    listComments("4ec1b38a-7a58-488a-822a-94cc30de4a98");
   }, []);
 
   return (

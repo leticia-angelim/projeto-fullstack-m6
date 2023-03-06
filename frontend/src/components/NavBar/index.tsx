@@ -30,13 +30,13 @@ export const NavBar = () => {
             <a href="#Motos">Motos</a>
             <a href="#Leilão">Leilão</a>
           </DivNavBar>
-          <Dropdown />
+          {/* <Dropdown />
           {editUserModal && <EditUserProfileModal />}
           {modalAddress && <EditAddressModal />}
-          <DeleteUserModal />
+          <DeleteUserModal /> */}
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   ) : (
     <>
@@ -66,7 +66,7 @@ export const NavBar = () => {
           </DivNavBarUser>
         </div>
       </Nav>
-      <MobileMenu />
+      {/* <MobileMenu /> */}
     </>
   );
 };

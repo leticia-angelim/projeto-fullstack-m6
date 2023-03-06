@@ -38,12 +38,36 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
       });
   };
 
+  const updateComment = async (comment_id: string, data: string) => {
+    await api
+      .patch<IComment>(`/comments/${comment_id}`, data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const deleteComment = async (comment_id: string) => {
+    await api
+      .delete<IComment>(`/comments/${comment_id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <CommentsContext.Provider
       value={{
         registerComment,
         announcementComments,
         listComments,
+        updateComment,
+        deleteComment,
       }}
     >
       {children}

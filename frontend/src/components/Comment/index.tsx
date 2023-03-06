@@ -1,19 +1,38 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
 import { CommentDiv } from "./styles";
 import moment from "moment";
-// import "moment/dist/locale/pt-br";
+import { IComment } from "../../interfaces/comments";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Comment = () => {
-  const { announcementComments } = useContext(CommentsContext);
+  const { announcementComments, updateComment, deleteComment } =
+    useContext(CommentsContext);
+  const { user } = useContext(UserContext);
+
+  const [editedComment, setEditedComment] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEditButtonClick = (comment: IComment) => {
+    setEditedComment(comment.message);
+    setIsEditing(true);
+  };
+
+  const handleSaveButtonClick = (comment: IComment, newComment: string) => {
+    comment.message = newComment;
+    updateComment(comment.id, editedComment);
+    setIsEditing(false);
+  };
+
+  const handleCommentChange = (event: any) => {
+    setEditedComment(event.target.value);
+  };
 
   return (
     <>
       {announcementComments.map((comment) => {
-        // const time = moment(comment.created_at, "YYYYMMDD").fromNow();
-
         const minutes = moment().diff(comment.created_at, "minutes");
         const hours = moment().diff(comment.created_at, "hours");
         const days = moment().diff(comment.created_at, "days");
@@ -51,8 +70,34 @@ export const Comment = () => {
                 <div className="dot" />
                 <p className="date">{time}</p>
               </div>
-              <p className="comment-description">{comment.message}</p>
+              {isEditing ? (
+                <>
+                  <textarea
+                    value={editedComment}
+                    onChange={handleCommentChange}
+                  />
+                  <button
+                    onClick={() =>
+                      handleSaveButtonClick(comment, editedComment)
+                    }
+                  >
+                    Salvar
+                  </button>
+                </>
+              ) : (
+                <p className="comment-description">{comment.message}</p>
+              )}
             </div>
+            {comment.user.id === user?.id && (
+              <>
+                <button onClick={() => handleEditButtonClick(comment)}>
+                  Editar
+                </button>
+                <button onClick={() => deleteComment(comment.id)}>
+                  Excluir
+                </button>
+              </>
+            )}
           </CommentDiv>
         );
       })}
