@@ -22,6 +22,7 @@ const Register = () => {
   const { registerUser } = useContext(UserContext);
 
   const [account, setAccount] = useState<string>("");
+  const [activeAccountTypeBtn, setActiveAccountTypeBtn] = useState<number>(0);
 
   const {
     register,
@@ -30,6 +31,10 @@ const Register = () => {
   } = useForm({
     resolver: yupResolver(userSchema),
   });
+
+  const handleAccountBtnClick = (buttonIndex: number) => {
+    setActiveAccountTypeBtn(buttonIndex);
+  };
 
   const onSubmitFunction = (data: any) => {
     const address = {
@@ -197,23 +202,31 @@ const Register = () => {
             <CreateForm>
               <div>
                 <Button
+                  className={activeAccountTypeBtn === 1 ? "button_active" : ""}
                   children="Comprador"
                   backgroundColor="#FFFFFF"
                   backgroundColorHover="#0B0D0D"
                   border="#ADB5BD"
                   fontColor="#0B0D0D"
                   fontColorHover="#FFFFFF"
-                  onClick={() => setAccount("Comprador")}
+                  onClick={() => {
+                    setAccount("Comprador");
+                    setActiveAccountTypeBtn(1);
+                  }}
                   type="button"
                 />
                 <Button
+                  className={activeAccountTypeBtn === 2 ? "button_active" : ""}
                   children="Anunciante"
                   backgroundColor="#FFFFFF"
                   backgroundColorHover="#0B0D0D"
                   border="#ADB5BD"
                   fontColor="#0B0D0D"
                   fontColorHover="#FFFFFF"
-                  onClick={() => setAccount("Anunciante")}
+                  onClick={() => {
+                    setAccount("Anunciante");
+                    setActiveAccountTypeBtn(2);
+                  }}
                   type="button"
                 />
               </div>
