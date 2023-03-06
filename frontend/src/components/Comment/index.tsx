@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
-import { CommentDiv } from "./styles";
+import { CommentDiv, CommentSettings } from "./styles";
 import moment from "moment";
 import { IComment } from "../../interfaces/comments";
 import { UserContext } from "../../contexts/UserContext";
+import { IoTrashOutline } from "react-icons/io5";
+import { AiFillEdit } from "react-icons/ai";
+import Button from "../Button";
 
 export const Comment = () => {
   const { announcementComments, updateComment, deleteComment } =
@@ -14,16 +17,19 @@ export const Comment = () => {
 
   const [editedComment, setEditedComment] = useState("");
   const [isEditing, setIsEditing] = useState(false);
+  const [editingCommentId, setEditingCommentId] = useState("");
 
   const handleEditButtonClick = (comment: IComment) => {
     setEditedComment(comment.message);
     setIsEditing(true);
+    setEditingCommentId(comment.id);
   };
 
-  const handleSaveButtonClick = (comment: IComment, newComment: string) => {
-    comment.message = newComment;
-    updateComment(comment.id, editedComment);
+  const handleSaveButtonClick = (comment: IComment) => {
+    comment.message = editedComment;
+    updateComment(comment.id, comment);
     setIsEditing(false);
+    setEditingCommentId("");
   };
 
   const handleCommentChange = (event: any) => {
@@ -70,33 +76,50 @@ export const Comment = () => {
                 <div className="dot" />
                 <p className="date">{time}</p>
               </div>
-              {isEditing ? (
-                <>
-                  <textarea
-                    value={editedComment}
-                    onChange={handleCommentChange}
-                  />
+              {comment.user.id === user?.id && (
+                <CommentSettings>
                   <button
-                    onClick={() =>
-                      handleSaveButtonClick(comment, editedComment)
-                    }
+                    className="edit-btn"
+                    onClick={() => handleEditButtonClick(comment)}
                   >
-                    Salvar
+                    Editar
+                    {/* <AiFillEdit /> */}
                   </button>
-                </>
-              ) : (
-                <p className="comment-description">{comment.message}</p>
+                  <button onClick={() => deleteComment(comment.id)}>
+                    Excluir
+                    {/* <IoTrashOutline /> */}
+                  </button>
+                </CommentSettings>
               )}
             </div>
-            {comment.user.id === user?.id && (
-              <>
-                <button onClick={() => handleEditButtonClick(comment)}>
-                  Editar
-                </button>
-                <button onClick={() => deleteComment(comment.id)}>
-                  Excluir
-                </button>
-              </>
+            {isEditing && comment.id === editingCommentId ? (
+              <div className="edit-comment">
+                <textarea
+                  value={editedComment}
+                  onChange={handleCommentChange}
+                />
+                <Button
+                  onClick={() => handleSaveButtonClick(comment)}
+                  className="save-btn"
+                  children="Salvar"
+                  backgroundColor="transparent"
+                  fontColor="black"
+                  backgroundColorHover={""}
+                />
+                <Button
+                  onClick={() => {
+                    setIsEditing(false);
+                    setEditingCommentId("");
+                  }}
+                  className="cancel-btn"
+                  children="Cancelar"
+                  backgroundColor="transparent"
+                  fontColor="red"
+                  backgroundColorHover={""}
+                />
+              </div>
+            ) : (
+              <p className="comment-description">{comment.message}</p>
             )}
           </CommentDiv>
         );

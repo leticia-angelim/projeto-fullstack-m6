@@ -3,6 +3,7 @@ import {
   CommentsProps,
   IComment,
   ICommentsContext,
+  ICommentUpdate,
 } from "../../interfaces/comments";
 import api from "../../services/api";
 
@@ -38,7 +39,7 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
       });
   };
 
-  const updateComment = async (comment_id: string, data: string) => {
+  const updateComment = async (comment_id: string, data: ICommentUpdate) => {
     await api
       .patch<IComment>(`/comments/${comment_id}`, data)
       .then((res) => {
