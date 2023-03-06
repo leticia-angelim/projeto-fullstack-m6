@@ -27,7 +27,7 @@ import noPhotos from "../../assets/no-photos.jpg";
 const ProductDetail = () => {
   const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
     useContext(AnnouncementContext);
-  const { setSelectedUser } = useContext(UserContext);
+  const { setSelectedUser, user } = useContext(UserContext);
   const { listAnnouncement } = useContext(AnnouncementContext);
 
   const history = useNavigate();
@@ -68,10 +68,10 @@ const ProductDetail = () => {
               </div>
 
               <a
-                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Ola! Me interessei no seu veiculo, vamos conversar?`}
+                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Olá, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
                 target="_blank"
               >
-                Comprar!
+                Comprar
               </a>
             </DivInfos>
           </ProductDetails>
