@@ -55,6 +55,12 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
       .delete<IComment>(`/comments/${comment_id}`)
       .then((res) => {
         console.log(res);
+        const findComment = announcementComments.find(
+          (comment) => comment.id === comment_id
+        );
+        const contactIndex = announcementComments.indexOf(findComment!);
+
+        announcementComments.splice(contactIndex, 1);
       })
       .catch((err) => {
         console.log(err);

@@ -104,15 +104,12 @@ export const CommentDiv = styled.div`
 
 export const CommentSettings = styled.div`
   display: flex;
-  gap: 5px;
+  gap: 10px;
 
   button {
     border: none;
     background: transparent;
     cursor: pointer;
-  }
-
-  .edit-btn {
     :hover {
       color: var(--color-grey3);
     }

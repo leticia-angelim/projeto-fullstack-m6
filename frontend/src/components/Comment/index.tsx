@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { CommentsContext } from "../../contexts/CommentsContext";
 import nameAbbreviate from "../../util/nameAbbreviate";
 import stringToColor from "../../util/stringToColor";
@@ -6,9 +6,10 @@ import { CommentDiv, CommentSettings } from "./styles";
 import moment from "moment";
 import { IComment } from "../../interfaces/comments";
 import { UserContext } from "../../contexts/UserContext";
-import { IoTrashOutline } from "react-icons/io5";
-import { AiFillEdit } from "react-icons/ai";
 import Button from "../Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export const Comment = () => {
   const { announcementComments, updateComment, deleteComment } =
@@ -82,12 +83,10 @@ export const Comment = () => {
                     className="edit-btn"
                     onClick={() => handleEditButtonClick(comment)}
                   >
-                    Editar
-                    {/* <AiFillEdit /> */}
+                    <FontAwesomeIcon icon={faEdit} />
                   </button>
                   <button onClick={() => deleteComment(comment.id)}>
-                    Excluir
-                    {/* <IoTrashOutline /> */}
+                    <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </CommentSettings>
               )}
