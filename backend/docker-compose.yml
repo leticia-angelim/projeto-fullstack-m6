@@ -4,6 +4,9 @@ services:
   motorshop_api:
     container_name: "motorshop_api"
     build: .
+    image: motorshop_api
+    networks:
+      - motorshop_m6_project
     env_file:
       - .env
     ports:
@@ -17,8 +20,10 @@ services:
     command: bash -c "yarn typeorm migration:run -d src/data-source && yarn dev"
 
   docker_db:
-    container_name: postgres_db
+    container_name: motorshop_db
     image: postgres:14
+    networks:
+      - motorshop_m6_project
     env_file:
       - .env
     ports:
@@ -33,3 +38,7 @@ services:
       timeout: 5s
       retries: 5
       start_period: 5s
+
+networks:
+  motorshop_m6_project:
+    driver: bridge
