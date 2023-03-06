@@ -5,6 +5,12 @@ export const CommentDiv = styled.div`
   flex-direction: column;
   gap: 19px;
 
+  .comment {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
   .comment-info {
     display: flex;
     align-items: center;
@@ -54,5 +60,61 @@ export const CommentDiv = styled.div`
     font-size: 14px;
     line-height: 24px;
     color: var(--color-grey2);
+  }
+
+  .edit-comment {
+    position: relative;
+    textarea {
+      border-radius: 4px;
+      width: 100%;
+      max-width: 630px;
+      padding: 33px 28px;
+      border: 1.5px solid var(--color-grey7);
+
+      font-weight: 400;
+      font-size: 16px;
+      color: #868e96;
+    }
+  }
+
+  .save-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    border-radius: 4px;
+
+    position: absolute;
+    right: 86px;
+  }
+
+  .cancel-btn {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+  }
+`;
+
+export const CommentSettings = styled.div`
+  display: flex;
+  gap: 5px;
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .edit-btn {
+    :hover {
+      color: var(--color-grey3);
+    }
   }
 `;
