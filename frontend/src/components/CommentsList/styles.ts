@@ -23,6 +23,10 @@ export const CommentsListBox = styled.div`
     flex-direction: column;
     gap: 44px;
   }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 18px;
+  }
 `;
 
 export const RegisterCommentBox = styled.div`

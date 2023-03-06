@@ -350,10 +350,17 @@ export const DivBox1 = styled.div`
     }
   }
 
+  @media screen and (min-width: 1920px) {
+    .div-box2 {
+      margin-left: 250px;
+      width: 700px;
+    }
+  }
+
   @media screen and (min-width: 2560px) {
-    margin-left: 525px;
     .div-box2 {
       width: 700px;
+      margin-left: 570px;
     }
   }
 `;
