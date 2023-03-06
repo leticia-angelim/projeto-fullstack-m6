@@ -28,7 +28,6 @@ const MyRoutes = () => {
         <Route path="/profileAdmin" element={<ProfileAdmin />} />
       </Route>
       <Route path="/resetPassword" element={<ResetPassword />} />
-      <Route path="/product" element={<Product />} />
     </Routes>
   );
 };

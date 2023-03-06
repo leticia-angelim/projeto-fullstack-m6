@@ -40,7 +40,7 @@ const Home = () => {
             </a>
           </Buttons>
         </div>
-        {/* <SliderAuction /> */}
+        <SliderAuction />
         <AllUsersProductList />
       </Container>
       <Footer />

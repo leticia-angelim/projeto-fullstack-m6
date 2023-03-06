@@ -12,7 +12,7 @@ import { Container } from "../Slider/styles";
 const SliderAuction = () => {
   return (
     <Container>
-      {/* <h3 id="Leilão" style={{ paddingLeft: "1rem" }}>
+      <h3 id="Leilão" style={{ paddingLeft: "1rem" }}>
         Leilão
       </h3>
       <div>
@@ -65,7 +65,7 @@ const SliderAuction = () => {
             <CardAuction />
           </SwiperSlide>
         </Swiper>
-      </div> */}
+      </div>
     </Container>
   );
 };

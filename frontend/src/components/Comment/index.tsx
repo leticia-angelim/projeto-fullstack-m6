@@ -5,9 +5,12 @@ import stringToColor from "../../util/stringToColor";
 import { CommentDiv } from "./styles";
 import moment from "moment";
 import { IComment } from "../../interfaces/comments";
+import { UserContext } from "../../contexts/UserContext";
 
 export const Comment = () => {
-  const { announcementComments } = useContext(CommentsContext);
+  const { announcementComments, updateComment, deleteComment } =
+    useContext(CommentsContext);
+  const { user } = useContext(UserContext);
 
   const [editedComment, setEditedComment] = useState("");
   const [isEditing, setIsEditing] = useState(false);
@@ -19,6 +22,7 @@ export const Comment = () => {
 
   const handleSaveButtonClick = (comment: IComment, newComment: string) => {
     comment.message = newComment;
+    updateComment(comment.id, editedComment);
     setIsEditing(false);
   };
 
@@ -84,9 +88,16 @@ export const Comment = () => {
                 <p className="comment-description">{comment.message}</p>
               )}
             </div>
-            <button onClick={() => handleEditButtonClick(comment)}>
-              Editar
-            </button>
+            {comment.user.id === user?.id && (
+              <>
+                <button onClick={() => handleEditButtonClick(comment)}>
+                  Editar
+                </button>
+                <button onClick={() => deleteComment(comment.id)}>
+                  Excluir
+                </button>
+              </>
+            )}
           </CommentDiv>
         );
       })}
