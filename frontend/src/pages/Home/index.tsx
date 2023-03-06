@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <NavBar />
       <Container>
-        <div className="box-container">
+        {/* <div className="box-container">
           <div className="box">
             <h2>Velocidade e experiência em um lugar feito para você</h2>
             <p>Um ambiente feito para você explorar o seu melhor</p>
@@ -41,7 +41,7 @@ const Home = () => {
           </Buttons>
         </div>
         <SliderAuction />
-        <AllUsersProductList />
+        <AllUsersProductList /> */}
       </Container>
       <Footer />
     </>

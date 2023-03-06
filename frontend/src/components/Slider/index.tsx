@@ -1,10 +1,10 @@
 import React from "react";
-import { FreeMode } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { FreeMode } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/swiper.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "swiper/modules/free-mode/free-mode.min.css";
+// import "swiper/swiper.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "swiper/modules/free-mode/free-mode.min.css";
 
 import { Container } from "./styles";
 import { ProductCard } from "../ProductCard";
@@ -16,7 +16,7 @@ const Slider = ({ title, children }: ISliderProps) => {
 
   return (
     <Container>
-      <h3 id={title} style={{ paddingLeft: "1rem" }}>
+      {/* <h3 id={title} style={{ paddingLeft: "1rem" }}>
         {title}
       </h3>
       <div>
@@ -70,7 +70,7 @@ const Slider = ({ title, children }: ISliderProps) => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
     </Container>
   );
 };
