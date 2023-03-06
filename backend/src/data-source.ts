@@ -9,13 +9,7 @@ import { createEntities1677766971545 } from "./migrations/1677766971545-createEn
 
 const AppDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
-  database: process.env.POSTGRES_DB,
-  synchronize: false,
-  logging: true,
+  url: process.env.DATABASE_URL,
   entities: [User, Announcement, Photo, Address, Comment],
   migrations: [createEntities1677766971545],
 });
