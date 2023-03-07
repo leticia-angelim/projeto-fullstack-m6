@@ -18,7 +18,37 @@ const updateAnnouncementService = async (
 
   const { photos, ...vehicleData } = annoucement;
 
-  await announcementRepository.update(findAnnouncement.id, vehicleData);
+  await announcementRepository.update(findAnnouncement.id, {
+    announcement_type: annoucement.announcement_type
+      ? annoucement.announcement_type
+      : findAnnouncement.announcement_type,
+
+    title: annoucement.title ? annoucement.title : findAnnouncement.title,
+
+    year: annoucement.year ? annoucement.year : findAnnouncement.year,
+
+    mileage: annoucement.mileage
+      ? annoucement.mileage
+      : findAnnouncement.mileage,
+
+    price: annoucement.price ? annoucement.price : findAnnouncement.price,
+
+    description: annoucement.description
+      ? annoucement.description
+      : findAnnouncement.description,
+
+    is_published: annoucement.is_published
+      ? annoucement.is_published
+      : findAnnouncement.is_published,
+
+    vehicle_type: annoucement.vehicle_type
+      ? annoucement.vehicle_type
+      : findAnnouncement.vehicle_type,
+
+    cover_img: annoucement.cover_img
+      ? annoucement.cover_img
+      : findAnnouncement.cover_img,
+  });
 
   if (photos) {
     await vehicleImagesRepository.delete({
