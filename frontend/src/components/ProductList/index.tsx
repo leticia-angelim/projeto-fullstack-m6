@@ -38,7 +38,7 @@ export const ProductList = () => {
       {motorcycles.length <= 0 ? (
         <div className="no-announcements">
           <h4>Motos</h4>
-          <p>Você ainda não possui anúncios de carros publicados!</p>
+          <p>Você ainda não possui anúncios de motos publicados!</p>
         </div>
       ) : (
         <Slider title="Motos" children={motorcycles} />
@@ -57,7 +57,7 @@ export const ProductList = () => {
       {motorcycles.length <= 0 ? (
         <div className="no-announcements">
           <h4>Motos</h4>
-          <p>Este usuário ainda não possui anúncios de carros publicados!</p>
+          <p>Este usuário ainda não possui anúncios de motos publicados!</p>
         </div>
       ) : (
         <Slider title="Motos" children={motorcycles} />
