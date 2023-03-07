@@ -26,7 +26,6 @@ export const EditUserProfileModal = () => {
   } = useForm();
 
   const onSubmitFunction = (data: any) => {
-    console.log("data", data);
     editUser(data);
   };
 
