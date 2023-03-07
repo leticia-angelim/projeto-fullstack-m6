@@ -12,7 +12,7 @@ import {
   FormAnnouncement,
   SubTitle,
 } from "../EditAnnouncementModal/styles";
-import Input from "../Input";
+import { Input } from "../Input";
 import ModalContainer from "../ModalContainer";
 
 export const EditUserProfileModal = () => {
@@ -23,9 +23,7 @@ export const EditUserProfileModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(editUserSchema),
-  });
+  } = useForm();
 
   const onSubmitFunction = (data: any) => {
     editUser(data);
@@ -46,40 +44,35 @@ export const EditUserProfileModal = () => {
               label="Nome"
               fieldName="name"
               placeholder={user!.name}
-              register={register}
-              name="name"
+              {...register("name")}
             />
             <Input
               type="email"
               label="Email"
               fieldName="email"
               placeholder={user!.email}
-              register={register}
-              name="email"
+              {...register("email")}
             />
             <Input
               type="text"
               label="CPF"
               fieldName="cpf"
               placeholder={user!.cpf}
-              register={register}
-              name="cpf"
+              {...register("cpf")}
             />
             <Input
               type="text"
               label="Celular"
               fieldName="phone"
               placeholder={user!.phone}
-              register={register}
-              name="phone"
+              {...register("phone")}
             />
             <Input
               type="text"
               label="Data de nascimento"
               fieldName="birth_date"
               placeholder={user!.birth_date}
-              register={register}
-              name="birth_date"
+              {...register("birth_date")}
             />
             <FormHelperText error>{errors.birth_date?.message}</FormHelperText>
             <DescriptionField>

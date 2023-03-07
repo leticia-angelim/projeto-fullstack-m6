@@ -14,7 +14,7 @@ const ProfileAdmin = () => {
       <PageContainer>
         <div className="blue_div"></div>
         <UserProfileInfo />
-        {ProductList(userId!)}
+        {ProductList()}
       </PageContainer>
       <Footer />
     </>

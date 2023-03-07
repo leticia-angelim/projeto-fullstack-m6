@@ -12,7 +12,7 @@ const createCommentService = async (
   const userRepository = AppDataSource.getRepository(User);
   const announcementRepository = AppDataSource.getRepository(Announcement);
   const commentRepository = AppDataSource.getRepository(Comment);
-  console.log(message, announcementId, userId);
+
   const findUser = await userRepository.findOneBy({ id: userId });
 
   if (!findUser) {

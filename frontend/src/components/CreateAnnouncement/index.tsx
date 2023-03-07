@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import Button from "../Button";
-import Input from "../Input";
+import { Input } from "../Input";
 import ModalContainer from "../ModalContainer";
 import { FormHelperText } from "@mui/material";
 import {
@@ -113,8 +113,7 @@ const CreateAnnouncementModal = () => {
           type="text"
           placeholder="Digitar título"
           fieldName="title"
-          name="title"
-          register={register}
+          {...register("title")}
         />
         <FormHelperText error>{errors.title?.message}</FormHelperText>
         <CreateForm>
@@ -125,8 +124,7 @@ const CreateAnnouncementModal = () => {
                 type="number"
                 placeholder="Digitar ano"
                 fieldName="year"
-                name="year"
-                register={register}
+                {...register("year")}
               />
               <FormHelperText error>{errors.year?.message}</FormHelperText>
             </div>
@@ -136,8 +134,7 @@ const CreateAnnouncementModal = () => {
                 type="number"
                 placeholder="0"
                 fieldName="mileage"
-                name="mileage"
-                register={register}
+                {...register("mileage")}
               />
               <FormHelperText error>{errors.mileage?.message}</FormHelperText>
             </div>
@@ -149,8 +146,7 @@ const CreateAnnouncementModal = () => {
                   type="number"
                   placeholder="Digitar preço"
                   fieldName="price"
-                  name="price"
-                  register={register}
+                  {...register("price")}
                 />
                 <FormHelperText error>{errors.price?.message}</FormHelperText>
               </div>
@@ -161,8 +157,7 @@ const CreateAnnouncementModal = () => {
                   type="number"
                   placeholder="Digitar lance"
                   fieldName="auction"
-                  name="price"
-                  register={register}
+                  {...register("price")}
                 />
                 <FormHelperText error>{errors.price?.message}</FormHelperText>
               </div>
@@ -216,8 +211,7 @@ const CreateAnnouncementModal = () => {
           type="text"
           placeholder="Inserir URL da imagem"
           fieldName="cover_img"
-          name="cover_img"
-          register={register}
+          {...register("cover_img")}
         />
         <FormHelperText error>{errors.cover_img?.message}</FormHelperText>
         <div>
@@ -229,8 +223,7 @@ const CreateAnnouncementModal = () => {
                 placeholder="Inserir URL da imagem"
                 fieldName="photos"
                 type="text"
-                name={`${num}photos`}
-                register={register}
+                {...register(`${num}photos`)}
                 onChange={(event: any) => {
                   const galleryToUpdate = [...gallery];
                   galleryToUpdate[num] = event.target.value;

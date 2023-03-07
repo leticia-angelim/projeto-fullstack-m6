@@ -83,7 +83,7 @@ const ProductDetail = () => {
           </ProductDescription>
         </Product>
         <Aside>
-          {selectedAnnouncement!.photos!.length >= 1 ? (
+          {selectedAnnouncement?.photos!.length ? (
             <Photos>
               <Title>Fotos</Title>
               <div>

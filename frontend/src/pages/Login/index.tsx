@@ -10,7 +10,7 @@ import ForgotPasswordModal from "../../components/ForgotPasswordModal";
 import { Footer } from "../../components/Footer";
 import Button from "../../components/Button";
 import NavBar from "../../components/NavBar";
-import Input from "../../components/Input";
+import { Input } from "../../components/Input";
 
 import { FormHelperText } from "@mui/material";
 import { Container, Password } from "./styles";
@@ -44,8 +44,7 @@ const Login = () => {
               type="text"
               placeholder="Digitar email"
               fieldName="email"
-              name="email"
-              register={register}
+              {...register("email")}
             />
             <FormHelperText error>{errors.email?.message}</FormHelperText>
 
@@ -55,8 +54,7 @@ const Login = () => {
                 type="password"
                 placeholder="Digitar senha"
                 fieldName="password"
-                name="password"
-                register={register}
+                {...register("password")}
               />
               <FormHelperText error>{errors.password?.message}</FormHelperText>
               <h4 onClick={() => setForgotPasswordModal(true)}>
