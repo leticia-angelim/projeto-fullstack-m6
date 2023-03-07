@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
-import Input from "../Input";
+import { Input } from "../Input";
 import Button from "../Button";
 import ModalContainer from "../ModalContainer";
 import { CreateForm, FinalButtons, FormAnnouncement, SubTitle } from "./styles";

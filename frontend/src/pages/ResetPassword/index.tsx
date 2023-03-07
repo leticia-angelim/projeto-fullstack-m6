@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext";
 import { resetPasswordSchema } from "../../schemas/user";
 import Button from "../../components/Button";
-import Input from "../../components/Input";
+import { Input } from "../../components/Input";
 
 import { FormHelperText } from "@mui/material";
 import { Container } from "./styles";

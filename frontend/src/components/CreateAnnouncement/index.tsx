@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
 import Button from "../Button";
-import Input from "../Input";
+import { Input } from "../Input";
 import ModalContainer from "../ModalContainer";
 import { FormHelperText } from "@mui/material";
 import {

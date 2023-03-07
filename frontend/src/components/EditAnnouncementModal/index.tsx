@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
-import Input from "../Input";
+import { Input } from "../Input";
 import Button from "../Button";
 import ModalContainer from "../ModalContainer";
 import editAnnouncementSchema from "../../schemas/editAnnouncement";
@@ -27,12 +27,17 @@ const EditAnnouncementModal = () => {
     editAnnouncement,
     gallery,
     setGallery,
+    selectedAnnouncement,
   } = useContext(AnnouncementContext);
 
   const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
-  const [type, setType] = useState<string>("");
-  const [vehicleType, setVehicleType] = useState<string>("");
+  const [type, setType] = useState<string>(
+    selectedAnnouncement!.announcement_type
+  );
+  const [vehicleType, setVehicleType] = useState<string>(
+    selectedAnnouncement!.vehicle_type
+  );
   const [published, setPublished] = useState<boolean>(true);
   const [activeAnnouncementTypeBtn, setActiveAnnouncementTypeBtn] =
     useState<number>(0);
@@ -62,6 +67,15 @@ const EditAnnouncementModal = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(editAnnouncementSchema),
+    defaultValues: {
+      title: selectedAnnouncement?.title,
+      year: selectedAnnouncement?.year,
+      mileage: selectedAnnouncement?.mileage,
+      price: selectedAnnouncement?.price,
+      cover_img: selectedAnnouncement?.cover_img,
+      photos: selectedAnnouncement?.photos,
+      description: selectedAnnouncement?.description,
+    },
   });
 
   const onSubmitFunction = (data: any) => {
@@ -125,8 +139,7 @@ const EditAnnouncementModal = () => {
             type="text"
             placeholder="Digitar título"
             fieldName="title"
-            name="title"
-            register={register}
+            {...register("title")}
           />
           <FormHelperText error>{errors.title?.message}</FormHelperText>
           <CreateForm>
@@ -137,8 +150,7 @@ const EditAnnouncementModal = () => {
                   type="number"
                   placeholder="Digitar ano"
                   fieldName="year"
-                  name="year"
-                  register={register}
+                  {...register("year")}
                 />
                 <FormHelperText error>{errors.year?.message}</FormHelperText>
               </div>
@@ -148,8 +160,7 @@ const EditAnnouncementModal = () => {
                   type="number"
                   placeholder="0"
                   fieldName="mileage"
-                  name="mileage"
-                  register={register}
+                  {...register("mileage")}
                 />
                 <FormHelperText error>{errors.mileage?.message}</FormHelperText>
               </div>
@@ -161,8 +172,7 @@ const EditAnnouncementModal = () => {
                     type="number"
                     placeholder="Digitar preço"
                     fieldName="price"
-                    name="price"
-                    register={register}
+                    {...register("price")}
                   />
                   <FormHelperText error>{errors.price?.message}</FormHelperText>
                 </div>
@@ -173,8 +183,7 @@ const EditAnnouncementModal = () => {
                     type="number"
                     placeholder="Digitar lance"
                     fieldName="auction"
-                    name="price"
-                    register={register}
+                    {...register("price")}
                   />
                   <FormHelperText error>{errors.price?.message}</FormHelperText>
                 </div>
@@ -261,8 +270,7 @@ const EditAnnouncementModal = () => {
             type="text"
             placeholder="Inserir URL da imagem"
             fieldName="cover_img"
-            name="cover_img"
-            register={register}
+            {...register("cover_img")}
           />
           <FormHelperText error>{errors.cover_img?.message}</FormHelperText>
           <div>
@@ -274,8 +282,7 @@ const EditAnnouncementModal = () => {
                   placeholder="Inserir URL da imagem"
                   fieldName="photos"
                   type="text"
-                  name={`photos`}
-                  register={register}
+                  {...register("photos")}
                   onChange={(event: any) => {
                     const galleryToUpdate = [...gallery];
                     galleryToUpdate[num] = event.target.value;

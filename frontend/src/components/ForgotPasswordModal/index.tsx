@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import Input from "../Input";
+import { Input } from "../Input";
 import Button from "../Button";
 import ModalContainer from "../ModalContainer";
 import { UserContext } from "../../contexts/UserContext";

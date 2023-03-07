@@ -8,7 +8,7 @@ import { userSchema } from "../../schemas/user";
 import { Footer } from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 import Button from "../../components/Button";
-import Input from "../../components/Input";
+import { Input } from "../../components/Input";
 
 import {
   CreateForm,

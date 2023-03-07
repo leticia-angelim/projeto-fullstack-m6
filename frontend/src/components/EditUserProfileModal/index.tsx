@@ -12,7 +12,7 @@ import {
   FormAnnouncement,
   SubTitle,
 } from "../EditAnnouncementModal/styles";
-import Input from "../Input";
+import { Input } from "../Input";
 import ModalContainer from "../ModalContainer";
 
 export const EditUserProfileModal = () => {
@@ -26,6 +26,7 @@ export const EditUserProfileModal = () => {
   } = useForm();
 
   const onSubmitFunction = (data: any) => {
+    console.log("data", data);
     editUser(data);
   };
 
