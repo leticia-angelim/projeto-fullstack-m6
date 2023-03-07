@@ -8,10 +8,7 @@ import Register from "../pages/Register";
 import ProfileUser from "../pages/ProfileUser";
 import ProfileAdmin from "../pages/ProfileAdmin";
 import ResetPassword from "../pages/ResetPassword";
-import ProtectedRoutes from "../components/ProtectedRoutes";
 import ProtectedProfileAdmin from "../components/ProtectedProfileAdmin";
-import EditAnnouncementModal from "../components/EditAnnouncementModal";
-import CreateAnnouncementModal from "../components/CreateAnnouncement";
 
 const MyRoutes = () => {
   return (
@@ -20,12 +17,10 @@ const MyRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
-      <Route element={<ProtectedRoutes />}>
-        <Route path="/product/:id" element={<Product />} />
-        <Route path="/profileUser" element={<ProfileUser />} />
-      </Route>
+      <Route path="/product/:id" element={<Product />} />
+      <Route path="/profileUser/:id" element={<ProfileUser />} />
       <Route element={<ProtectedProfileAdmin />}>
-        <Route path="/profileAdmin" element={<ProfileAdmin />} />
+        <Route path="/profileAdmin/:id" element={<ProfileAdmin />} />
       </Route>
       <Route path="/resetPassword" element={<ResetPassword />} />
     </Routes>

@@ -13,7 +13,7 @@ import { ProductCardAdmin } from "../ProductCardAdmin";
 
 const Slider = ({ title, children }: ISliderProps) => {
   const url = window.location.href;
-
+  const id = localStorage.getItem("@user:id");
   return (
     <Container>
       <h3 id={title} style={{ paddingLeft: "1rem" }}>
@@ -58,7 +58,7 @@ const Slider = ({ title, children }: ISliderProps) => {
         >
           {children.map((announcement, index) => (
             <SwiperSlide key={index}>
-              {url === "http://localhost:3000/profileAdmin" ? (
+              {url === `http://localhost:3000/profileAdmin/${id}` ? (
                 <>
                   <ProductCardAdmin announcement={announcement} />
                 </>

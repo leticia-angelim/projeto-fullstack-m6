@@ -23,9 +23,7 @@ export const EditUserProfileModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(editUserSchema),
-  });
+  } = useForm();
 
   const onSubmitFunction = (data: any) => {
     editUser(data);

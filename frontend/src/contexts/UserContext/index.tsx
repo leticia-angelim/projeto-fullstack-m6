@@ -69,6 +69,17 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
     });
   };
 
+  const getUserById = async (userId: string) => {
+    await api
+      .get<IUser>(`/users/${userId}`)
+      .then((res) => {
+        setSelectedUser(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const editAddress = async (data: IAddress) => {
     await api
       .patch(`/address/${user?.address.id}`, data)
@@ -184,6 +195,7 @@ export const UserProvider = ({ children }: IUserProviderProps) => {
         setForgotPasswordModal,
         forgotPassword,
         passwordReset,
+        getUserById,
       }}
     >
       {children}

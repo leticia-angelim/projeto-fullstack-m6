@@ -4,8 +4,9 @@ import { useContext } from "react";
 import Slider from "../Slider";
 import { ProductListDiv } from "./styles";
 import { AnnouncementContext } from "../../contexts/AnnouncementContext";
+import { useParams } from "react-router-dom";
 
-export const ProductList = (userId: string) => {
+export const ProductList = () => {
   const { userAnnouncements, listUserAnnouncements } =
     useContext(AnnouncementContext);
 
@@ -18,11 +19,13 @@ export const ProductList = (userId: string) => {
     (announcement) => announcement.vehicle_type == "Moto"
   );
 
+  const { id } = useParams();
+
   useEffect(() => {
-    listUserAnnouncements(userId);
+    listUserAnnouncements(id!);
   }, []);
 
-  return userId === loggedUserId ? (
+  return id === loggedUserId ? (
     <ProductListDiv className="products_div">
       {cars.length <= 0 ? (
         <div className="no-announcements">

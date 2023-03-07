@@ -57,7 +57,7 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .get<IAnnouncement>(`/announcement/${announcement_id}`)
       .then((res) => {
-        // console.log(res);
+        setSelectedAnnouncement(res.data);
       })
       .catch((err) => {
         console.log(err);
