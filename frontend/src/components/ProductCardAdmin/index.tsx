@@ -53,6 +53,7 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           fontColor={"#212529"}
           border={"#212529"}
           onClick={() => {
+            setSelectedAnnouncement(announcement);
             setAnnouncementId(announcement.id);
             setEditModal(true);
           }}

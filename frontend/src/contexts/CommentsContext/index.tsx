@@ -20,7 +20,6 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
     await api
       .post<IComment>(`/comments/${announcement_id}`, data)
       .then((res) => {
-        console.log(res);
         listComments(announcement_id);
       })
       .catch((err) => {
@@ -42,9 +41,7 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
   const updateComment = async (comment_id: string, data: ICommentUpdate) => {
     await api
       .patch<IComment>(`/comments/${comment_id}`, data)
-      .then((res) => {
-        console.log(res);
-      })
+      .then((res) => {})
       .catch((err) => {
         console.log(err);
       });

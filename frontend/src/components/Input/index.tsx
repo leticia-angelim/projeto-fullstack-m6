@@ -1,28 +1,17 @@
-import React from "react";
+import React, { forwardRef, ForwardRefRenderFunction } from "react";
 import { InputContainer } from "./styles";
 import { IInputProps } from "../../interfaces/input";
 
-const Input = ({
-  type,
-  label,
-  fieldName,
-  placeholder,
-  register,
-  name,
-  onChange,
-}: IInputProps) => {
+const InputBase: ForwardRefRenderFunction<HTMLInputElement, IInputProps> = (
+  { label, fieldName, ...rest },
+  ref
+) => {
   return (
     <InputContainer>
       <label htmlFor={fieldName}>{label}</label>
-      <input
-        id={fieldName}
-        type={type}
-        placeholder={placeholder}
-        {...register(name)}
-        onChange={onChange}
-      />
+      <input id={fieldName} ref={ref} {...rest} />
     </InputContainer>
   );
 };
 
-export default Input;
+export const Input = forwardRef(InputBase);

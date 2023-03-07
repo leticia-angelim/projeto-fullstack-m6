@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
-import Input from "../Input";
+import { Input } from "../Input";
 import Button from "../Button";
 import ModalContainer from "../ModalContainer";
 import { CreateForm, FinalButtons, FormAnnouncement, SubTitle } from "./styles";
@@ -31,8 +31,7 @@ const EditAddressModal = () => {
             type="text"
             placeholder={user!.address.cep}
             fieldName="cep"
-            name="cep"
-            register={register}
+            {...register("cep")}
           />
           <CreateForm>
             <div>
@@ -41,16 +40,14 @@ const EditAddressModal = () => {
                 type="text"
                 placeholder={user!.address.state}
                 fieldName="state"
-                name="state"
-                register={register}
+                {...register("state")}
               />
               <Input
                 label="Cidade"
                 type="text"
                 placeholder={user!.address.city}
                 fieldName="city"
-                name="city"
-                register={register}
+                {...register("city")}
               />
             </div>
           </CreateForm>
@@ -59,8 +56,7 @@ const EditAddressModal = () => {
             type="text"
             placeholder={user!.address.street}
             fieldName="street"
-            name="street"
-            register={register}
+            {...register("street")}
           />
           <CreateForm>
             <div>
@@ -69,8 +65,7 @@ const EditAddressModal = () => {
                 type="number"
                 placeholder={user!.address.number.toString()}
                 fieldName="number"
-                name="number"
-                register={register}
+                {...register("number")}
               />
 
               <Input
@@ -78,8 +73,7 @@ const EditAddressModal = () => {
                 type="text"
                 placeholder={user!.address.complement}
                 fieldName="complement"
-                name="complement"
-                register={register}
+                {...register("complement")}
               />
             </div>
           </CreateForm>

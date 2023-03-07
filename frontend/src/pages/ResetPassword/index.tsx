@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { UserContext } from "../../contexts/UserContext";
 import { resetPasswordSchema } from "../../schemas/user";
 import Button from "../../components/Button";
-import Input from "../../components/Input";
+import { Input } from "../../components/Input";
 
 import { FormHelperText } from "@mui/material";
 import { Container } from "./styles";
@@ -35,8 +35,7 @@ const ResetPassword = () => {
             type="text"
             placeholder="Digitar email"
             fieldName="email"
-            name="email"
-            register={register}
+            {...register("email")}
           />
           <FormHelperText error>{errors.email?.message}</FormHelperText>
 
@@ -45,8 +44,7 @@ const ResetPassword = () => {
             type="text"
             placeholder="Digitar código"
             fieldName="token"
-            name="token"
-            register={register}
+            {...register("token")}
           />
           <FormHelperText error>{errors.token?.message}</FormHelperText>
 
@@ -55,8 +53,7 @@ const ResetPassword = () => {
             type="password"
             placeholder="Digitar senha"
             fieldName="password"
-            name="password"
-            register={register}
+            {...register("password")}
           />
           <FormHelperText error>{errors.password?.message}</FormHelperText>
 

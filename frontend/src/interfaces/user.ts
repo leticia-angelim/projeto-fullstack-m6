@@ -23,6 +23,7 @@ export interface IUserContext {
   setForgotPasswordModal: Dispatch<SetStateAction<boolean>>;
   forgotPassword: (email: string) => Promise<void>;
   passwordReset: (date: IPasswordReset) => Promise<void>;
+  getUserById: (userId: string) => Promise<void>;
 }
 
 export interface IUserProviderProps {

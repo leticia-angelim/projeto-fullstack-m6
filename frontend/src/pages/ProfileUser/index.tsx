@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import NavBar from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
@@ -9,9 +9,16 @@ import { ProductList } from "../../components/ProductList";
 import { PageContainer } from "../ProfileAdmin/styles";
 import { UserInfo } from "../../components/UserProfileInfo/styles";
 import nameAbbreviate from "../../util/nameAbbreviate";
+import { useParams } from "react-router-dom";
 
 const ProfileUser = () => {
-  const { selectedUser } = useContext(UserContext);
+  const { selectedUser, getUserById } = useContext(UserContext);
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    getUserById(id!);
+  }, []);
 
   return (
     <>
@@ -22,11 +29,13 @@ const ProfileUser = () => {
           <div
             className="name_div"
             style={{
-              backgroundColor: stringToColor(selectedUser!.name),
+              backgroundColor: stringToColor(
+                selectedUser ? selectedUser.name : ". ."
+              ),
             }}
           >
             <p className="name_abbreviate">
-              {nameAbbreviate(selectedUser!.name)}
+              {nameAbbreviate(selectedUser ? selectedUser.name : ". .")}
             </p>
           </div>
           <div className="username_div">
@@ -37,7 +46,7 @@ const ProfileUser = () => {
           </div>
           <p className="user_description">{selectedUser?.description}</p>
         </UserInfo>
-        {ProductList(selectedUser!.id)}
+        {ProductList()}
       </PageContainer>
       <Footer />
     </>

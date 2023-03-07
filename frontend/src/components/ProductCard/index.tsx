@@ -53,7 +53,7 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
       <ProductOwner
         onClick={() => {
           setSelectedUser(announcement.user);
-          navigate("/profileUser");
+          navigate(`/profileUser/${announcement.user.id}`);
         }}
       >
         <p
