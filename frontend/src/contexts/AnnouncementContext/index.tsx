@@ -78,13 +78,14 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
   const editAnnouncement = async (data: IAnnouncement) => {
     await api
       .patch(`/announcement/${announcementId}`, data)
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         const findAnnouncement = userAnnouncements.find(
           (announcement) => announcement.id === announcementId
         );
         const announcementIndex = userAnnouncements.indexOf(findAnnouncement!);
 
-        userAnnouncements.splice(announcementIndex, 1, data);
+        userAnnouncements.splice(announcementIndex, 1, res.data);
 
         setEditModal(false);
         toast.success("Anúncio atualizado!");

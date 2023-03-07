@@ -44,8 +44,7 @@ const Login = () => {
               type="text"
               placeholder="Digitar email"
               fieldName="email"
-              name="email"
-              register={register}
+              {...register("email")}
             />
             <FormHelperText error>{errors.email?.message}</FormHelperText>
 
@@ -55,8 +54,7 @@ const Login = () => {
                 type="password"
                 placeholder="Digitar senha"
                 fieldName="password"
-                name="password"
-                register={register}
+                {...register("password")}
               />
               <FormHelperText error>{errors.password?.message}</FormHelperText>
               <h4 onClick={() => setForgotPasswordModal(true)}>

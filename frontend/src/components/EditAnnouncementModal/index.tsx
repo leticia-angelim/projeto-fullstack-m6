@@ -32,12 +32,8 @@ const EditAnnouncementModal = () => {
 
   const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
-  const [type, setType] = useState<string>(
-    selectedAnnouncement!.announcement_type
-  );
-  const [vehicleType, setVehicleType] = useState<string>(
-    selectedAnnouncement!.vehicle_type
-  );
+  const [type, setType] = useState<string>("");
+  const [vehicleType, setVehicleType] = useState<string>("");
   const [published, setPublished] = useState<boolean>(true);
   const [activeAnnouncementTypeBtn, setActiveAnnouncementTypeBtn] =
     useState<number>(0);
@@ -66,7 +62,6 @@ const EditAnnouncementModal = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(editAnnouncementSchema),
     defaultValues: {
       title: selectedAnnouncement?.title,
       year: selectedAnnouncement?.year,

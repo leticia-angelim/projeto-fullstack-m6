@@ -35,8 +35,7 @@ const ResetPassword = () => {
             type="text"
             placeholder="Digitar email"
             fieldName="email"
-            name="email"
-            register={register}
+            {...register("email")}
           />
           <FormHelperText error>{errors.email?.message}</FormHelperText>
 
@@ -45,8 +44,7 @@ const ResetPassword = () => {
             type="text"
             placeholder="Digitar código"
             fieldName="token"
-            name="token"
-            register={register}
+            {...register("token")}
           />
           <FormHelperText error>{errors.token?.message}</FormHelperText>
 
@@ -55,8 +53,7 @@ const ResetPassword = () => {
             type="password"
             placeholder="Digitar senha"
             fieldName="password"
-            name="password"
-            register={register}
+            {...register("password")}
           />
           <FormHelperText error>{errors.password?.message}</FormHelperText>
 

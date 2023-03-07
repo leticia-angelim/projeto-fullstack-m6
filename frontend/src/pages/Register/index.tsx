@@ -65,8 +65,7 @@ const Register = () => {
               type="text"
               placeholder="Ex: Samuel Leão"
               fieldName="name"
-              name="name"
-              register={register}
+              {...register("name")}
             />
             <FormHelperText error>{errors.name?.message}</FormHelperText>
 
@@ -75,8 +74,7 @@ const Register = () => {
               type="email"
               placeholder="Ex: samuel@kenzie.com.br"
               fieldName="email"
-              name="email"
-              register={register}
+              {...register("email")}
             />
             <FormHelperText error>{errors.email?.message}</FormHelperText>
 
@@ -85,8 +83,7 @@ const Register = () => {
               type="text"
               placeholder="000.000.000-00"
               fieldName="cpf"
-              name="cpf"
-              register={register}
+              {...register("cpf")}
             />
             <FormHelperText error>{errors.cpf?.message}</FormHelperText>
 
@@ -95,8 +92,7 @@ const Register = () => {
               type="text"
               placeholder="(DDD) 90000-0000"
               fieldName="phone"
-              name="phone"
-              register={register}
+              {...register("phone")}
             />
             <FormHelperText error>{errors.phone?.message}</FormHelperText>
 
@@ -105,8 +101,7 @@ const Register = () => {
               type="text"
               placeholder="00/00/00"
               fieldName="birth_date"
-              name="birth_date"
-              register={register}
+              {...register("birth_date")}
             />
             <FormHelperText error>{errors.birth_date?.message}</FormHelperText>
 
@@ -125,8 +120,7 @@ const Register = () => {
               type="text"
               placeholder="00000.000"
               fieldName="cep"
-              name="cep"
-              register={register}
+              {...register("cep")}
             />
             <FormHelperText error>{errors.cep?.message}</FormHelperText>
 
@@ -138,8 +132,7 @@ const Register = () => {
                     type="text"
                     placeholder="Digitar estado"
                     fieldName="state"
-                    name="state"
-                    register={register}
+                    {...register("state")}
                   />
                   <FormHelperText error>{errors.state?.message}</FormHelperText>
                 </div>
@@ -149,8 +142,7 @@ const Register = () => {
                     type="text"
                     placeholder="Digitar cidade"
                     fieldName="city"
-                    name="city"
-                    register={register}
+                    {...register("city")}
                   />
                   <FormHelperText error>{errors.city?.message}</FormHelperText>
                 </div>
@@ -162,8 +154,7 @@ const Register = () => {
               type="text"
               placeholder="Digitar rua"
               fieldName="street"
-              name="street"
-              register={register}
+              {...register("street")}
             />
             <FormHelperText error>{errors.street?.message}</FormHelperText>
 
@@ -175,8 +166,7 @@ const Register = () => {
                     type="number"
                     placeholder="Digitar número"
                     fieldName="number"
-                    name="number"
-                    register={register}
+                    {...register("number")}
                   />
                   <FormHelperText error>
                     {errors.number?.message}
@@ -188,8 +178,7 @@ const Register = () => {
                     type="text"
                     placeholder="Ex: apart 307"
                     fieldName="complement"
-                    name="complement"
-                    register={register}
+                    {...register("complement")}
                   />
                   <FormHelperText error>
                     {errors.complement?.message}
@@ -237,8 +226,7 @@ const Register = () => {
               type="password"
               placeholder="Digitar senha"
               fieldName="password"
-              name="password"
-              register={register}
+              {...register("password")}
             />
             <FormHelperText error>{errors.password?.message}</FormHelperText>
 
@@ -247,8 +235,7 @@ const Register = () => {
               type="password"
               placeholder="Digitar senha"
               fieldName="confirm_password"
-              name="confirm_password"
-              register={register}
+              {...register("confirm_password")}
             />
             <FormHelperText error>
               {errors.confirm_password?.message}

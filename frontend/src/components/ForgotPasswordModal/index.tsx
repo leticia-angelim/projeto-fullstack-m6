@@ -42,8 +42,7 @@ const ForgotPasswordModal = () => {
           type="text"
           placeholder="Digitar email"
           fieldName="email"
-          name="email"
-          register={register}
+          {...register("email")}
         />
         <FormHelperText error>{errors.email?.message}</FormHelperText>
 
