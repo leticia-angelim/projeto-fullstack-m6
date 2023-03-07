@@ -751,3 +751,26 @@ Sem corpo da requisição - Na requisição apenas é necessário um TOKEN, a ap
 `DELETE -> /comments/comment_id - FORMATO DA RESPOSTA - STATUS 204 - NO CONTENT - deleção de comentário`
 
 **\*Autenticação necessária**
+
+</br>
+
+`PATCH -> /comments/comment_id - FORMATO DA REQUISIÇÃO - edição de um comentário`
+
+**\*Autenticação necessária**
+
+```json
+{
+ "message": "Carro muito bom"
+}
+```
+
+`FORMATO DA RESPOSTA - STATUS 200 - OK`
+
+```json
+{
+ "id": "6b8a4005-a33a-4f90-a5a6-fcc6bb539287",
+ "message": "Carro muito bom",
+ "created_at": "2023-03-07T12:37:27.062Z"
+}
+```
+
