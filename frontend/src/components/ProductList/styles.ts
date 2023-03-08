@@ -4,6 +4,7 @@ export const ProductListDiv = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 100px;
+  margin-top: 4rem;
 
   .no-announcements {
     background-color: #f2f2f2;
