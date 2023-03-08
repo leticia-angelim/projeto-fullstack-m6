@@ -20,7 +20,7 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
 
   return (
     <ProductContainer color={announcement.is_published ? "#4529E6" : "#ADB5BD"}>
-      {url === "http://localhost:3000/profileUser" ? (
+      {url === "https://motorsshop.onrender.com/profileUser" ? (
         <div
           className="product-img"
           onClick={() => {
