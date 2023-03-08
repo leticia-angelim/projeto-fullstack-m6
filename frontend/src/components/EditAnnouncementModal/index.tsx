@@ -32,8 +32,12 @@ const EditAnnouncementModal = () => {
 
   const [count, setCount] = useState(0);
   const [addImg, setAddImg] = useState<number[]>([]);
-  const [type, setType] = useState<string>("");
-  const [vehicleType, setVehicleType] = useState<string>("");
+  const [type, setType] = useState<string>(
+    selectedAnnouncement?.announcement_type || ""
+  );
+  const [vehicleType, setVehicleType] = useState<string>(
+    selectedAnnouncement?.vehicle_type || ""
+  );
   const [published, setPublished] = useState<boolean>(true);
   const [activeAnnouncementTypeBtn, setActiveAnnouncementTypeBtn] =
     useState<number>(0);
@@ -61,17 +65,7 @@ const EditAnnouncementModal = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    defaultValues: {
-      title: selectedAnnouncement?.title,
-      year: selectedAnnouncement?.year,
-      mileage: selectedAnnouncement?.mileage,
-      price: selectedAnnouncement?.price,
-      cover_img: selectedAnnouncement?.cover_img,
-      photos: selectedAnnouncement?.photos,
-      description: selectedAnnouncement?.description,
-    },
-  });
+  } = useForm();
 
   const onSubmitFunction = (data: any) => {
     data.announcement_type = type;
@@ -88,7 +82,9 @@ const EditAnnouncementModal = () => {
       <ModalContainer
         title="Editar anúncio"
         openModal={editModal}
-        closeModal={() => setEditModal(false)}
+        closeModal={() => {
+          setEditModal(false);
+        }}
       >
         <FormAnnouncement onSubmit={handleSubmit(onSubmitFunction)}>
           <SubTitle>Tipo de anuncio</SubTitle>
@@ -132,7 +128,7 @@ const EditAnnouncementModal = () => {
           <Input
             label="Título"
             type="text"
-            placeholder="Digitar título"
+            placeholder={selectedAnnouncement?.title}
             fieldName="title"
             {...register("title")}
           />
@@ -143,7 +139,7 @@ const EditAnnouncementModal = () => {
                 <Input
                   label="Ano"
                   type="number"
-                  placeholder="Digitar ano"
+                  placeholder={selectedAnnouncement?.year}
                   fieldName="year"
                   {...register("year")}
                 />
@@ -153,7 +149,7 @@ const EditAnnouncementModal = () => {
                 <Input
                   label="Quilometragem"
                   type="number"
-                  placeholder="0"
+                  placeholder={selectedAnnouncement?.mileage.toString()}
                   fieldName="mileage"
                   {...register("mileage")}
                 />
@@ -165,7 +161,7 @@ const EditAnnouncementModal = () => {
                   <Input
                     label="Preço"
                     type="number"
-                    placeholder="Digitar preço"
+                    placeholder={selectedAnnouncement?.price.toString()}
                     fieldName="price"
                     {...register("price")}
                   />
@@ -176,7 +172,7 @@ const EditAnnouncementModal = () => {
                   <Input
                     label="Lance inicial"
                     type="number"
-                    placeholder="Digitar lance"
+                    placeholder={selectedAnnouncement?.price.toString()}
                     fieldName="auction"
                     {...register("price")}
                   />
@@ -189,7 +185,7 @@ const EditAnnouncementModal = () => {
             <label htmlFor="description">Descrição</label>
             <textarea
               id="description"
-              placeholder="Digitar descrição"
+              placeholder={selectedAnnouncement?.description}
               {...register("description")}
             />
           </DescriptionField>
@@ -263,7 +259,7 @@ const EditAnnouncementModal = () => {
           <Input
             label="Imagem da capa"
             type="text"
-            placeholder="Inserir URL da imagem"
+            placeholder={selectedAnnouncement?.cover_img}
             fieldName="cover_img"
             {...register("cover_img")}
           />

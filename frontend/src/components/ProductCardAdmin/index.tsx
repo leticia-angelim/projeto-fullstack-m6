@@ -10,7 +10,7 @@ import { ThemeTitle } from "../../styles/typography";
 import { ProductContainer, ProductDetails } from "../ProductCard/styles";
 
 export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
-  const { setAnnouncementId, setEditModal, setSelectedAnnouncement } =
+  const { setAnnouncementId, setEditModal, listAnnouncement } =
     useContext(AnnouncementContext);
 
   const navigate = useNavigate();
@@ -20,7 +20,6 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
       <div
         className="product-img"
         onClick={() => {
-          setSelectedAnnouncement(announcement);
           navigate(`/product/${announcement.id}`);
         }}
       >
@@ -53,7 +52,7 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           fontColor={"#212529"}
           border={"#212529"}
           onClick={() => {
-            setSelectedAnnouncement(announcement);
+            listAnnouncement(announcement.id);
             setAnnouncementId(announcement.id);
             setEditModal(true);
           }}
@@ -66,7 +65,6 @@ export const ProductCardAdmin = ({ announcement }: IProductCardProps) => {
           fontColor={"#212529"}
           border={"#212529"}
           onClick={() => {
-            setSelectedAnnouncement(announcement);
             navigate(`/product/${announcement.id}`);
           }}
         />
