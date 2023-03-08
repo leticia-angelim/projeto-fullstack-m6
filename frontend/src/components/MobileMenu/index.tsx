@@ -28,13 +28,13 @@ const MobileMenu = () => {
         <nav className={`${isOpen ? "open" : "close"}`}>
           <ul className="menu-list">
             <li>
-              <a href="#carros">Carros</a>
+              <a href="#Carros">Carros</a>
             </li>
             <li>
-              <a href="#motos">Motos</a>
+              <a href="#Motos">Motos</a>
             </li>
             <li>
-              <a href="#leilao">Leilão</a>
+              <a href="#Leilão">Leilão</a>
             </li>
             <li>
               <Dropdown />
