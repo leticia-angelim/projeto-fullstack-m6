@@ -51,7 +51,6 @@ export const CommentsProvider = ({ children }: CommentsProps) => {
     await api
       .delete<IComment>(`/comments/${comment_id}`)
       .then((res) => {
-        console.log(res);
         const findComment = announcementComments.filter(
           (comment) => comment.id !== comment_id
         );
