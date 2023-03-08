@@ -58,6 +58,14 @@ O frontend do projeto é construído utilizando React.js. Para iniciá-lo, siga 
 
 Após a execução desses comandos, a aplicação fullstack estará rodando em <http://localhost:3000>. Qualquer alteração feita no código fonte será refletida automaticamente nos servidores de desenvolvimento frontend e backend.
 
+</br>
+
+## Link do deploy
+
+<http://motorshopm6.vercel.app/>
+
+</br>
+
 ## Documentação da API
 
 ### Endpoints de usuário
