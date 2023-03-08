@@ -58,7 +58,7 @@ const Slider = ({ title, children }: ISliderProps) => {
         >
           {children.map((announcement, index) => (
             <SwiperSlide key={index}>
-              {url === `https://motorsshop.onrender.com/profileAdmin/${id}` ? (
+              {url === `https://motorshopm6.vercel.app/profileAdmin/${id}` ? (
                 <>
                   <ProductCardAdmin announcement={announcement} />
                 </>

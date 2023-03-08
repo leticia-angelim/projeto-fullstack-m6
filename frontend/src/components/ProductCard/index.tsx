@@ -20,7 +20,7 @@ export const ProductCard = ({ announcement }: IProductCardProps) => {
 
   return (
     <ProductContainer color={announcement.is_published ? "#4529E6" : "#ADB5BD"}>
-      {url === "https://motorsshop.onrender.com/profileUser" ? (
+      {url === "https://motorshopm6.vercel.app/profileUser" ? (
         <div
           className="product-img"
           onClick={() => {
