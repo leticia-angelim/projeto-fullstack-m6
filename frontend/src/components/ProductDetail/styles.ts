@@ -179,6 +179,12 @@ export const DivInfos = styled.div`
     &:hover {
       background-color: var(--color-whiteFixed);
     }
+
+    p {
+      height: 48px;
+      margin-top: 2rem;
+      padding: 0.6rem;
+    }
   }
 `;
 

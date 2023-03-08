@@ -79,7 +79,6 @@ export const AnnoucementProvider = ({ children }: AnnouncementProps) => {
     await api
       .patch(`/announcement/${announcementId}`, data)
       .then((res) => {
-        console.log(res);
         const findAnnouncement = userAnnouncements.find(
           (announcement) => announcement.id === announcementId
         );

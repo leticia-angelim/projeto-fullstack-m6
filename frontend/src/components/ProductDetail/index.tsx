@@ -76,13 +76,16 @@ const ProductDetail = () => {
                       })}
                     </span>
                   </div>
-
-                  <a
-                    href={`https://api.whatsapp.com/send?phone=+${selectedAnnouncement?.user.phone}&text=Olá ${selectedAnnouncement?.user.name}, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
-                    target="_blank"
-                  >
-                    Comprar
-                  </a>
+                  {user ? (
+                    <a
+                      href={`https://api.whatsapp.com/send?phone=+${selectedAnnouncement?.user.phone}&text=Olá ${selectedAnnouncement?.user.name}, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
+                      target="_blank"
+                    >
+                      Comprar
+                    </a>
+                  ) : (
+                    <p></p>
+                  )}
                 </DivInfos>
               </ProductDetails>
 
