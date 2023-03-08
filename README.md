@@ -1,4 +1,4 @@
-# E-commerce
+# Motors Shop
 
 A API é responsável por gerenciar usuários e anúncios em uma plataforma de compra e venda de automóveis online. Os anunciantes podem criar anúncios para seus produtos, preenchendo o formulário de registro de anúncio, e colocá-los à venda ou para leilão. Eles também podem editar e excluir os próprios anúncios. Os compradores têm acesso a todos os anúncios da plataforma e podem comprar os produtos anunciados.
 
