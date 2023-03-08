@@ -25,8 +25,12 @@ import { CommentsList } from "../CommentsList";
 import noPhotos from "../../assets/no-photos.jpg";
 
 const ProductDetail = () => {
-  const { selectedAnnouncement, setPhotoModal, setSelectedPhoto } =
-    useContext(AnnouncementContext);
+  const {
+    selectedAnnouncement,
+    setPhotoModal,
+    setSelectedPhoto,
+    setSelectedAnnouncement,
+  } = useContext(AnnouncementContext);
   const { setSelectedUser, user } = useContext(UserContext);
   const { listAnnouncement } = useContext(AnnouncementContext);
 
@@ -37,118 +41,126 @@ const ProductDetail = () => {
     listAnnouncement(id!);
   }, []);
 
-  const cel = selectedAnnouncement?.user.phone;
+  useEffect(() => {
+    return () => {
+      setSelectedAnnouncement(null);
+    };
+  }, []);
 
   return (
     <Main>
-      <Container>
-        <Product>
-          <CoverImg>
-            <div>
-              <img
-                src={selectedAnnouncement?.cover_img}
-                alt={selectedAnnouncement?.title}
-              />
-            </div>
-          </CoverImg>
-          <ProductDetails>
-            <Title>{selectedAnnouncement?.title}</Title>
-            <DivInfos>
-              <div>
+      {selectedAnnouncement && (
+        <>
+          <Container>
+            <Product>
+              <CoverImg>
                 <div>
-                  <span>{selectedAnnouncement?.year}</span>
-                  <span>{selectedAnnouncement?.mileage} KM</span>
+                  <img
+                    src={selectedAnnouncement?.cover_img}
+                    alt={selectedAnnouncement?.title}
+                  />
                 </div>
-                <span>
-                  {selectedAnnouncement?.price.toLocaleString("pt-br", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                </span>
-              </div>
+              </CoverImg>
+              <ProductDetails>
+                <Title>{selectedAnnouncement?.title}</Title>
+                <DivInfos>
+                  <div>
+                    <div>
+                      <span>{selectedAnnouncement?.year}</span>
+                      <span>{selectedAnnouncement?.mileage} KM</span>
+                    </div>
+                    <span>
+                      {selectedAnnouncement?.price.toLocaleString("pt-br", {
+                        style: "currency",
+                        currency: "BRL",
+                      })}
+                    </span>
+                  </div>
 
-              <a
-                href={`https://api.whatsapp.com/send?phone=+${cel}&text=Olá ${selectedAnnouncement?.user.name}, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
-                target="_blank"
-              >
-                Comprar
-              </a>
-            </DivInfos>
-          </ProductDetails>
+                  <a
+                    href={`https://api.whatsapp.com/send?phone=+${selectedAnnouncement?.user.phone}&text=Olá ${selectedAnnouncement?.user.name}, me chamo ${user?.name}! Me interessei pelo(a) ${selectedAnnouncement?.title}. Vamos conversar?`}
+                    target="_blank"
+                  >
+                    Comprar
+                  </a>
+                </DivInfos>
+              </ProductDetails>
 
-          <ProductDescription>
-            <Title>Descrição</Title>
+              <ProductDescription>
+                <Title>Descrição</Title>
 
-            <p>{selectedAnnouncement?.description}</p>
-          </ProductDescription>
-        </Product>
-        <Aside>
-          {selectedAnnouncement?.photos!.length ? (
-            <Photos>
-              <Title>Fotos</Title>
-              <div>
-                {selectedAnnouncement?.photos!.map((photo) => (
-                  <figure
-                    key={photo.id}
-                    onClick={() => {
-                      setSelectedPhoto(photo);
-                      setPhotoModal(true);
+                <p>{selectedAnnouncement?.description}</p>
+              </ProductDescription>
+            </Product>
+            <Aside>
+              {selectedAnnouncement?.photos!.length ? (
+                <Photos>
+                  <Title>Fotos</Title>
+                  <div>
+                    {selectedAnnouncement?.photos!.map((photo) => (
+                      <figure
+                        key={photo.id}
+                        onClick={() => {
+                          setSelectedPhoto(photo);
+                          setPhotoModal(true);
+                        }}
+                      >
+                        <img src={photo.url} alt="" />
+                      </figure>
+                    ))}
+                  </div>
+                </Photos>
+              ) : (
+                <Photos>
+                  <Title>Fotos</Title>
+                  <div>
+                    <img
+                      className="no-photos"
+                      src={noPhotos}
+                      alt="Esse produto não possui fotos extras"
+                    />
+                  </div>
+                </Photos>
+              )}
+
+              {selectedAnnouncement?.user && (
+                <UserInfos>
+                  <div
+                    style={{
+                      backgroundColor: stringToColor(
+                        selectedAnnouncement!.user.name
+                      ),
                     }}
                   >
-                    <img src={photo.url} alt="" />
-                  </figure>
-                ))}
-              </div>
-            </Photos>
-          ) : (
-            <Photos>
-              <Title>Fotos</Title>
-              <div>
-                <img
-                  className="no-photos"
-                  src={noPhotos}
-                  alt="Esse produto não possui fotos extras"
-                />
-              </div>
-            </Photos>
-          )}
+                    {nameAbbreviate(selectedAnnouncement!.user.name)}
+                  </div>
+                  <span>{selectedAnnouncement?.user.name}</span>
 
-          {selectedAnnouncement?.user && (
-            <UserInfos>
-              <div
-                style={{
-                  backgroundColor: stringToColor(
-                    selectedAnnouncement!.user.name
-                  ),
-                }}
-              >
-                {nameAbbreviate(selectedAnnouncement!.user.name)}
-              </div>
-              <span>{selectedAnnouncement?.user.name}</span>
+                  <p>{selectedAnnouncement?.user.description}</p>
 
-              <p>{selectedAnnouncement?.user.description}</p>
-
-              <Button
-                backgroundColor="#0B0D0D"
-                backgroundColorHover=""
-                fontColor="#FFFFFF"
-                onClick={() => {
-                  setSelectedUser(selectedAnnouncement!.user);
-                  history("/profileUser");
-                }}
-              >
-                Ver todos anúncios
-              </Button>
-            </UserInfos>
-          )}
-        </Aside>
-      </Container>
-      <DivBox1>
-        <div className="div-box2">
-          <CommentsList announcement={selectedAnnouncement} />
-        </div>
-      </DivBox1>
-      <PhotoModal />
+                  <Button
+                    backgroundColor="#0B0D0D"
+                    backgroundColorHover=""
+                    fontColor="#FFFFFF"
+                    onClick={() => {
+                      setSelectedUser(selectedAnnouncement!.user);
+                      history("/profileUser");
+                    }}
+                  >
+                    Ver todos anúncios
+                  </Button>
+                </UserInfos>
+              )}
+            </Aside>
+          </Container>
+          <DivBox1>
+            <div className="div-box2">
+              <CommentsList announcement={selectedAnnouncement} />
+            </div>
+          </DivBox1>
+          <PhotoModal />
+        </>
+      )}
     </Main>
   );
 };
