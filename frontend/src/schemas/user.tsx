@@ -3,8 +3,10 @@ import * as yup from "yup";
 export const userSchema = yup.object({
   name: yup.string().required("Campo obrigatório"),
   email: yup.string().required("Campo obrigatório").email("Email inválido"),
-  cpf: yup.string().required("Campo obrigatório"),
-  // .matches(/^\d{3}\.\d{3}\.\d{3}\-\d{2}$/, "CPF inválido"),
+  cpf: yup
+    .string()
+    .required("Campo obrigatório")
+    .max(11, "Campo deve conter apenas números"),
   phone: yup.string().required("Campo obrigatório"),
   birth_date: yup
     .string()
