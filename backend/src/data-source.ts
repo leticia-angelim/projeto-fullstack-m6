@@ -9,11 +9,6 @@ import { Comment } from "./entities/comments.entity";
 import { createEntities1677766971545 } from "./migrations/1677766971545-createEntities";
 
 const dataSourceConfig = (): DataSourceOptions => {
-  const entitiesPath: string = path.join(__dirname, "./entities/**.{ts,js}");
-  const migrationsPath: string = path.join(
-    __dirname,
-    "./migrations/**.{ts,js}"
-  );
   const nodeEnv: string | undefined = process.env.NODE_ENV;
 
   if (nodeEnv === "test") {
@@ -21,7 +16,7 @@ const dataSourceConfig = (): DataSourceOptions => {
       type: "sqlite",
       database: ":memory:",
       synchronize: true,
-      entities: [entitiesPath],
+      entities: [User, Address, Announcement, Photo, Comment],
     };
   }
 
@@ -36,19 +31,11 @@ const dataSourceConfig = (): DataSourceOptions => {
     url: dbUrl,
     synchronize: false,
     logging: true,
-    entities: [entitiesPath],
-    migrations: [migrationsPath],
+    entities: [User, Address, Announcement, Photo, Comment],
+    migrations: [createEntities1677766971545],
   };
 };
 
 const AppDataSource = new DataSource(dataSourceConfig());
-
-AppDataSource.initialize()
-  .then(() => {
-    console.log("Data Source initialized");
-  })
-  .catch((err) => {
-    console.error("Error during Data Source initialization", err);
-  });
 
 export default AppDataSource;

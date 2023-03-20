@@ -23,6 +23,4 @@ app.use("/comments", commentsRoutes);
 
 app.use(errorMiddleware);
 
-app.listen(3001, () => {
-  console.log("Server running");
-});
+export default app;

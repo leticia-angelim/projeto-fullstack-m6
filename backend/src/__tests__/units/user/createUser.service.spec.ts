@@ -44,7 +44,7 @@ describe("Unit test: createUserService functionalities", () => {
         state: "ES",
         city: "Vila Velha",
         street: "Rua qualquer",
-        number: "100",
+        number: 100,
         complement: "apt.101",
       },
       createdAt: expect.any(Date),
